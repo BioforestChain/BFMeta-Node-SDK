@@ -1,0 +1,17 @@
+{
+    "extends": "../tsconfig-base",
+    "compilerOptions": {
+        "target": "es5",
+        "rootDir": "./",
+        "outDir": "../build/test"
+    },
+    "files": [
+        "sdkTest.ts",
+        "utils.ts"
+    ],
+    "references": [
+        {
+            "path": "../src"
+        }
+    ]
+}

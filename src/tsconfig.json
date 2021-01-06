@@ -1,0 +1,30 @@
+{
+    "extends": "../tsconfig-base",
+    "compilerOptions": {
+        "target": "es5",
+        "rootDir": "./",
+        "outDir": "../build/cjs"
+    },
+    "files": [
+        "api/apiBase.ts",
+        "api/apiConst.ts",
+        "api/basicApi.ts",
+        "api/index.ts",
+        "api/systemApi.ts",
+        "api/transactionApi.ts",
+        "api/types.ts",
+        "constants/api.constants.ts",
+        "constants/index.ts",
+        "helpers/utils/baseUtils.ts",
+        "helpers/utils/index.ts",
+        "index.ts",
+        "network/networkHelper.ts",
+        "network/wsManager.ts",
+        "sdk.ts",
+        "typings/block.ts",
+        "typings/enumTypes.ts",
+        "typings/index.ts",
+        "typings/transaction.constants.ts",
+        "typings/types.ts"
+    ]
+}
