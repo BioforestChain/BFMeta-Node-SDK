@@ -8,11 +8,5 @@ tsconfig*
 base.*
 yarn.*
 yarn-error.log
-tsconfig.tsbuildinfo
-account_*
-scripts
-assets
-genesisInfos
-genesisSecrets
 .prettierrc
 sdk.code-workspace
