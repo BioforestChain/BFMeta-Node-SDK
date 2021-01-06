@@ -1,6 +1,6 @@
 {
     "name": "@bfchain/pc-sdk",
-    "version": "1.0.0",
+    "version": "1.0.1",
     "description": "pc-sdk for the third party",
     "main": "build/cjs/index.js",
     "types": "build/cjs/index.d.ts",
@@ -13,10 +13,10 @@
     },
     "repository": {
         "type": "git",
-        "url": "ssh://bnqkl.dev:22/CoreProductCollection/BFChain-PC/_git/BFChain-PC-SDK"
+        "url": "https://github.com/BioforestChain/BFChainPC-SDK"
     },
     "author": "BFChain Team",
-    "license": "ISC",
+    "license": "BY-NC-SA 4.0",
     "dependencies": {
         "request": "^2.88.2",
         "socket.io": "^2.3.0",
