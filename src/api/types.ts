@@ -28,8 +28,72 @@ declare namespace BFChainPcSdk {
         method?: import("./apiConst").RequestMethod;
     };
 
+    //事件基础类型
+    const enum TRANSACTION_TYPES_BASE {
+        //二次密码
+        SIGNATURE = "BSE-01",
+        //注册锻造者
+        DELEGATE = "BSE-02",
+        //治理投票
+        VOTE = "BSE-03",
+        //设置用户名
+        USERNAME = "BSE-04",
+        //开始收票
+        ACCEPT_VOTE = "BSE-05",
+        //停止收票
+        REJECT_VOTE = "BSE-06",
+        //创建DAPPID
+        DAPP = "WOD-00",
+        //DAPPID付费
+        DAPP_PURCHASING = "WOD-01",
+        //注册新链
+        REGISTER_CHAIN = "WOD-02",
+        //数据存证
+        MARK = "EXT-00",
+        //创建权益
+        ISSUE_ASSET = "AST-00",
+        //权益转移
+        TRANSFER_ASSET = "AST-01",
+        //销毁权益
+        DESTORY_ASSET = "AST-02",
+        //发起权益赠送
+        GIFT_ASSET = "AST-03",
+        //接受权益赠送
+        GRAB_ASSET = "AST-04",
+        //发起权益委托
+        TRUST_ASSET = "AST-05",
+        //签收资产委托
+        SIGN_FOR_ASSET = "AST-06",
+        //权益迁出
+        EMIGRATE_ASSET = "AST-07",
+        //权益迁入
+        IMMIGRATE_ASSET = "AST-08",
+        //发起权益交换
+        TO_EXCHANGE_ASSET = "AST-09",
+        //接受权益交换
+        BE_EXCHANGE_ASSET = "AST-10",
+        //发起资产交换
+        TO_EXCHANGE_SPECIAL_ASSET = "AST-11",
+        //接受资产交换
+        BE_EXCHANGE_SPECIAL_ASSET = "AST-12",
+        //注册/注销链域名
+        LOCATION_NAME = "LNS-00",
+        //设置链域名解析值
+        SET_LNS_RECORD_VALUE = "LNS-01",
+        //设置链域名管理员
+        SET_LNS_MANAGER = "LNS-02",
+        //个性事件
+        CUSTOM = "CUS-00",
+    }
+
     namespace ApiRequest {
         namespace BASIC {
+            /**获取事件类型 */
+            interface GetTransactionType {
+                /**事件基础类型 */
+                baseType: TRANSACTION_TYPES_BASE;
+            }
+
             /**获取指定区块 */
             interface GetBlock {
                 /**区块签名 */
@@ -46,6 +110,10 @@ declare namespace BFChainPcSdk {
                 signature?: string;
                 /**事件所属区块高度 */
                 height?: number;
+                /**查询的区块的最小高度 */
+                minHeight?: number;
+                /**查询的区块的最大高度 */
+                maxHeight?: number;
                 /**事件发起方 */
                 senderId?: string;
                 /**事件接收方 */
@@ -56,10 +124,24 @@ declare namespace BFChainPcSdk {
                 page?: number;
             }
 
-            /**获取指定账户 */
-            interface GetAccountInfoAndAssets {
+            /**生成账户私钥 */
+            interface GenerateSecret {
+                /**语言 */
+                lang: string;
+            }
+
+            /**获取账户公钥 */
+            interface GetAccountPublicKey {
                 /**账户地址 */
                 address: string;
+            }
+
+            /**获取账户资产 */
+            interface GetAccountAsset {
+                /**账户地址 */
+                address: string;
+                /**权益类型 */
+                assetType: string;
             }
 
             /**创建账户 */
@@ -178,14 +260,16 @@ declare namespace BFChainPcSdk {
 
             /**发送存证事件 */
             interface TrMark extends TrCommonParam {
-                /**购买的 dappid 的发行事件签名， 128 个字节的 16 进制字符串 */
-                transactionSignature: string;
+                /**购买的 dappid 的发行事件 subId， 64 个字节的 16 进制字符串 */
+                transactionSubId?: string;
                 /**存证的拥有者地址， base58 编码的 16 进制字符串 */
                 markPossessor: string;
                 /**存证内容，为任意字符串 */
                 content: string;
                 /**存证类型，为任意字符串，用于区别存证 */
-                action: string;
+                type?: string;
+                /**验证码，预留 */
+                verifyCode?: string;
             }
 
             /**发送资产发行事件 */
@@ -636,7 +720,18 @@ declare namespace BFChainPcSdk {
         namespace BASIC {
             /**获得Bfchain版本号 */
             interface GetBfchainVersion extends RespCommonParam {
-                result: { version: string };
+                result: {
+                    /**当前节点的版本号 */
+                    version: string;
+                };
+            }
+
+            /**获取事件类型 */
+            interface GetTransactionType extends RespCommonParam {
+                result: {
+                    /**事件类型全称 */
+                    type: string;
+                };
             }
 
             /**获取本地节点当前最新区块 */
@@ -662,9 +757,28 @@ declare namespace BFChainPcSdk {
                 };
             }
 
-            /**获取指定账户 */
-            interface GetAccountInfoAndAssets extends RespCommonParam {
-                result: MemInfoModel.AccountInfoAndAsset;
+            /**生成账户私钥 */
+            interface GenerateSecret extends RespCommonParam {
+                result: {
+                    /**账户私钥 */
+                    secret: string;
+                };
+            }
+
+            /**获取账户公钥 */
+            interface GetAccountPublicKey extends RespCommonParam {
+                result: {
+                    /**账户公钥 */
+                    publicKey?: string;
+                };
+            }
+
+            /**获取账户资产 */
+            interface GetAccountAsset extends RespCommonParam {
+                result: {
+                    /**余额 */
+                    assetNumber: string;
+                };
             }
 
             /**创建账户 */

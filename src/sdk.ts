@@ -4,19 +4,21 @@ import { ApiBase } from "./api/apiBase";
 import { BASIC_API } from "./api";
 import { TRS_API } from "./api/transactionApi";
 import { SYSTEM_API } from "./api/systemApi";
+import { EventEmitter } from "events";
 
 /**BFChainPC_SDK */
-export class BFChainPC_SDK {
+export class BFChainPC_SDK extends EventEmitter {
     private __apiMap = new Map<string, ApiBase>();
 
-    constructor() {}
+    constructor() {
+        super();
+    }
 
     /**
      * 初始化sdk，配置节点的网络信息
      * @param options
      */
-    init(options: BFChainPcSdk.SdkNetOptions) {
-        networkHelper.init(options);
+    async init(options: BFChainPcSdk.SdkNetOptions) {
         for (const key in BASIC_API) {
             const api: ApiBase = new BASIC_API[key]();
             const apiName = api.getName();
@@ -32,6 +34,7 @@ export class BFChainPC_SDK {
             const apiName = api.getName();
             this.__apiMap.set(apiName, api);
         }
+        await networkHelper.init(this, options);
     }
 
     /**
@@ -44,7 +47,7 @@ export class BFChainPC_SDK {
         if (!api) {
             throw new Error(`api: ${apiName} is not exist`);
         }
-        const result: any = await api.sendRequest(request);
+        const result: any = await api.execute(request);
         return result;
     }
 
@@ -53,6 +56,11 @@ export class BFChainPC_SDK {
     /**获得Bfchain版本号 */
     async getBfchainVersion(): Promise<BFChainPcSdk.ApiResp.BASIC.GetBfchainVersion> {
         return await this.processApi(API.BASIC.GET_BFCHAIN_VERSION.name);
+    }
+
+    /**获取交易类型 */
+    async getTransactionType(request: BFChainPcSdk.ApiRequest.BASIC.GetTransactionType): Promise<BFChainPcSdk.ApiResp.BASIC.GetTransactionType> {
+        return await this.processApi(API.BASIC.GET_TRANSACTION_TYPE.name, request);
     }
 
     /**获取本地节点当前最新区块 */
@@ -70,9 +78,19 @@ export class BFChainPC_SDK {
         return await this.processApi(API.BASIC.GET_TRANSACTIONS.name, request);
     }
 
-    /**获取指定账户 */
-    async getAccountInfoAndAssets(request: BFChainPcSdk.ApiRequest.BASIC.GetAccountInfoAndAssets): Promise<BFChainPcSdk.ApiResp.BASIC.GetAccountInfoAndAssets> {
-        return await this.processApi(API.BASIC.GET_ACCOUNT_INFO_AND_ASSETS.name, request);
+    /**生成账户私钥 */
+    async generateSecret(request: BFChainPcSdk.ApiRequest.BASIC.GenerateSecret): Promise<BFChainPcSdk.ApiResp.BASIC.GenerateSecret> {
+        return await this.processApi(API.BASIC.GENERATE_SECRET.name, request);
+    }
+
+    /**获取账户公钥 */
+    async getAccountPublicKey(request: BFChainPcSdk.ApiRequest.BASIC.GetAccountPublicKey): Promise<BFChainPcSdk.ApiResp.BASIC.GetAccountPublicKey> {
+        return await this.processApi(API.BASIC.GET_ACCOUNT_PUBLIC_KEY.name, request);
+    }
+
+    /**获取账户资产 */
+    async getAccountAsset(request: BFChainPcSdk.ApiRequest.BASIC.GetAccountAsset): Promise<BFChainPcSdk.ApiResp.BASIC.GetAccountAsset> {
+        return await this.processApi(API.BASIC.GET_ACCOUNT_ASSET.name, request);
     }
 
     /**创建账户 */

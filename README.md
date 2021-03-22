@@ -9,11 +9,11 @@
 -   npm
 
 -   typescript
+
 ## Docs & Community - 文档 & 社区
 
 https://github.com/BioforestChain/bfcc.dev
 https://www.bfcc.dev
-
 
 ## Usage - 用法
 
@@ -31,12 +31,12 @@ await sdk.getLastBlock();
 
 ## Changelog - 更新日志
 
+-   1.2.0
+    -   支持 BFChain pc 节点 v3.6.12 的接口调用
+    -   添加 getAccountAsset 接口
+    -   添加 generateSecret 接口
 -   1.0.0
     -   支持 BFChain pc 节点 v3.5.29 的接口调用
-
-
-
-
 
 ## License- 许可
 

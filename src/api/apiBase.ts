@@ -43,6 +43,14 @@ export abstract class ApiBase {
     }
 
     /**
+     * 执行接口
+     * @param request
+     */
+    async execute(request?: BFChainPcSdk.PcApiRequest): Promise<BFChainPcSdk.SDKReturn> {
+        return await this.sendRequest(request);
+    }
+
+    /**
      * 向节点发送api请求
      * @param request
      */

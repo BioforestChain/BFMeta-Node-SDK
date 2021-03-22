@@ -3,6 +3,7 @@ import { ApiBase } from "../api/apiBase";
 import { ApiType, ProtocolType } from "../constants";
 import * as requestApi from "request";
 import { RequestMethod } from "../api/apiConst";
+import { BFChainPC_SDK } from "../sdk";
 
 /**网络层 */
 class NetworkHelper {
@@ -14,15 +15,22 @@ class NetworkHelper {
 
     /**
      * 初始化sdk，配置节点的网络信息
+     * @param sdk
      * @param options
      */
-    init(options: BFChainPcSdk.SdkNetOptions) {
+    async init(sdk: BFChainPC_SDK, options: BFChainPcSdk.SdkNetOptions) {
         //默认用WS方式调用
         this.__apiType = options.apiType ?? ApiType.WS;
         this.__httpHost = `${options.protocol ?? ProtocolType.HTTP}${options.ip}:${options.port}`;
         switch (this.__apiType) {
             case ApiType.WS:
-                this.__wsManager = new WsManager(options.ip, options.port, options.timeout ?? 10000);
+                this.__wsManager = new WsManager(sdk, options.ip, options.port, options.timeout);
+                //初始化时就连接ws，以便接收事件推送
+                try {
+                    await this.__wsManager.getSocket();
+                } catch (e) {
+                    console.error(`init ws fail. error: ${e.message}`);
+                }
                 break;
             default:
                 break;
@@ -82,6 +90,10 @@ class NetworkHelper {
                     (error: any, response: requestApi.Response, result: BFChainPcSdk.PcApiReturn) => {
                         if (error) {
                             return reject(error);
+                        }
+                        //get的返回结果是string，要特殊处理
+                        if (method === RequestMethod.GET) {
+                            result = JSON.parse(result as string);
                         }
                         if (!result.success) {
                             return resolve({

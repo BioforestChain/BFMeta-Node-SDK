@@ -13,6 +13,12 @@ export namespace API {
             method: RequestMethod.GET,
         };
 
+        /**获取交易类型 */
+        export const GET_TRANSACTION_TYPE: BFChainPcSdk.ApiInfo = {
+            name: "getTransactionType",
+            method: RequestMethod.POST,
+        };
+
         /**获取本地节点当前最新区块 */
         export const GET_LAST_BLOCK: BFChainPcSdk.ApiInfo = {
             name: "getLastBlock",
@@ -31,9 +37,21 @@ export namespace API {
             method: RequestMethod.POST,
         };
 
-        /**获取指定账户 */
-        export const GET_ACCOUNT_INFO_AND_ASSETS: BFChainPcSdk.ApiInfo = {
-            name: "getAccountInfoAndAssets",
+        /**生成账户私钥 */
+        export const GENERATE_SECRET: BFChainPcSdk.ApiInfo = {
+            name: "generateSecret",
+            method: RequestMethod.POST,
+        };
+
+        /**获取账户公钥 */
+        export const GET_ACCOUNT_PUBLIC_KEY: BFChainPcSdk.ApiInfo = {
+            name: "getAccountPublicKey",
+            method: RequestMethod.POST,
+        };
+
+        /**获取账户资产 */
+        export const GET_ACCOUNT_ASSET: BFChainPcSdk.ApiInfo = {
+            name: "getAccountAsset",
             method: RequestMethod.POST,
         };
 

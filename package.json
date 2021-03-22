@@ -1,6 +1,6 @@
 {
     "name": "@bfchain/pc-sdk",
-    "version": "1.0.1",
+    "version": "1.2.0",
     "description": "pc-sdk for the third party",
     "main": "build/cjs/index.js",
     "types": "build/cjs/index.d.ts",
@@ -24,7 +24,6 @@
     },
     "devDependencies": {
         "@types/request": "^2.48.5",
-        "@types/socket.io": "^2.1.11",
-        "@types/socket.io-client": "^1.4.32"
+        "@types/socket.io-client": "^1.4.35"
     }
 }
