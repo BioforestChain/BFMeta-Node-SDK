@@ -1,4 +1,4 @@
-import { BFChainPC_SDK } from "../src";
+import { BFChainPC_SDK, WsEventType, ApiType } from "../src";
 import * as crypto from "crypto";
 
 const secrets = [
@@ -52,8 +52,22 @@ export class SDKTest {
         this.__sdk = new BFChainPC_SDK();
     }
 
+    async test() {
+        await this.__sdk.init({ ip: "192.168.110.51", port: 19003, timeout: 10000, apiType: ApiType.HTTP });
+        this.__sdk.on(WsEventType.onNewBlock, (data: any) => {
+            console.debug(`onNewBlock newHeight:${data[0]}`);
+        });
+        this.__sdk.on(WsEventType.onDeleteBlock, (data: any) => {
+            console.debug(`onDeleteBlock deleteHeight:${data[0]}`);
+        });
+        for (let i = 0; i < 1; i++) {
+            const result = await this.getAccountAsset();
+            console.debug(JSON.stringify(result));
+        }
+    }
+
     async execute() {
-        this.__sdk.init({ ip: "192.168.110.51", port: 19003, timeout: 10000 });
+        await this.__sdk.init({ ip: "192.168.110.51", port: 19003, timeout: 10000 });
         let promises: Promise<any>[] = [];
         let funcNames: string[] = [];
 
@@ -76,12 +90,15 @@ export class SDKTest {
 
         // basicApi
         pushPromise("getBfchainVersion", this.getBfchainVersion());
+        pushPromise("getTransactionType", this.getTransactionType());
         pushPromise("getLastBlock", this.getLastBlock());
         pushPromise("getBlock", this.getBlock());
         pushPromise("getTransactions", this.getTransactions());
-        pushPromise("getAccountInfoAndAssets", this.getAccountInfoAndAssets());
+        pushPromise("getAccountPublicKey", this.getAccountPublicKey());
+        pushPromise("getAccountAsset", this.getAccountAsset());
         pushPromise("createAccount", this.createAccount());
         pushPromise("getBlockChainStatus", this.getBlockChainStatus());
+        pushPromise("generateSecret", this.generateSecret());
         // trsApi
         pushPromise("trTransferAsset", this.trTransferAsset());
         pushPromise("trSignature", this.trSignature());
@@ -207,6 +224,12 @@ export class SDKTest {
         return this.__sdk.getBfchainVersion();
     }
 
+    async getTransactionType() {
+        return this.__sdk.getTransactionType({
+            baseType: BFChainPcSdk.TRANSACTION_TYPES_BASE.ISSUE_ASSET,
+        });
+    }
+
     async getLastBlock() {
         return this.__sdk.getLastBlock();
     }
@@ -223,9 +246,22 @@ export class SDKTest {
         });
     }
 
-    async getAccountInfoAndAssets() {
-        return this.__sdk.getAccountInfoAndAssets({
+    async generateSecret() {
+        return this.__sdk.generateSecret({
+            lang: "en",
+        });
+    }
+
+    async getAccountPublicKey() {
+        return this.__sdk.getAccountPublicKey({
             address: address1,
+        });
+    }
+
+    async getAccountAsset() {
+        return this.__sdk.getAccountAsset({
+            address: address1,
+            assetType: "BFT",
         });
     }
 
@@ -323,10 +359,9 @@ export class SDKTest {
         return this.__sdk.trMark({
             secret: secret1,
             fee: "500",
-            transactionSignature,
             markPossessor: address2,
             content: "mycontent",
-            action: "case",
+            type: "case",
         });
     }
 
@@ -700,8 +735,9 @@ export class SDKTest {
 
 (async () => {
     const test = new SDKTest();
-    await test.execute();
-    process.exit(0);
+    // await test.execute();
+    await test.test();
+    // process.exit(0);
 })().catch(err => {
     console.error(err);
     process.exit(0);
