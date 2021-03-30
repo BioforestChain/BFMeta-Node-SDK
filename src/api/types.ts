@@ -140,7 +140,7 @@ declare namespace BFChainPcSdk {
             interface GetAccountAsset {
                 /**账户地址 */
                 address: string;
-                /**权益类型 */
+                /**交易事件类型，通过GetTransactionType接口获得 */
                 assetType: string;
             }
 
