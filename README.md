@@ -31,6 +31,8 @@ await sdk.getLastBlock();
 
 ## Changelog - 更新日志
 
+-   1.2.1
+    - 废弃getAccountAsset 接口，添加getAccountLastTransaction接口
 -   1.2.0
     -   支持 BFChain pc 节点 v3.6.12 的接口调用
     -   添加 getAccountAsset 接口

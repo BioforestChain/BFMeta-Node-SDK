@@ -76,10 +76,10 @@ export namespace BASIC_API {
         }
     }
 
-    /**获取账户资产 */
-    export class GetAccountAsset extends BasicApi {
+    /**获取账户的最后一笔交易 */
+    export class GetAccountLastTransaction extends BasicApi {
         constructor() {
-            super(API.BASIC.GET_ACCOUNT_ASSET);
+            super(API.BASIC.GET_ACCOUNT_LAST_TRANSACTION);
         }
     }
 

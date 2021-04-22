@@ -49,9 +49,9 @@ export namespace API {
             method: RequestMethod.POST,
         };
 
-        /**获取账户资产 */
-        export const GET_ACCOUNT_ASSET: BFChainPcSdk.ApiInfo = {
-            name: "getAccountAsset",
+        /**获取账户的最后一笔交易 */
+        export const GET_ACCOUNT_LAST_TRANSACTION: BFChainPcSdk.ApiInfo = {
+            name: "getAccountLastTransaction",
             method: RequestMethod.POST,
         };
 

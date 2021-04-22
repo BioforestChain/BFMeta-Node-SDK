@@ -136,8 +136,8 @@ declare namespace BFChainPcSdk {
                 address: string;
             }
 
-            /**获取账户资产 */
-            interface GetAccountAsset {
+            /**获取账户的最后一笔交易 */
+            interface GetAccountLastTransaction {
                 /**账户地址 */
                 address: string;
                 /**交易事件类型，通过GetTransactionType接口获得 */
@@ -773,8 +773,8 @@ declare namespace BFChainPcSdk {
                 };
             }
 
-            /**获取账户资产 */
-            interface GetAccountAsset extends RespCommonParam {
+            /**获取账户的最后一笔交易 */
+            interface GetAccountLastTransaction extends RespCommonParam {
                 result: {
                     /**余额 */
                     assetNumber: string;
