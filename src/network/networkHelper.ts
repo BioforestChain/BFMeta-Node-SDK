@@ -77,8 +77,8 @@ class NetworkHelper {
      * @param request
      */
     private async __sendHttpRequest(method: RequestMethod, path: string, request?: BFChainPcSdk.PcApiRequest): Promise<BFChainPcSdk.SDKReturn> {
-        try {
-            return new Promise((resolve, reject) => {
+        return new Promise((resolve, reject) => {
+            try {
                 const url = this.__httpHost + path;
                 const func = requestApi[method];
                 if (!func) {
@@ -108,10 +108,10 @@ class NetworkHelper {
                         return resolve({ success: true, result: Object.keys(result).length > 0 ? result : undefined });
                     }
                 );
-            });
-        } catch (e) {
-            throw new Error(`__sendHttpRequest api: ${path} fail. error: ${e.message}`);
-        }
+            } catch (e) {
+                throw new Error(`__sendHttpRequest api: ${path} fail. error: ${e.message}`);
+            }
+        });
     }
 }
 
