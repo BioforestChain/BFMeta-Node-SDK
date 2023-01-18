@@ -1,9 +1,3 @@
-import "./api/types";
-
-import "./typings/types";
-
-export * from "./typings/enumTypes";
-
-export * from "./constants";
+import "./@types";
 
 export * from "./sdk";

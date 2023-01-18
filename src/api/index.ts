@@ -1,3 +1,3 @@
-import "./types";
+import "./@types";
 
-export * from "./basicApi";
+export * from "./api";

@@ -1,0 +1,26 @@
+{
+    "compilerOptions": {
+        "target": "ESNext",
+        "module": "ESNext",
+        "importHelpers": true,
+        "declaration": true,
+        "declarationMap": false,
+        "sourceMap": false,
+        "composite": true,
+        "incremental": true,
+        "noEmitOnError": true,
+        "removeComments": false,
+        "forceConsistentCasingInFileNames": true,
+        "importsNotUsedAsValues": "error",
+        "strict": true,
+        "strictBindCallApply": true,
+        "strictNullChecks": true,
+        "skipLibCheck": true,
+        "moduleResolution": "node",
+        "esModuleInterop": true,
+        "newLine": "lf",
+        "experimentalDecorators": true,
+        "emitDecoratorMetadata": true,
+        "downlevelIteration": true
+    }
+}
