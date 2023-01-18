@@ -1,0 +1,27 @@
+{
+    "compilerOptions": {
+        "composite": true,
+        "incremental": true,
+        "target": "esnext",
+        "module": "commonjs",
+        "lib": ["es6", "es2015.iterable", "esnext.asynciterable"],
+        "importHelpers": true,
+        "declaration": true,
+        "declarationMap": true,
+        "sourceMap": true,
+        "noEmitOnError": true,
+        "removeComments": false,
+        "forceConsistentCasingInFileNames": true,
+        "importsNotUsedAsValues": "error",
+        "strict": true,
+        "strictBindCallApply": true,
+        "strictNullChecks": true,
+        "skipLibCheck": true,
+        "moduleResolution": "node",
+        "esModuleInterop": true,
+        "newLine": "lf",
+        "experimentalDecorators": true,
+        "emitDecoratorMetadata": true,
+        "downlevelIteration": true
+    }
+}
