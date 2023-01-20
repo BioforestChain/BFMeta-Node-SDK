@@ -17,7 +17,7 @@
 ## Usage - 用法
 
 ```ts
-import { Sdk } from "../../src";
+import { BFMetaSDK } from "@bfmeta/node-sdk";
 
 // 也可以再运行目录下建 config/config.json 填入以下内容，new 的时候就不用传参
 
@@ -32,23 +32,23 @@ const config: BFMetaNodeSDK.Config = {
     "requestProtocol": "websocket"
 };
 
-const sdk = new Sdk(config);
+const bfmetaSDK = new BFMetaSDK("testnet", cryptoHelper, config);
 
 // 生成待签名的数据
-const keypair;
-const secondKeypair;
-const createResult = await sdk.api.transaction.createAcceptVote(argv);
+let keypair;
+let secondKeypair;
+const createResult = await bfmetaSDK.api.transaction.createAcceptVote(argv);
 if (!createResult.success) {
     throw createResult;
 }
 const buffer: string = createResult.result.buffer;
 const bytes: Uint8Array = Buffer.from(buffer, "base64");
 // 生成签名
-const signature: string = createSignature(bytes, keypair.secretKey);
+const signature: string = bfmetaSDK.bfchainSignUtil.createSignature(bytes, keypair.secretKey);
 let signSignature: string | undefined;
 if (secondKeypair) {
     // 生成待安全签名的数据
-    const packageResult = await sdk.api.transaction.packageAcceptVote({
+    const packageResult = await bfmetaSDK.api.transaction.packageAcceptVote({
         buffer,
         signature,
     });
@@ -58,10 +58,10 @@ if (secondKeypair) {
     const buffer: string = await packageResult.result.buffer;
     const bytes: Uint8Array = Buffer.from(buffer, "base64");
     // 生成安全签名
-    signSignature = createSignSignature(bytes, secondKeypair.secretKey);
+    signSignature = bfmetaSDK.bfchainSignUtil.createSignSignature(bytes, secondKeypair.secretKey);
 }
 // 广播交易
-const broadcastResult = await sdk.api.transaction.broadcastAcceptVote({
+const broadcastResult = await bfmetaSDK.api.transaction.broadcastAcceptVote({
     buffer,
     signature,
     signSignature
@@ -73,7 +73,8 @@ if (!broadcastResult.success) {
 ```
 
 ## Changelog - 更新日志
-
+-   3.0.1
+    - sdk中提供了 bfchainSignUtil 工具
 -   3.0.0
     - 重构了本sdk。
 

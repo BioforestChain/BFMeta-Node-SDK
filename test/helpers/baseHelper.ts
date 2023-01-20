@@ -1,9 +1,9 @@
-import { AsymmetricUtil } from "@bfchain/sign-util";
 import { CryptoHelper } from "./cryptoHelper";
+import { BFMetaSDK } from "../../src";
 
-const cryptoHelper = new CryptoHelper();
-export const asymmetricUtil = new AsymmetricUtil("c", Buffer as any, cryptoHelper);
+export const cryptoHelper = new CryptoHelper();
 
+export const bfmetaSDK = new BFMetaSDK("testnet", cryptoHelper);
 export const CHAIN_INFO = {
     chainName: "bfmetatest",
     chainAssetType: "BFMTEST",

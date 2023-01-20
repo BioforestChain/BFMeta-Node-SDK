@@ -3,7 +3,7 @@
 // import { asymmetricUtil } from "../helpers";
 
 // async function generateMigrateCertificate(recipientId: string, toChainInfo: BFChainCore.CrossChain.ChainBaseInfo) {
-//     const sdk2 = new Sdk();
+//     const sdk2 = bfmetaSDK;
 
 //     let result1 = await sdk2.api.transaction.createMigrateCertificate({
 //         senderSecret: "qqq",
@@ -42,7 +42,7 @@
 //         const core = coreHelper.getBfchainCore();
 //         const secret =
 //             "scan pass carpet coral pumpkin spell present decrease veteran text flower pioneer top speak jaguar wreck ask always hazard good know gift uncle frost";
-//         const keypair = await asymmetricUtil.createKeypair(secret);
+//         const keypair = await bfmetaSDK.bfchainSignUtil.createKeypair(secret);
 //         const publicKey = keypair.publicKey.toString("hex");
 
 //         const argv: BFChainPcSdk.Transaction.EmigrateAssetTransactionParams = {
@@ -66,7 +66,7 @@
 //                 "1d0fa1a66fafbf02b29662d95deb0bd7ec5a801e92c6bbdb50d5bbfac14e7bfec761ce5d9293789f08649e064e1ec687a0712c84b9e298ba4ef032513a3a2f08",
 //         });
 
-//         const sdk = new Sdk();
+//         const sdk = bfmetaSDK;
 
 //         const result2 = await sdk.api.transaction.toAuthSignatureMigrateCertificate({
 //             authSecret: genesisSecret,

@@ -1,11 +1,10 @@
-import { Sdk } from "../../src";
-import { asymmetricUtil } from "../helpers";
+import { bfmetaSDK } from "../helpers";
 
 (async () => {
     try {
         const secret =
             "upgrade jump sugar congress glare expect other firm morning donate motor pride minute frame amount chimney wood gallery twelve barely dose blame convince enhance";
-        const keypair = await asymmetricUtil.createKeypair(secret);
+        const keypair = await bfmetaSDK.bfchainSignUtil.createKeypair(secret);
         const publicKey = keypair.publicKey.toString("hex");
 
         const argv: BFMetaNodeSDK.Transaction.DAppPurchasingTransactionParams = {
@@ -19,12 +18,12 @@ import { asymmetricUtil } from "../helpers";
             purchaseAsset: "1000",
         };
 
-        const sdk = new Sdk();
+        const sdk = bfmetaSDK;
 
         const createResult = await sdk.api.transaction.createDAppPurchasing(argv);
         if (createResult.success) {
             const buffer = createResult.result.buffer;
-            const signature = (await asymmetricUtil.detachedSign(Buffer.from(buffer, "base64"), keypair.secretKey)).toString("hex");
+            const signature = (await bfmetaSDK.bfchainSignUtil.detachedSign(Buffer.from(buffer, "base64"), keypair.secretKey)).toString("hex");
             const broadcastResult = await sdk.api.transaction.broadcastDAppPurchasing({
                 buffer,
                 signature,

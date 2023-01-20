@@ -1,10 +1,9 @@
 import * as fs from "node:fs";
 import * as path from "node:path";
-import { Sdk } from "../../src";
-import { asymmetricUtil } from "../helpers";
+import { bfmetaSDK } from "../helpers";
 
 class ApiTest {
-    private __sdk = new Sdk();
+    private __sdk = bfmetaSDK;
     constructor() {}
 
     async execute() {
@@ -56,7 +55,7 @@ class ApiTest {
 
         const secret =
             "nose install correct solar side latin focus churn mask nominee differ mosquito claw awake glass rare pond clump draw rent fiction muscle razor bacon";
-        const keypair = await asymmetricUtil.createKeypair(secret);
+        const keypair = await bfmetaSDK.bfchainSignUtil.createKeypair(secret);
         const publicKey = keypair.publicKey.toString("hex");
 
         let argv: BFMetaNodeSDK.Transaction.TransferAssetTransactionParams = {

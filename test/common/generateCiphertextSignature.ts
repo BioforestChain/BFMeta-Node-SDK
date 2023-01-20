@@ -1,4 +1,4 @@
-import { Sdk } from "../../src";
+import { bfmetaSDK } from "../helpers";
 
 (async () => {
     try {
@@ -9,9 +9,7 @@ import { Sdk } from "../../src";
             senderId: "cLrUCNAWPyPH96bqqC3JQXZ3CtsvvXmNj1",
         };
 
-        const sdk = new Sdk();
-
-        const result = await sdk.api.transaction.createCiphertextSignature(argv);
+        const result = await bfmetaSDK.api.transaction.createCiphertextSignature(argv);
 
         console.log(result);
     } catch (e) {

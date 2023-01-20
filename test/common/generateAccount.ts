@@ -1,4 +1,4 @@
-import { Sdk } from "../../src";
+import { bfmetaSDK } from "../helpers";
 
 (async () => {
     try {
@@ -7,9 +7,7 @@ import { Sdk } from "../../src";
             secondSecret: "www",
         };
 
-        const sdk = new Sdk();
-
-        const result = await sdk.api.transaction.createAccount(argv);
+        const result = await bfmetaSDK.api.transaction.createAccount(argv);
 
         console.log(result);
     } catch (e) {

@@ -16,7 +16,7 @@
 //         const core = coreHelper.getBfchainCore();
 //         const secret =
 //             "scan pass carpet coral pumpkin spell present decrease veteran text flower pioneer top speak jaguar wreck ask always hazard good know gift uncle frost";
-//         const keypair = await asymmetricUtil.createKeypair(secret);
+//         const keypair = await bfmetaSDK.bfchainSignUtil.createKeypair(secret);
 //         const publicKey = keypair.publicKey.toString("hex");
 
 //         const argv: BFChainPcSdk.Transaction.EmigrateAssetTransactionParams = {

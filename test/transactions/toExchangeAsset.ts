@@ -1,11 +1,10 @@
-import { Sdk } from "../../src";
-import { asymmetricUtil, CHAIN_INFO } from "../helpers";
+import { bfmetaSDK, CHAIN_INFO } from "../helpers";
 
 (async () => {
     try {
         const secret =
             "upgrade jump sugar congress glare expect other firm morning donate motor pride minute frame amount chimney wood gallery twelve barely dose blame convince enhance";
-        const keypair = await asymmetricUtil.createKeypair(secret);
+        const keypair = await bfmetaSDK.bfchainSignUtil.createKeypair(secret);
         const publicKey = keypair.publicKey.toString("hex");
 
         const argv: BFMetaNodeSDK.Transaction.ToExchangeAssetTransactionParams = {
@@ -24,12 +23,12 @@ import { asymmetricUtil, CHAIN_INFO } from "../helpers";
             nextWeight: "0",
         };
 
-        const sdk = new Sdk();
+        const sdk = bfmetaSDK;
 
         const createResult = await sdk.api.transaction.createToExchangeAsset(argv);
         if (createResult.success) {
             const buffer = createResult.result.buffer;
-            const signature = (await asymmetricUtil.detachedSign(Buffer.from(buffer, "base64"), keypair.secretKey)).toString("hex");
+            const signature = (await bfmetaSDK.bfchainSignUtil.detachedSign(Buffer.from(buffer, "base64"), keypair.secretKey)).toString("hex");
             const broadcastResult = await sdk.api.transaction.broadcastToExchangeAsset({
                 buffer,
                 signature,

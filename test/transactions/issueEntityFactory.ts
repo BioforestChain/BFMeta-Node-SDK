@@ -1,11 +1,10 @@
-import { Sdk } from "../../src";
-import { asymmetricUtil } from "../helpers";
+import { bfmetaSDK } from "../helpers";
 
 (async () => {
     try {
         const secret =
             "scan pass carpet coral pumpkin spell present decrease veteran text flower pioneer top speak jaguar wreck ask always hazard good know gift uncle frost";
-        const keypair = await asymmetricUtil.createKeypair(secret);
+        const keypair = await bfmetaSDK.bfchainSignUtil.createKeypair(secret);
         const publicKey = keypair.publicKey.toString("hex");
 
         const argv: BFMetaNodeSDK.Transaction.IssueEntityFactoryTransactionParams = {
@@ -21,12 +20,12 @@ import { asymmetricUtil } from "../helpers";
             numberOfEffectiveBlocks: 100,
         };
 
-        const sdk = new Sdk();
+        const sdk = bfmetaSDK;
 
         const createResult = await sdk.api.transaction.createIssueEntityFactory(argv);
         if (createResult.success) {
             const buffer = createResult.result.buffer;
-            const signature = (await asymmetricUtil.detachedSign(Buffer.from(buffer, "base64"), keypair.secretKey)).toString("hex");
+            const signature = (await bfmetaSDK.bfchainSignUtil.detachedSign(Buffer.from(buffer, "base64"), keypair.secretKey)).toString("hex");
             const broadcastResult = await sdk.api.transaction.broadcastIssueEntityFactory({
                 buffer,
                 signature,

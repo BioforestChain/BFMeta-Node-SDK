@@ -1,11 +1,10 @@
-import { Sdk } from "../../src";
-import { asymmetricUtil } from "../helpers";
+import { bfmetaSDK } from "../helpers";
 
 (async () => {
     try {
         const secret =
             "boost scorpion peanut output undo useful trash burden custom party click offer leisure magnet obscure drop gather blind predict walk since strike thumb minimum";
-        const keypair = await asymmetricUtil.createKeypair(secret);
+        const keypair = await bfmetaSDK.bfchainSignUtil.createKeypair(secret);
         const publicKey = keypair.publicKey.toString("hex");
 
         const argv: BFMetaNodeSDK.Transaction.DestoryEntityTransactionParams = {
@@ -24,12 +23,12 @@ import { asymmetricUtil } from "../helpers";
             purchaseAssetPrealnum: "10000",
         };
 
-        const sdk = new Sdk();
+        const sdk = bfmetaSDK;
 
         const createResult = await sdk.api.transaction.createDestoryEntity(argv);
         if (createResult.success) {
             const buffer = createResult.result.buffer;
-            const signature = (await asymmetricUtil.detachedSign(Buffer.from(buffer, "base64"), keypair.secretKey)).toString("hex");
+            const signature = (await bfmetaSDK.bfchainSignUtil.detachedSign(Buffer.from(buffer, "base64"), keypair.secretKey)).toString("hex");
             const broadcastResult = await sdk.api.transaction.broadcastDestoryEntity({
                 buffer,
                 signature,

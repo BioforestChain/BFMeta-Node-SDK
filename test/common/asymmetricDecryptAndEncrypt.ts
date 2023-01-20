@@ -1,8 +1,8 @@
-import { Sdk } from "../../src";
+import { bfmetaSDK } from "../helpers";
 
 (async () => {
     try {
-        const sdk = new Sdk();
+        const sdk = bfmetaSDK;
 
         const k1 = await sdk.api.transaction.createKeypair({ secret: "qqq" });
         const k2 = await sdk.api.transaction.createKeypair({ secret: "www" });
