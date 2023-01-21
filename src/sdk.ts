@@ -1,9 +1,9 @@
 import { Api } from "./api";
-import { AsymmetricUtil } from "@bfchain/sign-util";
+import { BFMetaSignUtil } from "@bfmeta/sign-util";
 export class BFMetaSDK {
     private __api: Api;
     private __configOptions: BFMetaNodeSDK.ApiConfigOptions = {};
-    private __bfchainSignUtil: AsymmetricUtil | undefined;
+    private __bfchainSignUtil: BFMetaSignUtil | undefined;
     constructor(public signUtilParam?: BFMetaNodeSDK.SignUtilParam, public configOptions?: BFMetaNodeSDK.ApiConfigOptions) {
         if (configOptions) {
             this.__configOptions = configOptions;
@@ -19,7 +19,7 @@ export class BFMetaSDK {
             } else {
                 throw new Error(`invaild netType: ${netType}`);
             }
-            this.__bfchainSignUtil = new AsymmetricUtil(bnid, Buffer as any, cryptoHelper);
+            this.__bfchainSignUtil = new BFMetaSignUtil(bnid, Buffer as any, cryptoHelper);
         }
     }
 

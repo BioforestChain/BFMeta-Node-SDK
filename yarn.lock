@@ -2,10 +2,10 @@
 # yarn lockfile v1
 
 
-"@bfchain/sign-util@^1.0.4":
-  version "1.0.4"
-  resolved "https://registry.yarnpkg.com/@bfchain/sign-util/-/sign-util-1.0.4.tgz#2f9f0b65ae0f40b84a75fcebbd82b59ceaffcd05"
-  integrity sha512-g74Lo4Y8e9+Zqs0h7Z8wu4D7euCgA2MS+3zpjZMdnYUafDojOZ021tHSClk0IwOaCTDj7bTkoFNR6HOeeyy2eQ==
+"@bfmeta/sign-util@^1.0.5":
+  version "1.0.5"
+  resolved "https://registry.yarnpkg.com/@bfmeta/sign-util/-/sign-util-1.0.5.tgz#3592c36322e83ec9bd844cdf3ccb454dc8dce37c"
+  integrity sha512-dz0EuuEYNlYXYgAZeloXRVHqMfzehKzW3DzVf1Nxfvb4xQ4WOxtHKV/4yDLaIqwfDNvkl3HDvyK1UviKlSpB8A==
 
 "@types/node@^16.18.11":
   version "16.18.11"

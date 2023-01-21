@@ -1,4 +1,4 @@
-import {} from "@bfchain/sign-util";
+import {} from "@bfmeta/sign-util";
 
 export * from "./baseHelper";
 
