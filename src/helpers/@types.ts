@@ -1,5 +1,8 @@
 declare namespace BFMetaNodeSDK {
-    type NetType = "mainnet" | "testnet";
+    type SignUtilParam = {
+        netType: "mainnet" | "testnet";
+        cryptoHelper: BFChainSignUtil.CryptoHelperInterface;
+    };
     interface ApiConfig {
         /**配置文件的根路径，如果提供的路径不存在会使用默认路径 */
         configRootPath?: string;

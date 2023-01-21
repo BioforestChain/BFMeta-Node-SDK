@@ -73,6 +73,8 @@ if (!broadcastResult.success) {
 ```
 
 ## Changelog - 更新日志
+-   3.0.2
+    - sdk 初始化参数调整
 -   3.0.1
     - sdk中提供了 bfchainSignUtil 工具
 -   3.0.0

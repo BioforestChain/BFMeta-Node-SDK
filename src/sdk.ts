@@ -4,21 +4,22 @@ export class BFMetaSDK {
     private __api: Api;
     private __configOptions: BFMetaNodeSDK.ApiConfigOptions = {};
     private __bfchainSignUtil: AsymmetricUtil | undefined;
-    constructor(netType: BFMetaNodeSDK.NetType, public cryptoHelper?: BFChainSignUtil.CryptoHelperInterface, configOptions?: BFMetaNodeSDK.ApiConfigOptions) {
+    constructor(public signUtilParam?: BFMetaNodeSDK.SignUtilParam, public configOptions?: BFMetaNodeSDK.ApiConfigOptions) {
         if (configOptions) {
             this.__configOptions = configOptions;
         }
         this.__api = new Api(this.__configOptions);
-        let bnid = "";
-        if (netType === "mainnet") {
-            bnid = "b";
-        } else if (netType === "testnet") {
-            bnid = "c";
-        } else {
-            throw new Error(`invaild netType: ${netType}`);
-        }
-        if (this.cryptoHelper) {
-            this.__bfchainSignUtil = new AsymmetricUtil(bnid, Buffer as any, this.cryptoHelper);
+        if (this.signUtilParam) {
+            const { netType, cryptoHelper } = this.signUtilParam;
+            let bnid = "";
+            if (netType === "mainnet") {
+                bnid = "b";
+            } else if (netType === "testnet") {
+                bnid = "c";
+            } else {
+                throw new Error(`invaild netType: ${netType}`);
+            }
+            this.__bfchainSignUtil = new AsymmetricUtil(bnid, Buffer as any, cryptoHelper);
         }
     }
 
