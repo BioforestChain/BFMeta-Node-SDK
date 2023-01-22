@@ -1,5 +1,10 @@
 # BFMeta-SDK
 
+## 工具介绍
+
+- 本工具支持BFMeta链节点端的接口访问。提供BFMeta链的公私钥对、地址及签名生成工具。
+- 交易buffer数据由连接的节点生成，再由本sdk进行签名后发往节点。
+- 建议自行部署节点达到更好的效果。 https://developer.bfmeta.org/download/
 ## Installation - 安装
 
  `$ npm install @bfmeta/node-sdk`
@@ -12,7 +17,8 @@
 
 ## Docs & Community - 文档 & 社区
 
-<!-- 这里写我们的社区及文档的地址 -->
+- 接口文档参考 https://developer.bfmeta.org/336/overview/
+
 
 ## Usage - 用法
 
