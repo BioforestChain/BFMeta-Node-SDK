@@ -79,6 +79,8 @@ if (!broadcastResult.success) {
 ```
 
 ## Changelog - 更新日志
+-   3.0.4
+    - 添加 setSignUtil 函数
 -   3.0.2
     - sdk 初始化参数调整
 -   3.0.1

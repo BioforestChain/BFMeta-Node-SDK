@@ -10,16 +10,7 @@ export class BFMetaSDK {
         }
         this.__api = new Api(this.__configOptions);
         if (this.signUtilParam) {
-            const { netType, cryptoHelper } = this.signUtilParam;
-            let bnid = "";
-            if (netType === "mainnet") {
-                bnid = "b";
-            } else if (netType === "testnet") {
-                bnid = "c";
-            } else {
-                throw new Error(`invaild netType: ${netType}`);
-            }
-            this.__bfchainSignUtil = new BFMetaSignUtil(bnid, Buffer as any, cryptoHelper);
+            this.setSignUtil(this.signUtilParam);
         }
     }
 
@@ -33,6 +24,19 @@ export class BFMetaSDK {
         } else {
             throw new Error(`bfchainSignUtil is not init`);
         }
+    }
+
+    setSignUtil(signUtilParam: BFMetaNodeSDK.SignUtilParam) {
+        const { netType, cryptoHelper } = signUtilParam;
+        let bnid = "";
+        if (netType === "mainnet") {
+            bnid = "b";
+        } else if (netType === "testnet") {
+            bnid = "c";
+        } else {
+            throw new Error(`invaild netType: ${netType}`);
+        }
+        this.__bfchainSignUtil = new BFMetaSignUtil(bnid, Buffer as any, cryptoHelper);
     }
 
     setApiConfig(configOptions: BFMetaNodeSDK.ApiConfigOptions) {
