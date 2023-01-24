@@ -7,3 +7,4 @@ sdk.code-workspace
 genesisInfos
 build
 .cache
+config

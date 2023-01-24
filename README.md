@@ -79,6 +79,8 @@ if (!broadcastResult.success) {
 ```
 
 ## Changelog - 更新日志
+-   3.0.5
+    - 修改初始化时传入节点的参数格式
 -   3.0.4
     - 添加 setSignUtil 函数
 -   3.0.2

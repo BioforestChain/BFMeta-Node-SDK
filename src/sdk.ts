@@ -42,4 +42,8 @@ export class BFMetaSDK {
     setApiConfig(configOptions: BFMetaNodeSDK.ApiConfigOptions) {
         this.api.setApiconfig(configOptions);
     }
+
+    getSocketByIp(host: string) {
+        this.api.websocketHelper.getSocketByIp(host);
+    }
 }
