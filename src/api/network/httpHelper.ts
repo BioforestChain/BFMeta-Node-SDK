@@ -4,7 +4,6 @@ import { REQUEST_PROTOCOL } from "../../constants";
 import { parsePostRequestParameter } from "../../helpers";
 
 export class HttpHelper {
-    private __port: number;
     private __configHelper: ApiConfigHelper;
     private __config: BFMetaNodeSDK.ApiConfig;
 
@@ -12,17 +11,17 @@ export class HttpHelper {
     public readonly REQUEST_PROTOCOL = REQUEST_PROTOCOL.HTTP;
     public readonly TRANSACTION_SERVER_URL_PREFIX: string;
 
-    constructor(port: number, configHelper: ApiConfigHelper) {
-        this.__port = port;
+    constructor(configHelper: ApiConfigHelper) {
         this.__configHelper = configHelper;
         this.__config = this.__configHelper.apiConfig;
 
-        this.TRANSACTION_SERVER_URL_PREFIX = `http://127.0.0.1:${this.__port}`;
+        this.TRANSACTION_SERVER_URL_PREFIX = `http://127.0.0.1:${this.__config.transactionServerPort}`;
     }
 
     private __getUrlPrefix() {
-        const ips = this.__config.ips;
-        return `http://${ips[Math.floor(Math.random() * ips.length)]}:${this.__config.port}/`;
+        const nodes = this.__config.nodes;
+        const node = nodes[Math.floor(Math.random() * nodes.length)];
+        return `http://${node.ip}:${node.port}/`;
     }
 
     get URL_PREFIX() {
