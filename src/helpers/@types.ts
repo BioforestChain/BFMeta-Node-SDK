@@ -23,7 +23,7 @@ declare namespace BFMetaNodeSDK {
         /**请求协议, http || websocket, 默认值 websocket */
         requestProtocol: BFMetaNodeSDK.REQUEST_PROTOCOL;
         /**transactionServer Port */
-        transactionServerPort: number;
+        transactionServerPort?: number;
     }
 
     type ApiConfigOptions = Partial<ApiConfig>;
