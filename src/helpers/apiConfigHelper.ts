@@ -12,7 +12,7 @@ export class ApiConfigHelper {
 
     private __initConfig(configRootPath?: string) {
         this.__apiConfig = {
-            nodes: [{ ip: "127.0.0.1", port: 9003 }],
+            node: { ip: "127.0.0.1", port: 9003 },
             requestTimeOut: 10000,
             transactionServerPort: 9003,
             requestProtocol: REQUEST_PROTOCOL.WEBSOCKET,
@@ -31,8 +31,8 @@ export class ApiConfigHelper {
         if (!this.__apiConfig) {
             this.__initConfig();
         }
-        const { nodes, requestTimeOut, requestProtocol } = apiConfigOptions;
-        nodes !== undefined && (this.__apiConfig.nodes = nodes);
+        const { node, requestTimeOut, requestProtocol } = apiConfigOptions;
+        node !== undefined && (this.__apiConfig.node = node);
         requestTimeOut !== undefined && (this.__apiConfig.requestTimeOut = requestTimeOut);
         requestProtocol !== undefined && (this.__apiConfig.requestProtocol = requestProtocol);
     }

@@ -12,6 +12,9 @@ declare namespace BFMetaNodeSDK {
         type GENERATE_TRANSACTION_API_PATH = import("./apiPathConstant").GENERATE_TRANSACTION_API_PATH;
     }
 
+    namespace Upgrade {
+        type UPGRADE_API_PATH = import("./apiPathConstant").UPGRADE_API_PATH;
+    }
     namespace CrossChain {
         type MIGRATE_CERTIFICATE_API_PATH = import("./apiPathConstant").MIGRATE_CERTIFICATE_API_PATH;
     }

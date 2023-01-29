@@ -1,6 +1,6 @@
 import { HttpHelper, WebsocketHelper } from "./network";
 import { REQUEST_PROTOCOL } from "../constants";
-import { BasicApi, SystemApi, TransactionApi } from "./atom_api";
+import { BasicApi, SystemApi, TransactionApi, UpgradeApi } from "./atom_api";
 import { ApiConfigHelper } from "../helpers";
 
 export class Api {
@@ -8,6 +8,7 @@ export class Api {
     private __basicApi!: BasicApi;
     private __systemApi!: SystemApi;
     private __transactionApi!: TransactionApi;
+    private __upgradeApi!: UpgradeApi;
 
     private __httpHelper: HttpHelper | undefined;
     get httpHelper() {
@@ -37,6 +38,7 @@ export class Api {
         } else {
             this.__websocketHelper = new WebsocketHelper(this.__configHelper);
             networkHelper = this.websocketHelper;
+            this.__upgradeApi = new UpgradeApi(networkHelper);
         }
 
         this.__basicApi = new BasicApi(networkHelper);
@@ -58,6 +60,10 @@ export class Api {
 
     get transaction() {
         return this.__transactionApi;
+    }
+
+    get upgrade() {
+        return this.__upgradeApi;
     }
 
     setApiconfig(configOptions: BFMetaNodeSDK.ApiConfigOptions) {

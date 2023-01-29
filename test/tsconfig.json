@@ -58,7 +58,8 @@
         "transactions/transferAsset.ts",
         "transactions/trustAsset.ts",
         "transactions/username.ts",
-        "transactions/vote.ts"
+        "transactions/vote.ts",
+        "upgrade/upgradeVersion.ts"
     ],
     "references": [
         {
