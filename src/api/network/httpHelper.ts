@@ -19,8 +19,14 @@ export class HttpHelper {
     }
 
     private __getUrlPrefix() {
-        const node = this.__config.node;
-        return `http://${node.ip}:${node.port}/`;
+        if (this.__config.multiNodes && this.__config.multiNodes.enable) {
+            const nodes = this.__config.multiNodes.nodes;
+            const node = nodes[Math.floor(Math.random() * nodes.length)];
+            return `http://${node.ip}:${node.port}/`;
+        } else {
+            const node = this.__config.node;
+            return `http://${node.ip}:${node.port}/`;
+        }
     }
 
     get URL_PREFIX() {

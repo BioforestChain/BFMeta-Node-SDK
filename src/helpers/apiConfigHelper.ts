@@ -31,10 +31,11 @@ export class ApiConfigHelper {
         if (!this.__apiConfig) {
             this.__initConfig();
         }
-        const { node, requestTimeOut, requestProtocol } = apiConfigOptions;
+        const { node, requestTimeOut, requestProtocol, multiNodes } = apiConfigOptions;
         node !== undefined && (this.__apiConfig.node = node);
         requestTimeOut !== undefined && (this.__apiConfig.requestTimeOut = requestTimeOut);
         requestProtocol !== undefined && (this.__apiConfig.requestProtocol = requestProtocol);
+        multiNodes !== undefined && (this.__apiConfig.multiNodes = multiNodes);
     }
 
     get apiConfig() {

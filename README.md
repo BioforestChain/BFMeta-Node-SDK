@@ -81,6 +81,8 @@ if (!broadcastResult.success) {
 ```
 
 ## Changelog - 更新日志
+-   3.0.7
+    - 完善 multiNodes 参数的使用 
 -   3.0.6
     - 新增支持升级服务的接口
 -   3.0.5
