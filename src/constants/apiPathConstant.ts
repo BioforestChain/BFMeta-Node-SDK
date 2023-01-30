@@ -118,6 +118,31 @@ export const enum SYSTEM_API_PATH {
     SYSTEM_GET_SYSTEM_DELEGATE_DETAIL = "systemGetSystemDelegateDetail",
 }
 
+export const enum UPGRADE_API_PATH {
+    /**查看升级服务版本号 */
+    UPGRADE_VERSION = "post/upgradeVersion",
+    /**更新升级服务 */
+    UPGRADE_SELF = "post/upgradeSelf",
+    /**关闭节点 */
+    NODE_CLOSE = "post/close",
+    /**重启节点 */
+    NODE_RESTART = "post/restart",
+    /**恢复节点(升级节点失败) */
+    NODE_RECOVER = "post/recover",
+    /**更新节点 */
+    NODE_UPGRADE = "post/upgrade",
+    /**下载更新包 */
+    DOWNLOAD_PACKAGE = "get/download",
+    /**获取升级进度 */
+    UPGRADE_PROCESS = "get/upgrade/process",
+    /**获取升级任务信息 */
+    TASK_INFO = "get/task/info",
+    /**获取版本信息 */
+    UPGRADE_INFO = "post/upgrade/info",
+    /**获取升级服务状态 */
+    UPGRADE_STATUS = "get/upgrade/status",
+}
+
 export const enum GENERATE_TRANSACTION_API_PATH {
     /**通用的构建交易，就是没有 */
     TR_COMMON = "/generate",

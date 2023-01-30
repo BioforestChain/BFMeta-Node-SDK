@@ -46,4 +46,8 @@ export class BFMetaSDK {
     getSocketByIp(host: string) {
         this.api.websocketHelper.getSocketByIp(host);
     }
+
+    getUpgradeSocket() {
+        return this.api.websocketHelper.upgradeSocket;
+    }
 }

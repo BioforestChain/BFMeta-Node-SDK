@@ -19,8 +19,7 @@ export class HttpHelper {
     }
 
     private __getUrlPrefix() {
-        const nodes = this.__config.nodes;
-        const node = nodes[Math.floor(Math.random() * nodes.length)];
+        const node = this.__config.node;
         return `http://${node.ip}:${node.port}/`;
     }
 
