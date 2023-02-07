@@ -239,8 +239,10 @@ declare namespace BFMetaNodeSDK {
             signature?: string;
             /**区块高度 */
             height?: number;
-            /**查看第几页（一页20条记录） */
+            /**查看第几页（默认一页20条记录） */
             page?: number;
+            /**一页几条 */
+            pageSize?: number;
         }
         /**获取事件类型 */
         interface GetTransactionTypeParams extends BasicApiRequestParams {
@@ -267,8 +269,10 @@ declare namespace BFMetaNodeSDK {
             type?: string[];
             /**索引值 */
             storageValue?: string;
-            /**查看第几页（一页20条记录） */
+            /**查看第几页（默认一页20条记录） */
             page?: number;
+            /**一页几条 */
+            pageSize?: number;
             /**排序，1 正序 -1 逆序，默认正序 */
             sort?: number;
         }
