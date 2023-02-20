@@ -1,4 +1,4 @@
-import { bfmetaSDK } from "../helpers";
+import { bfmetaSDK, PARENT_ASSET_TYPE, CHAIN_INFO } from "../helpers";
 
 (async () => {
     try {
@@ -9,6 +9,9 @@ import { bfmetaSDK } from "../helpers";
 
         const argv: BFMetaNodeSDK.Transaction.TransferAnyTransactionParams = {
             publicKey,
+            parentAssetType: PARENT_ASSET_TYPE.ASSETS,
+            assetType: CHAIN_INFO.chainAssetType,
+            amount: "1000",
             fee: "1000",
             applyBlockHeight: 1,
             remark: { message: "create transferAsset" },
