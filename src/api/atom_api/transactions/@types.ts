@@ -523,11 +523,11 @@ declare namespace BFMetaNodeSDK {
             /**转移的资产所属链名，小写字母组成，3-8 位 */
             sourceChainName?: string;
             /**转移的资产所属类型 */
-            parentAssetType?: number;
+            parentAssetType: number;
             /**转移的资产类型，大写字母组成，3-5 个字符 */
-            assetType?: string;
+            assetType: string;
             /**转移的资产数量，0-9 组成并且不包含小数点，必须大于 0 */
-            amount?: string;
+            amount: string;
             /**纳税信息 */
             taxInformation?: TaxInformationJson;
         }
@@ -538,11 +538,11 @@ declare namespace BFMetaNodeSDK {
             /**赠送的资产所属链名，小写字母组成，3-8 位 */
             sourceChainName?: string;
             /**赠送的资产所属类型 */
-            parentAssetType?: number;
+            parentAssetType: number;
             /**赠送的资产类型，大写字母组成，3-5 个字符 */
-            assetType?: string;
+            assetType: string;
             /**赠送的资产数量，0-9 组成并且不包含小数点，必须大于 0 */
-            amount?: string;
+            amount: string;
             /**可被接收的次数，0-9 组成并且不包含小数点，必须大于 0 */
             totalGrabableTimes?: number;
             /**接收规则, 只能为 0，1 或 2，0 表示平均分配，1 表示根据任意账户的地址的随机分配，2 表示根据接收者列表中账户地址的随机分配 */
@@ -818,7 +818,7 @@ declare namespace BFMetaNodeSDK {
         interface GenerateMigrateCertificateParams extends Omit<CrossChain.GenerateMigrateCertificateArgs, "assetInfo"> {
             assetInfo?: {
                 /**资产所属大类 */
-                parentAssetType?: number;
+                parentAssetType: number;
                 /**资产名 */
                 assetType: string;
             };
