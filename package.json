@@ -1,6 +1,6 @@
 {
     "name": "@bfmeta/node-sdk",
-    "version": "3.0.9",
+    "version": "3.0.10",
     "description": "bfmeta node sdk for js",
     "main": "build/src/index.js",
     "types": "build/src/index.d.ts",
@@ -23,7 +23,7 @@
         "tslib": "^2.4.1"
     },
     "dependencies": {
-        "@bfmeta/sign-util": "^1.0.5",
+        "@bfmeta/sign-util": "^1.0.6",
         "socket.io-client": "^2.4.0"
     },
     "files": [

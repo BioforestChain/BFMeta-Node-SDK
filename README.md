@@ -40,43 +40,43 @@ import { BFMetaSDK } from "@bfmeta/node-sdk";
     requestProtocol: "websocket",
 };
 
-const bfmetaSDK = new BFMetaSDK("testnet", cryptoHelper, config);
+// 这里根据本地环境去实现，可参考以下
+import { CryptoHelper } from "@bfmeta/node-sdk/build/test/helpers/cryptoHelper";
+const cryptoHelper = new CryptoHelper();
+const bfmetaSDK = new BFMetaSDK({ netType: "testnet", cryptoHelper }, config);
 
 // 生成待签名的数据
-let keypair;
-let secondKeypair;
-const createResult = await bfmetaSDK.api.transaction.createAcceptVote(argv);
+let keypair = await bfmetaSDK.bfchainSignUtil.createKeypair("your secret");
+
+// 这是该账户的公钥
+console.log(await bfmetaSDK.bfchainSignUtil.getAddressFromPublicKey(keypair.publicKey));
+
+const createResult = await bfmetaSDK.api.transaction.createTransferAsset({
+    amount: "100000000000",
+    recipientId: address,
+    publicKey: keypair.publicKey.toString("hex"),
+    fee: "2000",
+});
 if (!createResult.success) {
     throw createResult;
 }
-const buffer: string = createResult.result.buffer;
-const bytes: Uint8Array = Buffer.from(buffer, "base64");
+const buffer = createResult.result.buffer;
+const bytes = Buffer.from(buffer, "base64");
 // 生成签名
-const signature: string = bfmetaSDK.bfchainSignUtil.createSignature(bytes, keypair.secretKey);
-let signSignature: string | undefined;
-if (secondKeypair) {
-    // 生成待安全签名的数据
-    const packageResult = await bfmetaSDK.api.transaction.packageAcceptVote({
-        buffer,
-        signature,
-    });
-    if (!packageResult.success) {
-        throw packageResult;
-    }
-    const buffer: string = await packageResult.result.buffer;
-    const bytes: Uint8Array = Buffer.from(buffer, "base64");
-    // 生成安全签名
-    signSignature = bfmetaSDK.bfchainSignUtil.createSignSignature(bytes, secondKeypair.secretKey);
-}
+const signature = (
+    await bfmetaSDK.bfchainSignUtil.detachedSign(bytes, keypair.secretKey)
+).toString("hex");
 // 广播交易
-const broadcastResult = await bfmetaSDK.api.transaction.broadcastAcceptVote({
+const broadcastResult = await bfmetaSDK.api.transaction.broadcastTransferAsset(
+    {
     buffer,
     signature,
-    signSignature
-});
+    }
+);
 if (!broadcastResult.success) {
-    throw broadcastResult
+    throw broadcastResult;
 }
+console.log(broadcastResult);
 // 广播交易到节点成功
 ```
 
