@@ -23,21 +23,21 @@
 ## Usage - 用法
 
 ```ts
-import { BFMetaSDK } from "@bfmeta/node-sdk";
+import { BFMetaSDK, REQUEST_PROTOCOL} from "@bfmeta/node-sdk";
 
 // 也可以再运行目录下建 config/config.json 填入以下内容，new 的时候就不用传参
 
- const config: BFMetaNodeSDK.Config = {
+ const config: BFMetaNodeSDK.ApiConfig = {
     node: {
         /**节点 ip, 默认值 [127.0.0.1] */
         ip: "127.0.0.1",
         /**节点端口号, 默认值 9003 */
         port: 9003,
     },
-    "//requestTimeOut": "请求超时时间, 单位 ms, 默认 10000",
+    //  "请求超时时间, 单位 ms, 默认 10000",
     requestTimeOut: 10000,
-    "//requestProtocol": "请求协议, http || websocket, 默认值 websocket",
-    requestProtocol: "websocket",
+    // "请求协议, http || websocket, 默认值 websocket",
+    requestProtocol: REQUEST_PROTOCOL.WEBSOCKET,
 };
 
 // 这里根据本地环境去实现，可参考以下
@@ -48,7 +48,7 @@ const bfmetaSDK = new BFMetaSDK({ netType: "testnet", cryptoHelper }, config);
 // 生成待签名的数据
 let keypair = await bfmetaSDK.bfchainSignUtil.createKeypair("your secret");
 
-// 这是该账户的公钥
+// 这是该账户的地址
 console.log(await bfmetaSDK.bfchainSignUtil.getAddressFromPublicKey(keypair.publicKey));
 
 const createResult = await bfmetaSDK.api.transaction.createTransferAsset({
