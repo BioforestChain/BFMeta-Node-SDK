@@ -28,7 +28,7 @@ import { BFMetaSDK } from "@bfmeta/node-sdk";
 // 也可以再运行目录下建 config/config.json 填入以下内容，new 的时候就不用传参
 
  const config: BFMetaNodeSDK.Config = {
-    nodes: {
+    node: {
         /**节点 ip, 默认值 [127.0.0.1] */
         ip: "127.0.0.1",
         /**节点端口号, 默认值 9003 */
