@@ -36,23 +36,6 @@ export class WebsocketHelper {
         return `${url}/systemChannel`;
     }
 
-    createTransaction<T>(url: string, argv: { [key: string]: any }) {
-        return new Promise<T>((resolve, reject) => {
-            const req = http.request(url, { method: "POST", headers: { "content-type": "application/json" } }, async (res) => {
-                const body = await parsePostRequestParameter(res);
-                return resolve(body as any);
-            });
-            req.setTimeout(this.__config.requestTimeOut, () => {
-                return reject("timeout");
-            });
-            req.on("error", (e) => {
-                return reject(e);
-            });
-            req.write(JSON.stringify(argv));
-            req.end();
-        });
-    }
-
     private __init(url: string) {
         const wsHost = this.__getWebsocketHost(url);
         return new Promise<SocketIOClient.Socket>((resolve, reject) => {
@@ -109,6 +92,26 @@ export class WebsocketHelper {
         return socket;
     }
 
+    createTransaction<T>(url: string, argv: { [key: string]: any }) {
+        return new Promise<T>(async (resolve, reject) => {
+            let timeoutId!: NodeJS.Timeout;
+            try {
+                timeoutId = setTimeout(() => {
+                    clearTimeout(timeoutId);
+                    reject(new Error(`request timeout ${url}`));
+                }, this.__config.requestTimeOut);
+                const socket = await this.getSocket();
+                socket.emit(url, argv, (result: BFMetaNodeSDK.ApiReturn<T>) => {
+                    clearTimeout(timeoutId);
+                    return resolve(result as any);
+                });
+            } catch (e) {
+                clearTimeout(timeoutId);
+                return reject(e);
+            }
+        });
+    }
+
     async sendGetRequest<T>(url: string, argv?: { [key: string]: any }) {
         return new Promise<T>(async (resolve, reject) => {
             let timeoutId!: NodeJS.Timeout;
@@ -129,25 +132,7 @@ export class WebsocketHelper {
         });
     }
 
-    async sendPostRequest<T>(url: string, argv: { [key: string]: any }) {
-        return new Promise<T>(async (resolve, reject) => {
-            let timeoutId!: NodeJS.Timeout;
-            try {
-                timeoutId = setTimeout(() => {
-                    clearTimeout(timeoutId);
-                    reject(new Error(`request timeout ${url}`));
-                }, this.__config.requestTimeOut);
-                const socket = await this.getSocket();
-                socket.emit(url, argv, (result: BFMetaNodeSDK.ApiReturn<T>) => {
-                    clearTimeout(timeoutId);
-                    return resolve(result as any);
-                });
-            } catch (e) {
-                clearTimeout(timeoutId);
-                return reject(e);
-            }
-        });
-    }
+    sendPostRequest = this.createTransaction;
 
     async getSocketByIp(host: string) {
         let socket = this.__socketMap.get(host);
