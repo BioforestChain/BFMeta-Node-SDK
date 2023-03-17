@@ -1,27 +1,7 @@
-import type { IncomingMessage } from "http";
-import * as url from "url";
-
-export function parseGetRequestParameter(imcomingMessage: IncomingMessage) {
-    return new Promise<{ [key: string]: any }>((resolve, reject) => {
-        if (!imcomingMessage.url) {
-            return reject(`request url lose`);
-        }
-        imcomingMessage.on("error", (error) => {
-            return reject(error.message);
-        });
-        try {
-            const req = url.parse(imcomingMessage.url, true);
-            return resolve(req.query);
-        } catch (e) {
-            return reject(`parse parameter error`);
-        }
-    });
-}
-
-export function parsePostRequestParameter(imcomingMessage: IncomingMessage) {
+export function parsePostRequestParameter(imcomingMessage: any) {
     return new Promise<{ [key: string]: any }>((resolve, reject) => {
         const buffers: Uint8Array[] = [];
-        imcomingMessage.on("error", (error) => {
+        imcomingMessage.on("error", (error: any) => {
             return reject(error.message);
         });
         imcomingMessage.on("data", (chunk: Uint8Array) => buffers.push(chunk));

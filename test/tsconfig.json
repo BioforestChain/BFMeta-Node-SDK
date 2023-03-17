@@ -20,6 +20,7 @@
         "common/isPublicKey.ts",
         "helpers/baseHelper.ts",
         "helpers/cryptoHelper.ts",
+        "helpers/fecthDemo.ts",
         "helpers/index.ts",
         "index.ts",
         "transactions/acceptVote.ts",

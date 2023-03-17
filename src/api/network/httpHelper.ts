@@ -11,7 +11,7 @@ export class HttpHelper {
     public readonly REQUEST_PROTOCOL = REQUEST_PROTOCOL.HTTP;
     public readonly TRANSACTION_SERVER_URL_PREFIX: string;
 
-    constructor(configHelper: ApiConfigHelper) {
+    constructor(configHelper: ApiConfigHelper, public fetch: BFMetaNodeSDK.FetchInterface) {
         this.__configHelper = configHelper;
         this.__config = this.__configHelper.apiConfig;
 
@@ -34,36 +34,12 @@ export class HttpHelper {
     }
 
     createTransaction<T>(url: string, argv: { [key: string]: any }) {
-        return new Promise<T>((resolve, reject) => {
-            const req = http.request(url, { method: "POST", headers: { "content-type": "application/json" } }, async (res) => {
-                const body = await parsePostRequestParameter(res);
-                return resolve(body as any);
-            });
-            req.setTimeout(this.__config.requestTimeOut, () => {
-                return reject("timeout");
-            });
-            req.on("error", (e) => {
-                return reject(e);
-            });
-            req.write(JSON.stringify(argv));
-            req.end();
-        });
+        return this.fetch.post(url, argv);
     }
 
     sendGetRequest<T>(url: string, argv?: { [key: string]: any }) {
         const completeUrl = url + (argv ? `?${JSON.stringify(argv)}` : "");
-        return new Promise<T>((resolve, reject) => {
-            const req = http.get(completeUrl, async (res) => {
-                const body = await parsePostRequestParameter(res);
-                return resolve(body as any);
-            });
-            req.setTimeout(this.__config.requestTimeOut, () => {
-                return reject("timeout");
-            });
-            req.on("error", (e) => {
-                return reject(e);
-            });
-        });
+        return this.fetch.get(completeUrl);
     }
 
     sendPostRequest = this.createTransaction;

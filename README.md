@@ -43,7 +43,9 @@ const config: BFMetaNodeSDK.ApiConfig = {
 // 这里根据本地环境去实现，可参考以下
 import { CryptoHelper } from "@bfmeta/node-sdk/build/test/helpers/cryptoHelper";
 const cryptoHelper = new CryptoHelper();
-const bfmetaSDK = new BFMetaSDK({ netType: "testnet", cryptoHelper }, config);
+import { FecthDemo } from "@bfmeta/node-sdk/build/test/helpers/FecthDemo";
+const fecthDemo = new FecthDemo();
+const bfmetaSDK = new BFMetaSDK(config, { netType: "testnet", cryptoHelper }, fecthDemo);
 
  // 根据助记词生成公私钥对
 let keypair = await bfmetaSDK.bfchainSignUtil.createKeypair("your secret");
@@ -96,6 +98,8 @@ console.log(broadcastResult);
 ```
 
 ## Changelog - 更新日志
+-   3.0.14
+    - 修改初始化格式，http模块由外部传入
 -   3.0.13
     - 完善 README 使用说明
 -   3.0.7

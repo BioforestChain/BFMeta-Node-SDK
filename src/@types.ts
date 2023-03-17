@@ -40,4 +40,9 @@ declare namespace BFMetaNodeSDK {
         items?: SchemaType;
         format?: string;
     }
+
+    interface FetchInterface {
+        get(url: string): Promise<any>;
+        post(url: string, data: any): Promise<any>;
+    }
 }
