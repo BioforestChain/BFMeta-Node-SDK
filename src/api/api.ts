@@ -28,12 +28,15 @@ export class Api {
         }
     }
 
-    constructor(configOptions?: BFMetaNodeSDK.ApiConfigOptions) {
+    constructor(configOptions?: BFMetaNodeSDK.ApiConfigOptions, public fetch?: BFMetaNodeSDK.FetchInterface) {
         this.__configHelper = new ApiConfigHelper(configOptions);
         const apiConfig = this.__configHelper.apiConfig;
         let networkHelper: BFMetaNodeSDK.NetworkHelper;
         if (apiConfig.requestProtocol == REQUEST_PROTOCOL.HTTP) {
-            this.__httpHelper = new HttpHelper(this.__configHelper);
+            if (!fetch) {
+                throw new Error(`fetch class is not impl`);
+            }
+            this.__httpHelper = new HttpHelper(this.__configHelper, fetch);
             networkHelper = this.__httpHelper;
         } else {
             this.__websocketHelper = new WebsocketHelper(this.__configHelper);

@@ -4,11 +4,15 @@ export class BFMetaSDK {
     private __api: Api;
     private __configOptions: BFMetaNodeSDK.ApiConfigOptions = {};
     private __bfchainSignUtil: BFMetaSignUtil | undefined;
-    constructor(public signUtilParam?: BFMetaNodeSDK.SignUtilParam, public configOptions?: BFMetaNodeSDK.ApiConfigOptions) {
+    constructor(
+        public configOptions?: BFMetaNodeSDK.ApiConfigOptions,
+        public signUtilParam?: BFMetaNodeSDK.SignUtilParam,
+        public fetch?: BFMetaNodeSDK.FetchInterface
+    ) {
         if (configOptions) {
             this.__configOptions = configOptions;
         }
-        this.__api = new Api(this.__configOptions);
+        this.__api = new Api(this.__configOptions, fetch);
         if (this.signUtilParam) {
             this.setSignUtil(this.signUtilParam);
         }

@@ -1,4 +1,3 @@
-import * as crypto from "crypto";
 import {
     GetBlockApi,
     GetLastBlockApi,
@@ -150,9 +149,4 @@ export class BasicApi {
         return result;
     }
     // #endregion
-
-    /**获取加密后的矿机密码 */
-    getSystemKey(systemSecret: string) {
-        return crypto.createHash("sha256").update(systemSecret, "utf8").digest("hex");
-    }
 }
