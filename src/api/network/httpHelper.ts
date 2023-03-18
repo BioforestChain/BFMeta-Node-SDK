@@ -1,7 +1,5 @@
 import type { ApiConfigHelper } from "../../helpers";
-import * as http from "http";
 import { REQUEST_PROTOCOL } from "../../constants";
-import { parsePostRequestParameter } from "../../helpers";
 
 export class HttpHelper {
     private __configHelper: ApiConfigHelper;
