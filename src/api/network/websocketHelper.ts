@@ -1,9 +1,10 @@
 import type { ApiConfigHelper } from "../../helpers";
 import * as io from "socket.io-client";
 import { maxOneFileSize, REQUEST_PROTOCOL } from "../../constants";
+import { PromiseOut } from "@bnqkl/util-node";
 
 export class WebsocketHelper {
-    private __socketMap = new Map<string, SocketIOClient.Socket>();
+    private __socketMap = new Map<string, PromiseOut<SocketIOClient.Socket>>();
     private __configHelper: ApiConfigHelper;
     private __config: BFMetaNodeSDK.ApiConfig;
 
@@ -48,7 +49,6 @@ export class WebsocketHelper {
             });
             socket.on("connect", () => {
                 console.debug(`connected to ${url}`);
-                this.__socketMap.set(url, socket);
                 return resolve(socket);
             });
             socket.on("connect_error", (data: any) => {
@@ -83,11 +83,14 @@ export class WebsocketHelper {
 
     async getSocket() {
         const url = this.__getUrl();
-        let socket = this.__socketMap.get(url);
-        if (!socket) {
-            socket = await this.__init(url);
+        let p = this.__socketMap.get(url);
+        if (!p) {
+            p = new PromiseOut();
+            this.__socketMap.set(url, p);
+            const socket = await this.__init(url);
+            p.resolve(socket);
         }
-        return socket;
+        return p.promise;
     }
 
     createTransaction<T>(url: string, argv: { [key: string]: any }) {
@@ -151,7 +154,12 @@ export class WebsocketHelper {
                     clearTimeout(timeoutId);
                     reject(new Error(`request timeout ${url}`));
                 }, this.__config.requestTimeOut);
-                const socket = await this.__initUpgrade();
+                let socket: SocketIOClient.Socket;
+                if (this.upgradeSocket) {
+                    socket = this.upgradeSocket;
+                } else {
+                    socket = await this.__initUpgrade();
+                }
                 socket.emit(url, argv, (result: BFMetaNodeSDK.ApiReturn<T>) => {
                     clearTimeout(timeoutId);
                     return resolve(result as any);
