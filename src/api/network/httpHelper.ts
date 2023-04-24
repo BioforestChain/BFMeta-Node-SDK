@@ -32,12 +32,12 @@ export class HttpHelper {
     }
 
     createTransaction<T>(url: string, argv: { [key: string]: any }) {
-        return this.fetch.post(url, argv);
+        return this.fetch.post(url, argv) as Promise<T>;
     }
 
     sendGetRequest<T>(url: string, argv?: { [key: string]: any }) {
         const completeUrl = url + (argv ? `?${JSON.stringify(argv)}` : "");
-        return this.fetch.get(completeUrl);
+        return this.fetch.get(completeUrl) as Promise<T>;
     }
 
     sendPostRequest = this.createTransaction;
