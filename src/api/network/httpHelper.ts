@@ -23,7 +23,11 @@ export class HttpHelper {
             return `http://${node.ip}:${node.port}/`;
         } else {
             const node = this.__config.node;
-            return `http://${node.ip}:${node.port}/`;
+            if (node) {
+                return `http://${node.ip}:${node.port}/`;
+            } else {
+                throw new Error(`node is not init`);
+            }
         }
     }
 

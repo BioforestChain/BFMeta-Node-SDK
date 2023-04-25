@@ -36,9 +36,11 @@ export class WebsocketHelper {
             try {
                 const { node, multiNodes } = this.__config;
                 const taskList: Promise<void>[] = [];
-                const url = this.__getUrl(node);
-                if (!this.__socketMap.has(url)) {
-                    taskList.push(this.__reconnect(url));
+                if (node) {
+                    const url = this.__getUrl(node);
+                    if (!this.__socketMap.has(url)) {
+                        taskList.push(this.__reconnect(url));
+                    }
                 }
                 if (multiNodes && multiNodes.enable) {
                     const { nodes } = multiNodes;
@@ -196,7 +198,7 @@ export class WebsocketHelper {
 
     private __initUpgrade() {
         const node = this.__config.node;
-        if (node.upgradePort) {
+        if (node && node.upgradePort) {
             const wsHost = `ws://${node.ip}:${node.upgradePort}`;
             return new Promise<SocketIOClient.Socket>((resolve, reject) => {
                 const socket = io.connect(wsHost, {
@@ -242,7 +244,7 @@ export class WebsocketHelper {
                 });
             });
         } else {
-            throw new Error(`upgradePort: ${node.upgradePort} is not init`);
+            throw new Error(`upgradePort: ${JSON.stringify(node)} is not init`);
         }
     }
 }

@@ -17,7 +17,7 @@ declare namespace BFMetaNodeSDK {
         /**配置文件的根路径，如果提供的路径不存在会使用默认路径 */
         configRootPath?: string;
         /**节点信息 */
-        node: NodeHost;
+        node?: NodeHost;
         /**多节点模式 */
         multiNodes?: { enable: boolean; nodes: NodeHost[] };
         /**请求超时时间，单位 ms，默认 10000 */
