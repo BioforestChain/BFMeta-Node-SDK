@@ -47,27 +47,30 @@ export class WebsocketHelper extends EventEmitter {
     private async __init() {
         const connectFunc = (url: string) => {
             return async () => {
-                if (!this.__socketMap.has(url)) {
-                    try {
-                        const socket = await this.__connect(url);
-                        this.__bindEvent(socket, url);
-                        this.__socketMap.set(url, socket);
-                    } catch (error) {
-                        console.debug(error);
-                    }
+                try {
+                    const socket = await this.__connect(url);
+                    this.__bindEvent(socket, url);
+                    this.__socketMap.set(url, socket);
+                } catch (error) {
+                    console.debug(error);
                 }
             };
         };
         while (true) {
             try {
                 const { node, multiNodes } = this.__config;
+                const taskList: (() => Promise<void>)[] = [];
                 const url = this.__getUrl(node);
-                const taskList = [connectFunc(url)];
+                if (!this.__socketMap.has(url)) {
+                    taskList.push(connectFunc(url));
+                }
                 if (multiNodes && multiNodes.enable) {
                     const { nodes } = multiNodes;
                     for (const node of nodes) {
                         const url = this.__getUrl(node);
-                        taskList.push(connectFunc(url));
+                        if (!this.__socketMap.has(url)) {
+                            taskList.push(connectFunc(url));
+                        }
                     }
                 }
                 await Promise.all(taskList.map((task) => task()));
