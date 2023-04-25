@@ -1,14 +1,9 @@
 import type { ApiConfigHelper } from "../../helpers";
 import * as io from "socket.io-client";
-import { EventEmitter } from "node:stream";
 import { sleep } from "@bnqkl/util-node";
 import { maxOneFileSize, REQUEST_PROTOCOL } from "../../constants";
 
-const enum EVENT_NAME {
-    RECONNECT = "reconnect",
-}
-
-export class WebsocketHelper extends EventEmitter {
+export class WebsocketHelper {
     private __configHelper: ApiConfigHelper;
     private __config: BFMetaNodeSDK.ApiConfig;
 
@@ -18,18 +13,10 @@ export class WebsocketHelper extends EventEmitter {
     public readonly TRANSACTION_SERVER_URL_PREFIX: string;
 
     constructor(configHelper: ApiConfigHelper) {
-        super();
         this.__configHelper = configHelper;
         this.__config = this.__configHelper.apiConfig;
 
         this.TRANSACTION_SERVER_URL_PREFIX = `http://127.0.0.1:${this.__config.transactionServerPort}`;
-
-        this.on(EVENT_NAME.RECONNECT, async (url: string) => {
-            try {
-                const socket = await this.__connect(url);
-                this.__bindEvent(socket, url);
-            } catch (error) {}
-        });
 
         this.__init().catch((e) => {});
     }
@@ -45,36 +32,25 @@ export class WebsocketHelper extends EventEmitter {
     private __socketMap = new Map<string, SocketIOClient.Socket>();
 
     private async __init() {
-        const connectFunc = (url: string) => {
-            return async () => {
-                try {
-                    const socket = await this.__connect(url);
-                    this.__bindEvent(socket, url);
-                    this.__socketMap.set(url, socket);
-                } catch (error) {
-                    console.debug(error);
-                }
-            };
-        };
         while (true) {
             try {
                 const { node, multiNodes } = this.__config;
-                const taskList: (() => Promise<void>)[] = [];
+                const taskList: Promise<void>[] = [];
                 const url = this.__getUrl(node);
                 if (!this.__socketMap.has(url)) {
-                    taskList.push(connectFunc(url));
+                    taskList.push(this.__reconnect(url));
                 }
                 if (multiNodes && multiNodes.enable) {
                     const { nodes } = multiNodes;
                     for (const node of nodes) {
                         const url = this.__getUrl(node);
                         if (!this.__socketMap.has(url)) {
-                            taskList.push(connectFunc(url));
+                            taskList.push(this.__reconnect(url));
                         }
                     }
                 }
-                await Promise.all(taskList.map((task) => task()));
-                await sleep(10 * 1000);
+                await Promise.all(taskList);
+                await sleep(60 * 1000);
             } catch (error) {}
         }
     }
@@ -114,8 +90,18 @@ export class WebsocketHelper extends EventEmitter {
         });
         socket.on("disconnect", () => {
             this.__socketMap.delete(url);
-            this.emit(EVENT_NAME.RECONNECT, url);
+            this.__reconnect(url);
         });
+    }
+
+    private async __reconnect(url: string) {
+        try {
+            const socket = await this.__connect(url);
+            this.__bindEvent(socket, url);
+            this.__socketMap.set(url, socket);
+        } catch (error) {
+            console.debug(error);
+        }
     }
 
     getSocket() {
