@@ -1,9 +1,9 @@
+import { sleep } from "@bnqkl/util-node";
 import { bfmetaSDK } from "../helpers";
 
 (async () => {
     try {
-        const secret =
-            "upgrade jump sugar congress glare expect other firm morning donate motor pride minute frame amount chimney wood gallery twelve barely dose blame convince enhance";
+        const secret = "123";
         const keypair = await bfmetaSDK.bfchainSignUtil.createKeypair(secret);
         const publicKey = keypair.publicKey.toString("hex");
 
@@ -15,7 +15,7 @@ import { bfmetaSDK } from "../helpers";
         };
 
         const sdk = bfmetaSDK;
-
+        await sleep(1000);
         const createResult = await sdk.api.transaction.createAcceptVote(argv);
         if (createResult.success) {
             const buffer = createResult.result.buffer;
@@ -27,6 +27,13 @@ import { bfmetaSDK } from "../helpers";
             console.log(broadcastResult);
         } else {
             console.log(createResult);
+        }
+        const socket = bfmetaSDK.getSocketByNode({
+            ip: "34.84.140.206",
+            port: 19003,
+        });
+        if (socket) {
+            socket.disconnect();
         }
     } catch (e) {
         console.log(e);

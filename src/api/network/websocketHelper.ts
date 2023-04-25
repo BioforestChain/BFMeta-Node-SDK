@@ -1,10 +1,14 @@
 import type { ApiConfigHelper } from "../../helpers";
 import * as io from "socket.io-client";
+import { EventEmitter } from "node:stream";
+import { sleep } from "@bnqkl/util-node";
 import { maxOneFileSize, REQUEST_PROTOCOL } from "../../constants";
-import { PromiseOut } from "@bnqkl/util-node";
 
-export class WebsocketHelper {
-    private __socketMap = new Map<string, PromiseOut<SocketIOClient.Socket>>();
+const enum EVENT_NAME {
+    RECONNECT = "reconnect",
+}
+
+export class WebsocketHelper extends EventEmitter {
     private __configHelper: ApiConfigHelper;
     private __config: BFMetaNodeSDK.ApiConfig;
 
@@ -14,30 +18,67 @@ export class WebsocketHelper {
     public readonly TRANSACTION_SERVER_URL_PREFIX: string;
 
     constructor(configHelper: ApiConfigHelper) {
+        super();
         this.__configHelper = configHelper;
         this.__config = this.__configHelper.apiConfig;
 
         this.TRANSACTION_SERVER_URL_PREFIX = `http://127.0.0.1:${this.__config.transactionServerPort}`;
+
+        this.on(EVENT_NAME.RECONNECT, async (url: string) => {
+            try {
+                const socket = await this.__connect(url);
+                this.__bindEvent(socket, url);
+            } catch (error) {}
+        });
+
+        this.__init().catch((e) => {});
     }
 
-    private __getUrl() {
-        if (this.__config.multiNodes && this.__config.multiNodes.enable) {
-            const nodes = this.__config.multiNodes.nodes;
-            const node = nodes[Math.floor(Math.random() * nodes.length)];
-            return `http://${node.ip}:${node.port}`;
-        } else {
-            const node = this.__config.node;
-            return `http://${node.ip}:${node.port}`;
-        }
+    private __getUrl(args: BFMetaNodeSDK.NodeHost) {
+        return `http://${args.ip}:${args.port}`;
     }
 
-    private __getWebsocketHost(url = this.__getUrl()) {
+    private __getWebsocketHost(url: string) {
         return `${url}/systemChannel`;
     }
 
-    private __init(url: string) {
-        const wsHost = this.__getWebsocketHost(url);
+    private __socketMap = new Map<string, SocketIOClient.Socket>();
+
+    private async __init() {
+        const connectFunc = (url: string) => {
+            return async () => {
+                if (!this.__socketMap.has(url)) {
+                    try {
+                        const socket = await this.__connect(url);
+                        this.__bindEvent(socket, url);
+                        this.__socketMap.set(url, socket);
+                    } catch (error) {
+                        console.debug(error);
+                    }
+                }
+            };
+        };
+        while (true) {
+            try {
+                const { node, multiNodes } = this.__config;
+                const url = this.__getUrl(node);
+                const taskList = [connectFunc(url)];
+                if (multiNodes && multiNodes.enable) {
+                    const { nodes } = multiNodes;
+                    for (const node of nodes) {
+                        const url = this.__getUrl(node);
+                        taskList.push(connectFunc(url));
+                    }
+                }
+                await Promise.all(taskList.map((task) => task()));
+                await sleep(10 * 1000);
+            } catch (error) {}
+        }
+    }
+
+    private __connect(url: string) {
         return new Promise<SocketIOClient.Socket>((resolve, reject) => {
+            const wsHost = this.__getWebsocketHost(url);
             const socket = io.connect(wsHost, {
                 transports: ["websocket"],
                 timeout: this.__config.requestTimeOut,
@@ -49,48 +90,38 @@ export class WebsocketHelper {
             });
             socket.on("connect", () => {
                 console.debug(`connected to ${url}`);
+                this.__socketMap.set(url, socket);
                 return resolve(socket);
             });
             socket.on("connect_error", (data: any) => {
-                this.__socketMap.delete(url);
-                return reject(new Error(`${url} connect_error`));
+                return reject(new Error(`connect_error ${url}`));
             });
             socket.on("connect_timeout", (data: any) => {
-                this.__socketMap.delete(url);
-                return reject(new Error(`${url} connect_timeout`));
-            });
-            socket.on("reconnect_attempt", (data: any) => {
-                return reject(new Error(`${url} reconnect_attempt`));
-            });
-            socket.on("reconnect_error", (data: any) => {
-                this.__socketMap.delete(url);
-                return reject(new Error(`${url} reconnect_error`));
-            });
-            socket.on("error", (data: any) => {
-                this.__socketMap.delete(url);
-                return reject(new Error(`${url} error`));
-            });
-            socket.on("close", (data: any) => {
-                this.__socketMap.delete(url);
-                return reject(new Error(`${url} close`));
-            });
-            socket.on("disconnect", () => {
-                this.__socketMap.delete(url);
-                return reject(new Error(`${url} disconnected`));
+                return reject(new Error(`connect_timeout ${url}`));
             });
         });
     }
 
-    async getSocket() {
-        const url = this.__getUrl();
-        let p = this.__socketMap.get(url);
-        if (!p) {
-            p = new PromiseOut();
-            this.__socketMap.set(url, p);
-            const socket = await this.__init(url);
-            p.resolve(socket);
+    private __bindEvent(socket: SocketIOClient.Socket, url: string) {
+        socket.on("reconnect_error", (data: any) => {
+            socket.close();
+        });
+        socket.on("error", (data: any) => {
+            socket.close();
+        });
+        socket.on("disconnect", () => {
+            this.__socketMap.delete(url);
+            this.emit(EVENT_NAME.RECONNECT, url);
+        });
+    }
+
+    getSocket() {
+        if (this.__socketMap.size === 0) {
+            return undefined;
         }
-        return p.promise;
+        // 节点数量不会多到哪去，这样估计就够了
+        const sockets = [...this.__socketMap.values()];
+        return sockets[Math.floor(Math.random() * sockets.length)];
     }
 
     createTransaction<T>(url: string, argv: { [key: string]: any }) {
@@ -101,7 +132,10 @@ export class WebsocketHelper {
                     clearTimeout(timeoutId);
                     reject(new Error(`request timeout ${url}`));
                 }, this.__config.requestTimeOut);
-                const socket = await this.getSocket();
+                const socket = this.getSocket();
+                if (!socket) {
+                    return reject(new Error(`no nodes available`));
+                }
                 socket.emit(url, argv, (result: BFMetaNodeSDK.ApiReturn<T>) => {
                     clearTimeout(timeoutId);
                     return resolve(result as any);
@@ -121,7 +155,10 @@ export class WebsocketHelper {
                     clearTimeout(timeoutId);
                     reject(new Error(`request timeout ${url}`));
                 }, this.__config.requestTimeOut);
-                const socket = await this.getSocket();
+                const socket = this.getSocket();
+                if (!socket) {
+                    return reject(new Error(`no nodes available`));
+                }
                 socket.emit(url, argv, (result: BFMetaNodeSDK.ApiReturn<T>) => {
                     clearTimeout(timeoutId);
                     return resolve(result as any);
@@ -135,11 +172,8 @@ export class WebsocketHelper {
 
     sendPostRequest = this.createTransaction;
 
-    async getSocketByIp(host: string) {
-        let socket = this.__socketMap.get(host);
-        if (socket) {
-            return socket;
-        }
+    getSocketByNode(node: BFMetaNodeSDK.NodeHost) {
+        return this.__socketMap.get(this.__getUrl(node));
     }
 
     private __upgradeSocket: SocketIOClient.Socket | undefined;

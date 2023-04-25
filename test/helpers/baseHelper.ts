@@ -10,11 +10,20 @@ export const bfmetaSDK = new BFMetaSDK(
             /**节点 ip, 默认值 [127.0.0.1] */
             ip: "192.168.200.21",
             /**节点端口号, 默认值 9003 */
-            port: 9003,
+            port: 19003,
+        },
+        multiNodes: {
+            enable: true,
+            nodes: [
+                {
+                    ip: "34.84.140.206",
+                    port: 19003,
+                },
+            ],
         },
         //  "请求超时时间, 单位 ms, 默认 10000",
         requestTimeOut: 10000,
-        requestProtocol: REQUEST_PROTOCOL.HTTP,
+        requestProtocol: REQUEST_PROTOCOL.WEBSOCKET,
     },
     { netType: "testnet", cryptoHelper },
     fecthDemo

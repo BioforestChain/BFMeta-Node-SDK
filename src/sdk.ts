@@ -1,5 +1,6 @@
 import { Api } from "./api";
 import { BFMetaSignUtil } from "@bfmeta/sign-util";
+
 export class BFMetaSDK {
     private __api: Api;
     private __configOptions: BFMetaNodeSDK.ApiConfigOptions = {};
@@ -47,8 +48,8 @@ export class BFMetaSDK {
         this.api.setApiconfig(configOptions);
     }
 
-    getSocketByIp(host: string) {
-        this.api.websocketHelper.getSocketByIp(host);
+    getSocketByNode(node: BFMetaNodeSDK.NodeHost) {
+        return this.api.websocketHelper.getSocketByNode(node);
     }
 
     getUpgradeSocket() {
