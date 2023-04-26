@@ -52,8 +52,10 @@ export class WebsocketHelper {
                     }
                 }
                 await Promise.all(taskList);
-                await sleep(60 * 1000);
-            } catch (error) {}
+            } catch (error) {
+            } finally {
+                await sleep(30 * 1000);
+            }
         }
     }
 
@@ -101,8 +103,8 @@ export class WebsocketHelper {
             const socket = await this.__connect(url);
             this.__bindEvent(socket, url);
             this.__socketMap.set(url, socket);
-        } catch (error) {
-            console.debug(error);
+        } catch (error: any) {
+            console.debug(error.message || error);
         }
     }
 

@@ -98,6 +98,8 @@ console.log(broadcastResult);
 ```
 
 ## Changelog - 更新日志
+-   3.0.21
+    - 优化节点连接池
 -   3.0.14
     - 修改初始化格式，http模块由外部传入
 -   3.0.13
