@@ -9,7 +9,7 @@
         "composite": true,
         "incremental": true,
         "noEmitOnError": true,
-        "removeComments": false,
+        "removeComments": true,
         "forceConsistentCasingInFileNames": true,
         "importsNotUsedAsValues": "error",
         "strict": true,
