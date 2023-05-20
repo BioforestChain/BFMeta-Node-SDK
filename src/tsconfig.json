@@ -152,6 +152,7 @@
         "constants/index.ts",
         "helpers/@types.ts",
         "helpers/apiConfigHelper.ts",
+        "helpers/baseUtil.ts",
         "helpers/index.ts",
         "helpers/requestParameterParser.ts",
         "index.ts",

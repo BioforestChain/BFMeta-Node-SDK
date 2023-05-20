@@ -1,4 +1,3 @@
-import { sleep } from "@bnqkl/util-node";
 import { bfmetaSDK } from "../helpers";
 
 (async () => {
@@ -15,7 +14,6 @@ import { bfmetaSDK } from "../helpers";
         };
 
         const sdk = bfmetaSDK;
-        await sleep(1000);
         const createResult = await sdk.api.transaction.createAcceptVote(argv);
         if (createResult.success) {
             const buffer = createResult.result.buffer;

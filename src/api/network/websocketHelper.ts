@@ -1,6 +1,7 @@
 import type { ApiConfigHelper } from "../../helpers";
 import * as io from "socket.io-client";
-import { sleep } from "@bnqkl/util-node";
+import { sleep } from "../../helpers/baseUtil";
+
 import { maxOneFileSize, REQUEST_PROTOCOL } from "../../constants";
 
 export class WebsocketHelper {

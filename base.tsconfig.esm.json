@@ -21,6 +21,7 @@
         "newLine": "lf",
         "experimentalDecorators": true,
         "emitDecoratorMetadata": true,
-        "downlevelIteration": true
+        "downlevelIteration": true,
+        "ignoreDeprecations": "5.0"
     }
 }
