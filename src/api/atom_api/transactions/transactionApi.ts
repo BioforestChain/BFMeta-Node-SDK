@@ -8,7 +8,7 @@ import {
     VoteApi,
     IssueAssetApi,
     TransferAssetApi,
-    DestoryAssetApi,
+    DestroyAssetApi,
     GiftAssetApi,
     GrabAssetApi,
     TrustAssetApi,
@@ -26,7 +26,7 @@ import {
     IssueEntityFactoryApi,
     IssueEntityFactoryV1Api,
     IssueEntityApi,
-    DestoryEntityApi,
+    DestroyEntityApi,
     TransferAnyApi,
     GiftAnyApi,
     GrabAnyApi,
@@ -80,7 +80,7 @@ export class TransactionApi {
         const voteApi = new VoteApi(networkHelper);
         const issueAssetApi = new IssueAssetApi(networkHelper);
         const transferAssetApi = new TransferAssetApi(networkHelper);
-        const destoryAssetApi = new DestoryAssetApi(networkHelper);
+        const destroyAssetApi = new DestroyAssetApi(networkHelper);
         const giftAssetApi = new GiftAssetApi(networkHelper);
         const grabAssetApi = new GrabAssetApi(networkHelper);
         const trustAssetApi = new TrustAssetApi(networkHelper);
@@ -98,7 +98,7 @@ export class TransactionApi {
         const issueEntityFactoryApi = new IssueEntityFactoryApi(networkHelper);
         const issueEntityFactoryV1Api = new IssueEntityFactoryV1Api(networkHelper);
         const issueEntityApi = new IssueEntityApi(networkHelper);
-        const destoryEntityApi = new DestoryEntityApi(networkHelper);
+        const destroyEntityApi = new DestroyEntityApi(networkHelper);
         const transferAnyApi = new TransferAnyApi(networkHelper);
         const giftAnyApi = new GiftAnyApi(networkHelper);
         const grabAnyApi = new GrabAnyApi(networkHelper);
@@ -120,7 +120,7 @@ export class TransactionApi {
         TRANSACTION_API_MAP.set(voteApi.GENERATE_API_PATH, voteApi);
         TRANSACTION_API_MAP.set(issueAssetApi.GENERATE_API_PATH, issueAssetApi);
         TRANSACTION_API_MAP.set(transferAssetApi.GENERATE_API_PATH, transferAssetApi);
-        TRANSACTION_API_MAP.set(destoryAssetApi.GENERATE_API_PATH, destoryAssetApi);
+        TRANSACTION_API_MAP.set(destroyAssetApi.GENERATE_API_PATH, destroyAssetApi);
         TRANSACTION_API_MAP.set(giftAssetApi.GENERATE_API_PATH, giftAssetApi);
         TRANSACTION_API_MAP.set(grabAssetApi.GENERATE_API_PATH, grabAssetApi);
         TRANSACTION_API_MAP.set(trustAssetApi.GENERATE_API_PATH, trustAssetApi);
@@ -138,7 +138,7 @@ export class TransactionApi {
         TRANSACTION_API_MAP.set(issueEntityFactoryApi.GENERATE_API_PATH, issueEntityFactoryApi);
         TRANSACTION_API_MAP.set(issueEntityFactoryV1Api.GENERATE_API_PATH, issueEntityFactoryV1Api);
         TRANSACTION_API_MAP.set(issueEntityApi.GENERATE_API_PATH, issueEntityApi);
-        TRANSACTION_API_MAP.set(destoryEntityApi.GENERATE_API_PATH, destoryEntityApi);
+        TRANSACTION_API_MAP.set(destroyEntityApi.GENERATE_API_PATH, destroyEntityApi);
         TRANSACTION_API_MAP.set(toExchangeAnyApi.GENERATE_API_PATH, toExchangeAnyApi);
         TRANSACTION_API_MAP.set(beExchangeAnyApi.GENERATE_API_PATH, beExchangeAnyApi);
         TRANSACTION_API_MAP.set(transferAnyApi.GENERATE_API_PATH, transferAnyApi);
@@ -352,20 +352,20 @@ export class TransactionApi {
     }
 
     /**创建权益销毁事件 */
-    async createDestoryAsset(argv: BFMetaNodeSDK.Transaction.DestoryAssetTransactionParams) {
-        const api = this.__getTransactionApi<BFMetaNodeSDK.Transaction.DestoryAssetApi>(GENERATE_TRANSACTION_API_PATH.TR_DESTORY_ASSET);
+    async createDestroyAsset(argv: BFMetaNodeSDK.Transaction.DestroyAssetTransactionParams) {
+        const api = this.__getTransactionApi<BFMetaNodeSDK.Transaction.DestroyAssetApi>(GENERATE_TRANSACTION_API_PATH.TR_DESTROY_ASSET);
         const result = await api.createTransaction(argv);
         return result;
     }
     /**创建并发送权益销毁事件 */
-    async packageDestoryAsset(argv: BFMetaNodeSDK.Transaction.PackageTransacationParams) {
-        const api = this.__getTransactionApi<BFMetaNodeSDK.Transaction.DestoryAssetApi>(GENERATE_TRANSACTION_API_PATH.TR_DESTORY_ASSET);
+    async packageDestroyAsset(argv: BFMetaNodeSDK.Transaction.PackageTransacationParams) {
+        const api = this.__getTransactionApi<BFMetaNodeSDK.Transaction.DestroyAssetApi>(GENERATE_TRANSACTION_API_PATH.TR_DESTROY_ASSET);
         const result = await api.packageTransaction(argv);
         return result;
     }
     /**发送权益销毁事件 */
-    async broadcastDestoryAsset<T>(argv: BFMetaNodeSDK.Transaction.BroadcastTransacationParams) {
-        const api = this.__getTransactionApi<BFMetaNodeSDK.Transaction.DestoryAssetApi>(GENERATE_TRANSACTION_API_PATH.TR_DESTORY_ASSET);
+    async broadcastDestroyAsset<T>(argv: BFMetaNodeSDK.Transaction.BroadcastTransacationParams) {
+        const api = this.__getTransactionApi<BFMetaNodeSDK.Transaction.DestroyAssetApi>(GENERATE_TRANSACTION_API_PATH.TR_DESTROY_ASSET);
         const result = await api.broadcastTransaction<T>(argv);
         return result;
     }
@@ -694,20 +694,20 @@ export class TransactionApi {
     }
 
     /**创建销毁非同质权益事件 */
-    async createDestoryEntity(argv: BFMetaNodeSDK.Transaction.DestoryEntityTransactionParams) {
-        const api = this.__getTransactionApi<BFMetaNodeSDK.Transaction.DestoryEntityApi>(GENERATE_TRANSACTION_API_PATH.TR_DESTORY_ENTITY);
+    async createDestroyEntity(argv: BFMetaNodeSDK.Transaction.DestroyEntityTransactionParams) {
+        const api = this.__getTransactionApi<BFMetaNodeSDK.Transaction.DestroyEntityApi>(GENERATE_TRANSACTION_API_PATH.TR_DESTROY_ENTITY);
         const result = await api.createTransaction(argv);
         return result;
     }
     /**创建并发送销毁非同质权益事件 */
-    async packageDestoryEntity(argv: BFMetaNodeSDK.Transaction.PackageTransacationParams) {
-        const api = this.__getTransactionApi<BFMetaNodeSDK.Transaction.DestoryEntityApi>(GENERATE_TRANSACTION_API_PATH.TR_DESTORY_ENTITY);
+    async packageDestroyEntity(argv: BFMetaNodeSDK.Transaction.PackageTransacationParams) {
+        const api = this.__getTransactionApi<BFMetaNodeSDK.Transaction.DestroyEntityApi>(GENERATE_TRANSACTION_API_PATH.TR_DESTROY_ENTITY);
         const result = await api.packageTransaction(argv);
         return result;
     }
     /**发送销毁非同质权益事件 */
-    async broadcastDestoryEntity<T>(argv: BFMetaNodeSDK.Transaction.BroadcastTransacationParams) {
-        const api = this.__getTransactionApi<BFMetaNodeSDK.Transaction.DestoryEntityApi>(GENERATE_TRANSACTION_API_PATH.TR_DESTORY_ENTITY);
+    async broadcastDestroyEntity<T>(argv: BFMetaNodeSDK.Transaction.BroadcastTransacationParams) {
+        const api = this.__getTransactionApi<BFMetaNodeSDK.Transaction.DestroyEntityApi>(GENERATE_TRANSACTION_API_PATH.TR_DESTROY_ENTITY);
         const result = await api.broadcastTransaction<T>(argv);
         return result;
     }

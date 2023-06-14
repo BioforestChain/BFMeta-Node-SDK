@@ -3,6 +3,7 @@ import * as io from "socket.io-client";
 import { sleep } from "../../helpers/baseUtil";
 
 import { maxOneFileSize, REQUEST_PROTOCOL } from "../../constants";
+import { PromiseOut } from "../../helpers/promiseOut";
 
 export class WebsocketHelper {
     private __configHelper: ApiConfigHelper;
@@ -32,6 +33,7 @@ export class WebsocketHelper {
 
     private __socketMap = new Map<string, SocketIOClient.Socket>();
 
+    private __initPromise = new PromiseOut<void>();
     private async __init() {
         while (true) {
             try {
@@ -53,6 +55,7 @@ export class WebsocketHelper {
                     }
                 }
                 await Promise.all(taskList);
+                this.__initPromise.resolve();
             } catch (error) {
             } finally {
                 await sleep(30 * 1000);
@@ -75,6 +78,7 @@ export class WebsocketHelper {
             socket.on("connect", () => {
                 console.debug(`connected to ${url}`);
                 this.__socketMap.set(url, socket);
+                this.__initPromise.resolve();
                 return resolve(socket);
             });
             socket.on("connect_error", (data: any) => {
@@ -126,6 +130,7 @@ export class WebsocketHelper {
                     clearTimeout(timeoutId);
                     reject(new Error(`request timeout ${url}`));
                 }, this.__config.requestTimeOut);
+                await this.__initPromise.promise;
                 const socket = this.getSocket();
                 if (!socket) {
                     return reject(new Error(`no nodes available`));
@@ -149,6 +154,7 @@ export class WebsocketHelper {
                     clearTimeout(timeoutId);
                     reject(new Error(`request timeout ${url}`));
                 }, this.__config.requestTimeOut);
+                await this.__initPromise.promise;
                 const socket = this.getSocket();
                 if (!socket) {
                     return reject(new Error(`no nodes available`));

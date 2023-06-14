@@ -87,8 +87,8 @@
         "api/atom_api/transactions/atom_transaction/dappApi.ts",
         "api/atom_api/transactions/atom_transaction/dappPurchasingApi.ts",
         "api/atom_api/transactions/atom_transaction/delegateApi.ts",
-        "api/atom_api/transactions/atom_transaction/destoryAssetApi.ts",
-        "api/atom_api/transactions/atom_transaction/destoryEntityApi.ts",
+        "api/atom_api/transactions/atom_transaction/destroyAssetApi.ts",
+        "api/atom_api/transactions/atom_transaction/destroyEntityApi.ts",
         "api/atom_api/transactions/atom_transaction/emigrateAssetApi.ts",
         "api/atom_api/transactions/atom_transaction/giftAnyApi.ts",
         "api/atom_api/transactions/atom_transaction/giftAssetApi.ts",
@@ -154,6 +154,7 @@
         "helpers/apiConfigHelper.ts",
         "helpers/baseUtil.ts",
         "helpers/index.ts",
+        "helpers/promiseOut.ts",
         "helpers/requestParameterParser.ts",
         "index.ts",
         "sdk.ts"

@@ -141,7 +141,7 @@ declare namespace BFMetaNodeSDK {
             /**转移的权益数量，0-9 组成并且不包含小数点，必须大于 0 */
             amount: string;
         }
-        interface DestoryAssetTransactionParams extends TransactionCommonParamsWithRecipientId {
+        interface DestroyAssetTransactionParams extends TransactionCommonParamsWithRecipientId {
             /**销毁的权益名，大写字母组成，3-5 个字符 */
             assetType: string;
             /**销毁的权益数，0-9 组成并且不包含小数点，必须大于 0 */
@@ -421,7 +421,7 @@ declare namespace BFMetaNodeSDK {
             /**不包含非同质权益模板的非同质权益，3-30 个字符，小写字母或数字组成 */
             entityId: string;
         }
-        interface DestoryEntityTransactionParams extends TransactionCommonParamsWithRecipientId {
+        interface DestroyEntityTransactionParams extends TransactionCommonParamsWithRecipientId {
             /**要销毁的非同质权益发行事件的唯一标识符 */
             transactionSignature: string;
             /**要销毁的非同质权益 */
@@ -747,7 +747,7 @@ declare namespace BFMetaNodeSDK {
 
         type IssueAssetApi = import("./atom_transaction").IssueAssetApi;
         type TransferAssetApi = import("./atom_transaction").TransferAssetApi;
-        type DestoryAssetApi = import("./atom_transaction").DestoryAssetApi;
+        type DestroyAssetApi = import("./atom_transaction").DestroyAssetApi;
         type GiftAssetApi = import("./atom_transaction").GiftAssetApi;
         type GrabAssetApi = import("./atom_transaction").GrabAssetApi;
         type TrustAssetApi = import("./atom_transaction").TrustAssetApi;
@@ -767,7 +767,7 @@ declare namespace BFMetaNodeSDK {
         type IssueEntityFactoryApi = import("./atom_transaction").IssueEntityFactoryApi;
         type IssueEntityFactoryV1Api = import("./atom_transaction").IssueEntityFactoryV1Api;
         type IssueEntityApi = import("./atom_transaction").IssueEntityApi;
-        type DestoryEntityApi = import("./atom_transaction").DestoryEntityApi;
+        type DestroyEntityApi = import("./atom_transaction").DestroyEntityApi;
 
         type ToExchangeAnyApi = import("./atom_transaction").ToExchangeAnyApi;
         type BeExchangeAnyApi = import("./atom_transaction").BeExchangeAnyApi;

@@ -9,7 +9,7 @@ export * from "./voteApi";
 
 export * from "./issueAssetApi";
 export * from "./transferAssetApi";
-export * from "./destoryAssetApi";
+export * from "./destroyAssetApi";
 export * from "./giftAssetApi";
 export * from "./grabAsset";
 export * from "./trustAssetApi";
@@ -29,7 +29,7 @@ export * from "./beExchangeSpecialAssetApi";
 export * from "./issueEntityFactoryApi";
 export * from "./issueEntityFactoryV1Api";
 export * from "./issueEntityApi";
-export * from "./destoryEntityApi";
+export * from "./destroyEntityApi";
 
 export * from "./transferAnyApi";
 export * from "./giftAnyApi";
