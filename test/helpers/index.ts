@@ -27,6 +27,8 @@ export const enum PARENT_ASSET_TYPE {
     ENTITY = 3,
     /**资产类型: 权益 */
     ASSETS = 5,
+    /**资产类型: 凭证 */
+    CERTIFICATE = 6,
 }
 
 export const enum GIFT_DISTRIBUTION_RULE {
@@ -75,4 +77,13 @@ export const enum LOCATION_NAME_OPERATION_TYPE {
     REGISTRATION,
     /**注销 */
     CANCELLATION,
+}
+
+export const enum CERTIFICATE_TYPE {
+    /**禁止销毁 */
+    DESTROY_FORBIDDEN = 0,
+    /**发行者销毁 */
+    DESTROY_BY_APPLICANT = 1,
+    /**拥有者销毁 */
+    DESTROY_BY_POSSESSOR = 2,
 }

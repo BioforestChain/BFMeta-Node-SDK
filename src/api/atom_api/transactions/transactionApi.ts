@@ -38,6 +38,8 @@ import {
     RegisterChainApi,
     EmigrateAssetApi,
     ImmigrateAssetApi,
+    IssueCertificateApi,
+    DestroyCertificateApi,
 } from "./atom_transaction";
 import { GenerateMigrateCertificateApi, FromAuthSignatureMigrateCertificateApi, ToAuthSignatureMigrateCertificateApi } from "./migrate_certificate";
 import {
@@ -110,6 +112,8 @@ export class TransactionApi {
         const registerChainApi = new RegisterChainApi(networkHelper);
         const emigrateAssetApi = new EmigrateAssetApi(networkHelper);
         const immigrateAssetApi = new ImmigrateAssetApi(networkHelper);
+        const issueCertificateApi = new IssueCertificateApi(networkHelper);
+        const destroyCertificateApi = new DestroyCertificateApi(networkHelper);
 
         TRANSACTION_API_MAP.set(commonTransactionApi.GENERATE_API_PATH, commonTransactionApi);
         TRANSACTION_API_MAP.set(usernameApi.GENERATE_API_PATH, usernameApi);
@@ -150,6 +154,8 @@ export class TransactionApi {
         TRANSACTION_API_MAP.set(registerChainApi.GENERATE_API_PATH, registerChainApi);
         TRANSACTION_API_MAP.set(emigrateAssetApi.GENERATE_API_PATH, emigrateAssetApi);
         TRANSACTION_API_MAP.set(immigrateAssetApi.GENERATE_API_PATH, immigrateAssetApi);
+        TRANSACTION_API_MAP.set(issueCertificateApi.GENERATE_API_PATH, issueCertificateApi);
+        TRANSACTION_API_MAP.set(destroyCertificateApi.GENERATE_API_PATH, destroyCertificateApi);
 
         Object.freeze(TRANSACTION_API_MAP);
 
@@ -920,10 +926,50 @@ export class TransactionApi {
         const result = await api.broadcastTransaction<T>(argv);
         return result;
     }
+
+    /**创建发行凭证事件 */
+    async createIssueCertificate(argv: BFMetaNodeSDK.Transaction.IssueCertificateTransactionParams) {
+        const api = this.__getTransactionApi<BFMetaNodeSDK.Transaction.IssueCertificateApi>(GENERATE_TRANSACTION_API_PATH.TR_ISSUE_CERTIFICATE);
+        const result = await api.createTransaction(argv);
+        return result;
+    }
+    /**创建并发送发行凭证事件 */
+    async packageIssueCertificate(argv: BFMetaNodeSDK.Transaction.PackageTransacationParams) {
+        const api = this.__getTransactionApi<BFMetaNodeSDK.Transaction.IssueCertificateApi>(GENERATE_TRANSACTION_API_PATH.TR_ISSUE_CERTIFICATE);
+        const result = await api.packageTransaction(argv);
+        return result;
+    }
+    /**发送发行凭证事件 */
+    async broadcastIssueCertificate<T>(argv: BFMetaNodeSDK.Transaction.BroadcastTransacationParams) {
+        const api = this.__getTransactionApi<BFMetaNodeSDK.Transaction.IssueCertificateApi>(GENERATE_TRANSACTION_API_PATH.TR_ISSUE_CERTIFICATE);
+        const result = await api.broadcastTransaction<T>(argv);
+        return result;
+    }
+
+    /**创建销毁凭证事件 */
+    async createDestroyCertificate(argv: BFMetaNodeSDK.Transaction.DestroyCertificateTransactionParams) {
+        const api = this.__getTransactionApi<BFMetaNodeSDK.Transaction.DestroyCertificateApi>(GENERATE_TRANSACTION_API_PATH.TR_DESTROY_CERTIFICATE);
+        const result = await api.createTransaction(argv);
+        return result;
+    }
+    /**创建并发送销毁凭证事件 */
+    async packageDestroyCertificate(argv: BFMetaNodeSDK.Transaction.PackageTransacationParams) {
+        const api = this.__getTransactionApi<BFMetaNodeSDK.Transaction.DestroyCertificateApi>(GENERATE_TRANSACTION_API_PATH.TR_DESTROY_CERTIFICATE);
+        const result = await api.packageTransaction(argv);
+        return result;
+    }
+    /**发送销毁凭证事件 */
+    async broadcastDestroyCertificate<T>(argv: BFMetaNodeSDK.Transaction.BroadcastTransacationParams) {
+        const api = this.__getTransactionApi<BFMetaNodeSDK.Transaction.DestroyCertificateApi>(GENERATE_TRANSACTION_API_PATH.TR_DESTROY_CERTIFICATE);
+        const result = await api.broadcastTransaction<T>(argv);
+        return result;
+    }
     // #endregion
 
     // #region migrateCertificate
-    private __getMigrateCertificateApi<T extends BFMetaNodeSDK.CrossChain.MigrateCertificateApi>(apiPath: BFMetaNodeSDK.CrossChain.MIGRATE_CERTIFICATE_API_PATH) {
+    private __getMigrateCertificateApi<T extends BFMetaNodeSDK.CrossChain.MigrateCertificateApi>(
+        apiPath: BFMetaNodeSDK.CrossChain.MIGRATE_CERTIFICATE_API_PATH
+    ) {
         return this.__MIGRATE_CERTIFICATE_API_MAP.get(apiPath) as T;
     }
 

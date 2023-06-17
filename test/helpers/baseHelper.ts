@@ -33,3 +33,29 @@ export const CHAIN_INFO = {
     chainAssetType: "BFMTEST",
     chainMagic: "YC4CN",
 };
+
+function getWrods() {
+    let words = "-_";
+    for (let i = 0; i < 10; i++) {
+        words += i;
+    }
+    const buf1 = Buffer.allocUnsafe(26);
+    const buf2 = Buffer.allocUnsafe(26);
+    for (let i = 0; i < 26; i++) {
+        buf1[i] = i + 97;
+        buf2[i] = i + 65;
+    }
+    words += buf1.toString("ascii") + buf2.toString("ascii");
+    return words;
+}
+
+export function getRandomCertificateId(onChainHeight?: number, len?: number) {
+    const suffixLen = len || Math.ceil(Math.random() * 100);
+    const prefix = onChainHeight || Math.ceil(Math.random() * 10 ** 8);
+    const words = getWrods();
+    let suffix = "";
+    for (let i = 0; i < suffixLen; i++) {
+        suffix += words[Math.floor(Math.random() * words.length)];
+    }
+    return `${prefix}:${suffix}`;
+}

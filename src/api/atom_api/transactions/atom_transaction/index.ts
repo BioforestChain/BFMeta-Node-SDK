@@ -45,3 +45,6 @@ export * from "./beExchangeAnyMultiApi";
 export * from "./registerChainApi";
 export * from "./emigrateAssetApi";
 export * from "./immigrateAssetApi";
+
+export * from "./issueCertificateApi";
+export * from "./destroyCertificateApi";

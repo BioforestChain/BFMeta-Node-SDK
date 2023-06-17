@@ -231,6 +231,11 @@ export const enum GENERATE_TRANSACTION_API_PATH {
     TR_EMIGRATE_ASSET = "/generate/emigrateAsset",
     /**创建权益迁入交易 */
     TR_IMMIGRATE_ASSET = "/generate/immigrateAsset",
+
+    /**创建发行凭证交易 */
+    TR_ISSUE_CERTIFICATE = "/generate/issueCertificate",
+    /**创建销毁交易 */
+    TR_DESTROY_CERTIFICATE = "/generate/destroyCertificate",
 }
 
 export const enum MIGRATE_CERTIFICATE_API_PATH {
