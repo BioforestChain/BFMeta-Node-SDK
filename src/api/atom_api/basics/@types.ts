@@ -315,8 +315,6 @@ declare namespace BFMetaNodeSDK {
             /**二进制的存储key值 */
             key: string;
         }
-        /**获取事件每字节最低手续费 */
-        interface GetTransactionMinFeePerByteParams extends BasicApiRequestParams {}
         // #endregion
 
         // #region response

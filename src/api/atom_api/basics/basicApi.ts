@@ -153,9 +153,9 @@ export class BasicApi {
     }
 
     /**获取交易的每字节最低手续费 */
-    async getTransactionMinFeePerByte(argv: BFMetaNodeSDK.Basic.GetTransactionMinFeePerByteParams) {
+    async getTransactionMinFeePerByte() {
         const api = this.__getBasicApi<BFMetaNodeSDK.Basic.GetTransactionMinFeePerByteApi>(BASIC_API_PATH.BASIC_GET_TRANSACTION_MIN_FEE_PER_BYTE);
-        const result = await api.sendPostRequest(argv);
+        const result = await api.sendGetRequest();
         return result;
     }
     // #endregion
