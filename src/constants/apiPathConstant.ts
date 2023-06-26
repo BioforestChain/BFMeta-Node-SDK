@@ -26,6 +26,8 @@ export const enum BASIC_API_PATH {
     BASIC_GET_NODE_VERSION = "/nodeVersion",
     /**获取区块链版本号 */
     BASIC_GET_BLOCK_CHAIN_STATUS = "/getBlockChainStatus",
+    /**获取交易的每字节最低手续费 */
+    BASIC_GET_TRANSACTION_MIN_FEE_PER_BYTE = "/getTransactionMinFeePerByte",
 
     /**获取随机主密码 */
     BASIC_GENERATE_SECRET = "/generateSecret",

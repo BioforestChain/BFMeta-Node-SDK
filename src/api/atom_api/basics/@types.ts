@@ -315,6 +315,8 @@ declare namespace BFMetaNodeSDK {
             /**二进制的存储key值 */
             key: string;
         }
+        /**获取事件每字节最低手续费 */
+        interface GetTransactionMinFeePerByteParams extends BasicApiRequestParams {}
         // #endregion
 
         // #region response
@@ -394,6 +396,10 @@ declare namespace BFMetaNodeSDK {
         interface GetKVStorageResult extends BasicApiRequestResult {
             data: Uint8Array;
         }
+        /**获取事件每字节最低手续费 */
+        interface GetTransactionMinFeePerByteResult extends BasicApiRequestResult {
+            minFeePerByte: BFMetaNodeSDK.Common.FractionJSON<number>;
+        }
         // #endregion
 
         interface BasicApiSuccessReturn<T extends BasicApiRequestResult> extends BFMetaNodeSDK.ApiSuccessReturn<T> {
@@ -418,5 +424,6 @@ declare namespace BFMetaNodeSDK {
         type GetAccountLastTypeTransactionApi = import("./apis").GetAccountLastTypeTransactionApi;
         type SetKVStorageTempApi = import("./apis").SetKVStorageTempApi;
         type GetKVStorageApi = import("./apis").GetKVStorageApi;
+        type GetTransactionMinFeePerByteApi = import("./apis").GetTransactionMinFeePerByteApi;
     }
 }

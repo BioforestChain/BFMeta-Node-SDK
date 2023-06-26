@@ -20,6 +20,7 @@
         "api/atom_api/basics/apis/getKVStorageApi.ts",
         "api/atom_api/basics/apis/getLastBlockApi.ts",
         "api/atom_api/basics/apis/getNodeVersionApi.ts",
+        "api/atom_api/basics/apis/getTransactionMinFeePerByteApi.ts",
         "api/atom_api/basics/apis/getTransactionsApi.ts",
         "api/atom_api/basics/apis/getTransactionTypeApi.ts",
         "api/atom_api/basics/apis/index.ts",

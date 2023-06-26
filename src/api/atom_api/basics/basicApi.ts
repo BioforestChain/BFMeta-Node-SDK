@@ -13,6 +13,7 @@ import {
     GetAccountLastTypeTransactionApi,
     SetKVStorageTempApi,
     GetKVStorageApi,
+    GetTransactionMinFeePerByteApi,
 } from "./apis";
 import { BASIC_API_PATH } from "../../../constants";
 
@@ -40,6 +41,7 @@ export class BasicApi {
         const getAccountLastTypeTransactionApi = new GetAccountLastTypeTransactionApi(networkHelper);
         const setKVStorageTempApi = new SetKVStorageTempApi(networkHelper);
         const getKVStorageApi = new GetKVStorageApi(networkHelper);
+        const getTransactionMinFeePerByteApi = new GetTransactionMinFeePerByteApi(networkHelper);
 
         BASIC_API_MAP.set(getBlockApi.REQUEST_API_PATH, getBlockApi);
         BASIC_API_MAP.set(getLastBlockApi.REQUEST_API_PATH, getLastBlockApi);
@@ -55,6 +57,7 @@ export class BasicApi {
         BASIC_API_MAP.set(getAccountLastTypeTransactionApi.REQUEST_API_PATH, getAccountLastTypeTransactionApi);
         BASIC_API_MAP.set(setKVStorageTempApi.REQUEST_API_PATH, setKVStorageTempApi);
         BASIC_API_MAP.set(getKVStorageApi.REQUEST_API_PATH, getKVStorageApi);
+        BASIC_API_MAP.set(getTransactionMinFeePerByteApi.REQUEST_API_PATH, getTransactionMinFeePerByteApi);
 
         Object.freeze(BASIC_API_MAP);
     }
@@ -145,6 +148,13 @@ export class BasicApi {
     /**获取KV二进制数据 */
     async getKVStorage(argv: BFMetaNodeSDK.Basic.GetKVStorageParams) {
         const api = this.__getBasicApi<BFMetaNodeSDK.Basic.GetKVStorageApi>(BASIC_API_PATH.GET_KVSTORAGE);
+        const result = await api.sendPostRequest(argv);
+        return result;
+    }
+
+    /**获取交易的每字节最低手续费 */
+    async getTransactionMinFeePerByte(argv: BFMetaNodeSDK.Basic.GetTransactionMinFeePerByteParams) {
+        const api = this.__getBasicApi<BFMetaNodeSDK.Basic.GetTransactionMinFeePerByteApi>(BASIC_API_PATH.BASIC_GET_TRANSACTION_MIN_FEE_PER_BYTE);
         const result = await api.sendPostRequest(argv);
         return result;
     }

@@ -13,3 +13,4 @@ export * from "./getAccountLastTransactionApi";
 export * from "./getAccountLastTypeTransactionApi";
 export * from "./setKVStorageTempApi";
 export * from "./getKVStorageApi";
+export * from "./getTransactionMinFeePerByteApi";
