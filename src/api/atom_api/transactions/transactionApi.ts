@@ -877,7 +877,7 @@ export class TransactionApi {
     }
 
     /**创建批量全量任意资产交换事件 */
-    async createToExchangeAnyAllMulti(argv: BFMetaNodeSDK.Transaction.ToExchangeAnyMultiAllTransactionParams) {
+    async createToExchangeAnyMultiAll(argv: BFMetaNodeSDK.Transaction.ToExchangeAnyMultiAllTransactionParams) {
         const api = this.__getTransactionApi<BFMetaNodeSDK.Transaction.ToExchangeAnyMultiAllApi>(GENERATE_TRANSACTION_API_PATH.TR_TO_EXCHANGE_ANY_MULTI_ALL);
         const result = await api.createTransaction(argv);
         return result;

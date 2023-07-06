@@ -39,7 +39,7 @@ import { ASSET_INFO, bfmetaSDK, CHAIN_INFO, PARENT_ASSET_TYPE } from "../helpers
 
         const sdk = bfmetaSDK;
 
-        const createResult = await sdk.api.transaction.createToExchangeAnyAllMulti(argv);
+        const createResult = await sdk.api.transaction.createToExchangeAnyMultiAll(argv);
         if (createResult.success) {
             console.log(createResult);
             const buffer = createResult.result.buffer;
