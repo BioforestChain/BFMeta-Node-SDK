@@ -33,6 +33,11 @@ export const CHAIN_INFO = {
     chainAssetType: "BFMTEST",
     chainMagic: "YC4CN",
 };
+export const ASSET_INFO = {
+    chainName: "bfmetatest",
+    assetType: "PMC",
+    chainMagic: "YC4CN",
+};
 
 function getWrods() {
     let words = "-_";

@@ -126,7 +126,7 @@ declare namespace BFMetaNodeSDK {
         }
 
         interface IssueAssetTransactionParams extends TransactionCommonParamsWithRecipientId {
-            /**发行的权益名，大写字母组成，3-5 个字符 */
+            /**发行的权益名，大写字母组成，3-10 个字符 */
             assetType: string;
             /**发行的新权益总数，权益数量由0-9共十个数字组成，权益数量不包含小数点且必须大于0 */
             expectedIssuedAssets: string;
@@ -134,15 +134,15 @@ declare namespace BFMetaNodeSDK {
         interface TransferAssetTransactionParams extends TransactionCommonParamsWithRecipientId {
             /**转移的权益所属链网络标识符，大写字母或数字组成，5 个字符，最后一位是校验位 */
             sourceChainMagic?: string;
-            /**转移的权益所属链名，小写字母组成，3-8 位 */
+            /**转移的权益所属链名，小写字母组成，5-20 位 */
             sourceChainName?: string;
-            /**转移的权益类型，大写字母组成，3-5 个字符 */
+            /**转移的权益类型，大写字母组成，3-10 个字符 */
             assetType?: string;
             /**转移的权益数量，0-9 组成并且不包含小数点，必须大于 0 */
             amount: string;
         }
         interface DestroyAssetTransactionParams extends TransactionCommonParamsWithRecipientId {
-            /**销毁的权益名，大写字母组成，3-5 个字符 */
+            /**销毁的权益名，大写字母组成，3-10 个字符 */
             assetType: string;
             /**销毁的权益数，0-9 组成并且不包含小数点，必须大于 0 */
             amount: string;
@@ -160,9 +160,9 @@ declare namespace BFMetaNodeSDK {
         interface GiftAssetTransactionParams extends TransactionCommonParams {
             /**赠送的权益所属链网络标识符，大写字母或数字组成，5 个字符，最后一位是校验位 */
             sourceChainMagic?: string;
-            /**赠送的权益所属链名，小写字母组成，3-8 位 */
+            /**赠送的权益所属链名，小写字母组成，5-20 位 */
             sourceChainName?: string;
-            /**赠送的权益类型，大写字母组成，3-5 个字符 */
+            /**赠送的权益类型，大写字母组成，3-10 个字符 */
             assetType?: string;
             /**赠送的权益数量，0-9 组成并且不包含小数点，必须大于 0 */
             amount: string;
@@ -194,7 +194,7 @@ declare namespace BFMetaNodeSDK {
                 sourceChainName: string;
                 /**赠送的权益所属链网络标识符，大写字母或数字组成，5 个字符，最后一位是校验位 */
                 sourceChainMagic: string;
-                /**赠送的权益名称，大写字母组成，3-8 个字符 */
+                /**赠送的权益名称，大写字母组成，5-20 个字符 */
                 assetType: string;
                 /**赠送的权益数量，0-9 组成并且不包含小数点，必须大于0 */
                 amount: string;
@@ -209,9 +209,9 @@ declare namespace BFMetaNodeSDK {
         interface TrustAssetTransactionParams extends TransactionCommonParamsWithRecipientId {
             /**委托权益所属链网络标识符，大写字母或数字组成，5 个字符，最后一位是校验位 */
             sourceChainMagic?: string;
-            /**委托权益所属链名，小写字母组成，3-8 位 */
+            /**委托权益所属链名，小写字母组成，5-20 位 */
             sourceChainName?: string;
-            /**委托权益类型，大写字母组成，3-5 个字符 */
+            /**委托权益类型，大写字母组成，3-10 个字符 */
             assetType?: string;
             /**委托的权益数量，0-9 组成并且不包含小数点，必须大于 0 */
             amount: string;
@@ -235,7 +235,7 @@ declare namespace BFMetaNodeSDK {
                 sourceChainName: string;
                 /**见证的权益所属链网络标识符，大写字母或数字组成，5 个字符，最后一位是校验位 */
                 sourceChainMagic: string;
-                /**见证的权益名称，大写字母组成，3-8 个字符 */
+                /**见证的权益名称，大写字母组成，5-20 个字符 */
                 assetType: string;
                 /**见证的权益数量，0-9 组成并且不包含小数点，必须大于0 */
                 amount: string;
@@ -250,9 +250,9 @@ declare namespace BFMetaNodeSDK {
             toExchangeChainName: string;
             /**被交换的权益来源链名，小写字母组成，5-10 位 */
             beExchangeChainName: string;
-            /**用于交换的权益名，大写字母组成，3-8 个字符 */
+            /**用于交换的权益名，大写字母组成，5-20 个字符 */
             toExchangeAsset: string;
-            /**被交换的权益名，大写字母组成，3-8 个字符 */
+            /**被交换的权益名，大写字母组成，5-20 个字符 */
             beExchangeAsset: string;
             /**用于交换的权益数量，0-9 组成并且不包含小数点，必须大于 0 */
             toExchangeNumber: string;
@@ -292,9 +292,9 @@ declare namespace BFMetaNodeSDK {
                 toExchangeChainName: string;
                 /**被交换的权益来源链名，小写字母组成，5-10 位 */
                 beExchangeChainName: string;
-                /**用于交换的权益名，大写字母组成，3-8 个字符 */
+                /**用于交换的权益名，大写字母组成，5-20 个字符 */
                 toExchangeAsset: string;
-                /**被交换的权益名，大写字母组成，3-8 个字符 */
+                /**被交换的权益名，大写字母组成，5-20 个字符 */
                 beExchangeAsset: string;
                 /**用于交换的权益数量，0-9 组成并且不包含小数点，必须大于 0 */
                 toExchangeNumber: string;
@@ -391,9 +391,9 @@ declare namespace BFMetaNodeSDK {
                 toExchangeChainName: string;
                 /**被交换的资产/权益来源链名，小写字母组成，5-10 位 */
                 beExchangeChainName: string;
-                /**用于交换的权益/资产名，大写字母组成，3-8 个字符 */
+                /**用于交换的权益/资产名，大写字母组成，5-20 个字符 */
                 toExchangeAsset: string;
-                /**被交换的资产/权益名，大写字母组成，3-8 个字符 */
+                /**被交换的资产/权益名，大写字母组成，5-20 个字符 */
                 beExchangeAsset: string;
                 /**用于交换或交换得到的权益数量，权益数量由0-9共十个数字组成，权益数量不包含小数点且必须大于0 */
                 exchangeNumber: string;
@@ -452,7 +452,7 @@ declare namespace BFMetaNodeSDK {
         interface ToExchangeAnyTransactionParams extends TransactionCommonParamsWithoutRecipientId {
             /**用于交换的资产/权益来源链网络标识符，大写字母或数字组成，5 个字符，最后一位是校验位 */
             toExchangeSource?: string;
-            /**用于交换的资产/权益来源链名，小写字母组成，3-8 位 */
+            /**用于交换的资产/权益来源链名，小写字母组成，5-20 位 */
             toExchangeChainName?: string;
             /**用于交换的资产所属类型，1 dappid，2 位名 3 entityId 4 权益 5 */
             toExchangeParentAssetType: number;
@@ -462,7 +462,7 @@ declare namespace BFMetaNodeSDK {
             toExchangeAssetPrealnum: string;
             /**被交换的资产/权益来源链网络标识符，大写字母或数字组成，5个字符，最后一位是校验位 */
             beExchangeSource?: string;
-            /**被交换的资产/权益来源链名，小写字母组成，3-8 位 */
+            /**被交换的资产/权益来源链名，小写字母组成，5-20 位 */
             beExchangeChainName?: string;
             /**被交换的资产所属类型，1 dappid，2 位名 3 entityId 4 权益 5 */
             beExchangeParentAssetType: number;
@@ -494,9 +494,9 @@ declare namespace BFMetaNodeSDK {
                 toExchangeSource?: string;
                 /**被交换的资产来源链网络标识符，大写字母或数字组成，5 个字符，最后一位是校验位 */
                 beExchangeSource?: string;
-                /**用于交换的资产来源链名，小写字母组成，3-8 位 */
+                /**用于交换的资产来源链名，小写字母组成，5-20 位 */
                 toExchangeChainName?: string;
-                /**被交换的资产来源链名，小写字母组成，3-8 位 */
+                /**被交换的资产来源链名，小写字母组成，5-20 位 */
                 beExchangeChainName?: string;
                 /**用于交换的资产所属大类 */
                 toExchangeParentAssetType: number;
@@ -520,11 +520,11 @@ declare namespace BFMetaNodeSDK {
         interface TransferAnyTransactionParams extends TransactionCommonParamsWithRecipientId {
             /**转移的资产所属链网络标识符，大写字母或数字组成，5 个字符，最后一位是校验位 */
             sourceChainMagic?: string;
-            /**转移的资产所属链名，小写字母组成，3-8 位 */
+            /**转移的资产所属链名，小写字母组成，5-20 位 */
             sourceChainName?: string;
             /**转移的资产所属类型 */
             parentAssetType: number;
-            /**转移的资产类型，大写字母组成，3-5 个字符 */
+            /**转移的资产类型，大写字母组成，3-10 个字符 */
             assetType: string;
             /**转移的资产数量，0-9 组成并且不包含小数点，必须大于 0 */
             amount: string;
@@ -535,11 +535,11 @@ declare namespace BFMetaNodeSDK {
         interface GiftAnyTransactionParams extends TransactionCommonParams {
             /**赠送的资产所属链网络标识符，大写字母或数字组成，5 个字符，最后一位是校验位 */
             sourceChainMagic?: string;
-            /**赠送的资产所属链名，小写字母组成，3-8 位 */
+            /**赠送的资产所属链名，小写字母组成，5-20 位 */
             sourceChainName?: string;
             /**赠送的资产所属类型 */
             parentAssetType: number;
-            /**赠送的资产类型，大写字母组成，3-5 个字符 */
+            /**赠送的资产类型，大写字母组成，3-10 个字符 */
             assetType: string;
             /**赠送的资产数量，0-9 组成并且不包含小数点，必须大于 0 */
             amount: string;
@@ -575,7 +575,7 @@ declare namespace BFMetaNodeSDK {
                 sourceChainMagic: string;
                 /**转移的资产所属类型，1 dappid，2 位名 3 entityId 4 权益 */
                 parentAssetType: number;
-                /**赠送的权益名称，大写字母组成，3-8 个字符 */
+                /**赠送的权益名称，大写字母组成，5-20 个字符 */
                 assetType: string;
                 /**赠送的权益数量，0-9 组成并且不包含小数点，必须大于0 */
                 amount: string;
@@ -609,7 +609,7 @@ declare namespace BFMetaNodeSDK {
             toExchangeAssets: {
                 /**用于交换的资产/权益来源链网络标识符，大写字母或数字组成，5 个字符，最后一位是校验位 */
                 toExchangeSource?: string;
-                /**用于交换的资产/权益来源链名，小写字母组成，3-8 位 */
+                /**用于交换的资产/权益来源链名，小写字母组成，5-20 位 */
                 toExchangeChainName?: string;
                 /**用于交换的资产所属类型，1 dappid，2 位名 3 entityId 4 权益 5 */
                 toExchangeParentAssetType: number;
@@ -626,7 +626,7 @@ declare namespace BFMetaNodeSDK {
             beExchangeAsset: {
                 /**被交换的资产/权益来源链网络标识符，大写字母或数字组成，5个字符，最后一位是校验位 */
                 beExchangeSource?: string;
-                /**被交换的资产/权益来源链名，小写字母组成，3-8 位 */
+                /**被交换的资产/权益来源链名，小写字母组成，5-20 位 */
                 beExchangeChainName?: string;
                 /**被交换的资产所属类型，1 dappid，2 位名 3 entityId 4 权益 5 */
                 beExchangeParentAssetType: number;
@@ -675,6 +675,77 @@ declare namespace BFMetaNodeSDK {
                 /**收税信息 */
                 taxInformation?: TaxInformationJson;
             };
+        }
+
+        interface ToExchangeAnyMultiAllTransactionParams extends TransactionCommonParamsWithoutRecipientId {
+            /**加密密钥生成的公钥数组 */
+            cipherPublicKeys?: string[];
+            /**用于交换的资产信息 */
+            toExchangeAssets: {
+                /**用于交换的资产/权益来源链网络标识符，大写字母或数字组成，5 个字符，最后一位是校验位 */
+                toExchangeSource?: string;
+                /**用于交换的资产/权益来源链名，小写字母组成，5-20 位 */
+                toExchangeChainName?: string;
+                /**用于交换的资产所属类型，1 dappid，2 位名 3 entityId 4 权益 5 */
+                toExchangeParentAssetType: number;
+                /**用于交换的权益名，可能为 entityId, dappid，位名或者权益名 */
+                toExchangeAssetType: string;
+                /**用于交换的资产数量，0-9 组成并且不包含小数点 */
+                toExchangeAssetPrealnum: string;
+                /**纳税信息 */
+                taxInformation?: TaxInformationJson;
+            }[];
+            /**被交换的资产信息 */
+            beExchangeAssets: {
+                /**被交换的资产/权益来源链网络标识符，大写字母或数字组成，5个字符，最后一位是校验位 */
+                beExchangeSource?: string;
+                /**被交换的资产/权益来源链名，小写字母组成，5-20 位 */
+                beExchangeChainName?: string;
+                /**被交换的资产所属类型，1 dappid，2 位名 3 entityId 4 权益 5 */
+                beExchangeParentAssetType: number;
+                /**被交换的资产/权益名，可能为 entityId, dappid，位名或者权益名 */
+                beExchangeAssetType: string;
+                /**被交换的权益数量，0-9 组成并且不包含小数点，非同质权益交换时必填 */
+                beExchangeAssetPrealnum?: string;
+                /**收税信息 */
+                taxInformation?: TaxInformationJson;
+            }[];
+        }
+        interface BeExchangeAnyMultiAllTransactionParams extends TransactionCommonParamsWithRecipientId {
+            /**批量任意资产交换的事件签名，128 个字节的 16 进制字符串 */
+            transactionSignature: string;
+            /**加密密钥生成的签名数组 */
+            ciphertextSignature?: AccountSignatureJSON;
+            /**用于交换的资产信息 */
+            toExchangeAssets: {
+                /**用于交换的资产来源链网络标识符，大写字母或数字组成，5 个字符，最后一位是校验位 */
+                toExchangeSource: string;
+                /**用于交换的资产来源链名，小写字母组成，5-10 位 */
+                toExchangeChainName: string;
+                /**用于交换的资产资产所属大类 */
+                toExchangeParentAssetType: number;
+                /**用于交换的资产名 */
+                toExchangeAssetType: string;
+                /**用于交换的资产数量，0-9 组成并且不包含小数点 */
+                toExchangeAssetPrealnum: string;
+                /**收税信息 */
+                taxInformation?: TaxInformationJson;
+            }[];
+            /**被交换的资产信息 */
+            beExchangeAssets: {
+                /**被交换的资产来源链网络标识符，大写字母或数字组成，5 个字符，最后一位是校验位 */
+                beExchangeSource: string;
+                /**被交换的资产来源链名，小写字母组成，5-10 位 */
+                beExchangeChainName: string;
+                /**被交换的资产所属大类 */
+                beExchangeParentAssetType: number;
+                /**被交换的资产名 */
+                beExchangeAssetType: string;
+                /**被交换的资产数量，0-9 组成并且不包含小数点，非同质资产交换时必填 */
+                beExchangeAssetPrealnum?: string;
+                /**收税信息 */
+                taxInformation?: TaxInformationJson;
+            }[];
         }
 
         interface RegisterChainTransactionParams extends TransactionCommonParamsWithoutRecipientId {
@@ -793,6 +864,9 @@ declare namespace BFMetaNodeSDK {
 
         type ToExchangeAnyMultiApi = import("./atom_transaction").ToExchangeAnyMultiApi;
         type BeExchangeAnyMultiApi = import("./atom_transaction").BeExchangeAnyMultiApi;
+
+        type ToExchangeAnyMultiAllApi = import("./atom_transaction").ToExchangeAnyMultiAllApi;
+        type BeExchangeAnyMultiAllApi = import("./atom_transaction").BeExchangeAnyMultiAllApi;
 
         type RegisterChainApi = import("./atom_transaction").RegisterChainApi;
         type EmigrateAssetApi = import("./atom_transaction").EmigrateAssetApi;

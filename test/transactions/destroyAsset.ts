@@ -11,7 +11,7 @@ import { bfmetaSDK } from "../helpers";
             fee: "2000",
             applyBlockHeight: 156500,
             remark: { message: "create destroyAsset" },
-            /**销毁的权益名，大写字母组成，3-5 个字符 */
+            /**销毁的权益名，大写字母组成，3-10 个字符 */
             assetType: "FTC",
             /**销毁的权益数，0-9 组成并且不包含小数点，必须大于 0 */
             amount: "9720000000000000",

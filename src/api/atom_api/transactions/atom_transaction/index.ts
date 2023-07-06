@@ -42,6 +42,9 @@ export * from "./issueEntityMultiApi";
 export * from "./toExchangeAnyMultiApi";
 export * from "./beExchangeAnyMultiApi";
 
+export * from "./toExchangeAnyMultiAllApi";
+export * from "./beExchangeAnyMultiAllApi";
+
 export * from "./registerChainApi";
 export * from "./emigrateAssetApi";
 export * from "./immigrateAssetApi";
