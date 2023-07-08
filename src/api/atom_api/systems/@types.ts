@@ -167,6 +167,13 @@ declare namespace BFMetaNodeSDK {
                 maxFee: string;
                 /**自动投票配置 */
                 autoVote: AutoVoteModel;
+                /**blob 配置 */
+                blob: {
+                    /**交易携带的 blob 最大值 */
+                    maxTransactionBlobSize: number;
+                    /**区块携带的 blob 最大值 */
+                    maxBlockBlobSize: number;
+                };
             };
 
             /**文件日志配置 */
