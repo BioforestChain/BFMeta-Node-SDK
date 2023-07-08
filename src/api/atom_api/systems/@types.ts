@@ -484,6 +484,15 @@ declare namespace BFMetaNodeSDK {
 
         /**定时发送节点CPU，内存，网络信息 */
         interface SystemProcessParams extends SystemApiRequestParams {}
+
+        /**获取所有的未处理交易数量 */
+        interface GetAllUntreatedTrsCountParams extends SystemApiRequestParams {}
+
+        /**清除所有的未处理交易 */
+        interface ClearAllUntreatedTrsParams extends SystemApiRequestParams {}
+
+        /**恢复所有的未处理交易 */
+        interface RestoreAllUntreatedTrsParams extends SystemApiRequestParams {}
         // #endregion
 
         // #region response
@@ -960,6 +969,21 @@ declare namespace BFMetaNodeSDK {
                 };
             };
         }
+
+        /**获取所有的未处理交易数量 */
+        interface GetAllUntreatedTrsCountResult extends SystemApiRequestResult {
+            result: false | number;
+        }
+
+        /**清除所有的未处理交易 */
+        interface ClearAllUntreatedTrsResult extends SystemApiRequestResult {
+            result: true | "untreatedTrs is clearing";
+        }
+
+        /**恢复所有的未处理交易 */
+        interface RestoreAllUntreatedTrsResult extends SystemApiRequestResult {
+            result: true | "untreatedTrs is in restore";
+        }
         // #endregion
 
         interface BasicApiSuccessReturnResult<T extends SystemApiRequestResult> extends ApiSuccessReturn<T> {
@@ -1009,5 +1033,9 @@ declare namespace BFMetaNodeSDK {
 
         type SystemStatusApi = import("./apis").SystemStatusApi;
         type SystemProcessApi = import("./apis").SystemProcessApi;
+
+        type GetAllUntreatedTrsCountApi = import("./apis").GetAllUntreatedTrsCountApi;
+        type ClearAllUntreatedTrsApi = import("./apis").ClearAllUntreatedTrsApi;
+        type RestoreAllUntreatedTrsApi = import("./apis").RestoreAllUntreatedTrsApi;
     }
 }

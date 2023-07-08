@@ -37,3 +37,7 @@ export * from "./getProcessNetwork";
 
 export * from "./systemStatus";
 export * from "./systemProcess";
+
+export * from "./getAllUntreatedTrsCount";
+export * from "./clearAllUntreatedTrs";
+export * from "./restoreAllUntreatedTrs";

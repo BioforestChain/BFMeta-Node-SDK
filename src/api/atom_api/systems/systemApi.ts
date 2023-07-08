@@ -29,6 +29,9 @@ import {
     GetProcessNetworkApi,
     SystemStatusApi,
     SystemProcessApi,
+    GetAllUntreatedTrsCountApi,
+    ClearAllUntreatedTrsApi,
+    RestoreAllUntreatedTrsApi,
 } from "./apis";
 import { SYSTEM_API_PATH } from "../../../constants";
 
@@ -72,6 +75,9 @@ export class SystemApi {
         const getProcessNetworkApi = new GetProcessNetworkApi(networkHelper);
         const systemStatusApi = new SystemStatusApi(networkHelper);
         const systemProcessApi = new SystemProcessApi(networkHelper);
+        const getAllUntreatedTrsCountApi = new GetAllUntreatedTrsCountApi(networkHelper);
+        const clearAllUntreatedTrsApi = new ClearAllUntreatedTrsApi(networkHelper);
+        const restoreAllUntreatedTrsApi = new RestoreAllUntreatedTrsApi(networkHelper);
 
         SYSTEM_API_MAP.set(safetyCloseApi.REQUEST_API_PATH, safetyCloseApi);
         SYSTEM_API_MAP.set(setSystemKeyApi.REQUEST_API_PATH, setSystemKeyApi);
@@ -103,6 +109,9 @@ export class SystemApi {
         SYSTEM_API_MAP.set(getProcessNetworkApi.REQUEST_API_PATH, getProcessNetworkApi);
         SYSTEM_API_MAP.set(systemStatusApi.REQUEST_API_PATH, systemStatusApi);
         SYSTEM_API_MAP.set(systemProcessApi.REQUEST_API_PATH, systemProcessApi);
+        SYSTEM_API_MAP.set(getAllUntreatedTrsCountApi.REQUEST_API_PATH, getAllUntreatedTrsCountApi);
+        SYSTEM_API_MAP.set(clearAllUntreatedTrsApi.REQUEST_API_PATH, clearAllUntreatedTrsApi);
+        SYSTEM_API_MAP.set(restoreAllUntreatedTrsApi.REQUEST_API_PATH, restoreAllUntreatedTrsApi);
 
         Object.freeze(SYSTEM_API_MAP);
     }
@@ -318,6 +327,27 @@ export class SystemApi {
     /**节点CPU，内存，网络信息 */
     async systemProcess(argv: BFMetaNodeSDK.System.SystemProcessParams) {
         const api = this.__getSystemApi<BFMetaNodeSDK.System.SystemProcessApi>(SYSTEM_API_PATH.SYSTEM_PROCESS);
+        const result = await api.sendPostRequest(argv);
+        return result;
+    }
+
+    /**获取所有的未处理交易数量 */
+    async getAllUntreatedTrsCount(argv: BFMetaNodeSDK.System.GetAllUntreatedTrsCountParams) {
+        const api = this.__getSystemApi<BFMetaNodeSDK.System.GetAllUntreatedTrsCountApi>(SYSTEM_API_PATH.SYSTEM_GET_All_UNTREATED_TRS_COUNT);
+        const result = await api.sendPostRequest(argv);
+        return result;
+    }
+
+    /**清除所有的未处理交易 */
+    async clearAllUntreatedTrs(argv: BFMetaNodeSDK.System.ClearAllUntreatedTrsParams) {
+        const api = this.__getSystemApi<BFMetaNodeSDK.System.ClearAllUntreatedTrsApi>(SYSTEM_API_PATH.SYSTEM_CLEAR_All_UNTREATED_TRS);
+        const result = await api.sendPostRequest(argv);
+        return result;
+    }
+
+    /**恢复所有的未处理交易 */
+    async restoreAllUntreatedTrs(argv: BFMetaNodeSDK.System.RestoreAllUntreatedTrsParams) {
+        const api = this.__getSystemApi<BFMetaNodeSDK.System.RestoreAllUntreatedTrsApi>(SYSTEM_API_PATH.SYSTEM_RESTORE_All_UNTREATED_TRS);
         const result = await api.sendPostRequest(argv);
         return result;
     }

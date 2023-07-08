@@ -118,6 +118,10 @@ export const enum SYSTEM_API_PATH {
     SYSTEM_GET_INJECT_GENERATORS = "systemGetInjectGenerators",
     SYSTEM_SET_SYSTEM_DELEGATE_MULTI = "systemSetSystemDelegateMulti",
     SYSTEM_GET_SYSTEM_DELEGATE_DETAIL = "systemGetSystemDelegateDetail",
+
+    SYSTEM_GET_All_UNTREATED_TRS_COUNT = "/getAllUntreatedTrsCount",
+    SYSTEM_CLEAR_All_UNTREATED_TRS = "/clearAllUntreatedTrs",
+    SYSTEM_RESTORE_All_UNTREATED_TRS = "/restoreAllUntreatedTrs",
 }
 
 export const enum UPGRADE_API_PATH {
