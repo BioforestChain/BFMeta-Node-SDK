@@ -517,6 +517,8 @@ declare namespace BFMetaNodeSDK {
                 /**非同质资产的收税信息 */
                 taxInformation?: TaxInformationJson;
             };
+            /**非同质资产的收税信息 */
+            taxInformation?: TaxInformationJson;
         }
 
         interface TransferAnyTransactionParams extends TransactionCommonParamsWithRecipientId {
