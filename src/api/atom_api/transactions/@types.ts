@@ -420,6 +420,8 @@ declare namespace BFMetaNodeSDK {
             factoryId: string;
             /**不包含非同质权益模板的非同质权益，3-30 个字符，小写字母或数字组成 */
             entityId: string;
+            /**非同质资产流通需要缴纳的版税 */
+            taxAssetPrealnum?: string;
         }
         interface DestroyEntityTransactionParams extends TransactionCommonParamsWithRecipientId {
             /**要销毁的非同质权益发行事件的唯一标识符 */
