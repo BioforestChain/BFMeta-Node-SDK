@@ -454,7 +454,7 @@ declare namespace BFMetaNodeSDK {
             toExchangeSource?: string;
             /**用于交换的资产/权益来源链名，小写字母组成，5-20 位 */
             toExchangeChainName?: string;
-            /**用于交换的资产所属类型，1 dappid，2 位名 3 entityId 4 权益 5 */
+            /**用于交换的资产所属类型，1 dappid，2 位名，3 entityId，5 权益 */
             toExchangeParentAssetType: number;
             /**用于交换的权益名，可能为 entityId, dappid，位名或者权益名 */
             toExchangeAssetType: string;
@@ -464,7 +464,7 @@ declare namespace BFMetaNodeSDK {
             beExchangeSource?: string;
             /**被交换的资产/权益来源链名，小写字母组成，5-20 位 */
             beExchangeChainName?: string;
-            /**被交换的资产所属类型，1 dappid，2 位名 3 entityId 4 权益 5 */
+            /**被交换的资产所属类型，1 dappid，2 位名，3 entityId，5 权益 */
             beExchangeParentAssetType: number;
             /**被交换的资产/权益名，可能为 entityId, dappid，位名或者权益名 */
             beExchangeAssetType: string;
@@ -573,7 +573,7 @@ declare namespace BFMetaNodeSDK {
                 sourceChainName: string;
                 /**赠送的权益所属链网络标识符，大写字母或数字组成，5 个字符，最后一位是校验位 */
                 sourceChainMagic: string;
-                /**转移的资产所属类型，1 dappid，2 位名 3 entityId 4 权益 */
+                /**转移的资产所属类型，1 dappid，2 位名，3 entityId，5 权益 */
                 parentAssetType: number;
                 /**赠送的权益名称，大写字母组成，5-20 个字符 */
                 assetType: string;
@@ -611,7 +611,7 @@ declare namespace BFMetaNodeSDK {
                 toExchangeSource?: string;
                 /**用于交换的资产/权益来源链名，小写字母组成，5-20 位 */
                 toExchangeChainName?: string;
-                /**用于交换的资产所属类型，1 dappid，2 位名 3 entityId 4 权益 5 */
+                /**用于交换的资产所属类型，1 dappid，2 位名，3 entityId，5 权益 */
                 toExchangeParentAssetType: number;
                 /**用于交换的权益名，可能为 entityId, dappid，位名或者权益名 */
                 toExchangeAssetType: string;
@@ -628,7 +628,7 @@ declare namespace BFMetaNodeSDK {
                 beExchangeSource?: string;
                 /**被交换的资产/权益来源链名，小写字母组成，5-20 位 */
                 beExchangeChainName?: string;
-                /**被交换的资产所属类型，1 dappid，2 位名 3 entityId 4 权益 5 */
+                /**被交换的资产所属类型，1 dappid，2 位名，3 entityId，5 权益 */
                 beExchangeParentAssetType: number;
                 /**被交换的资产/权益名，可能为 entityId, dappid，位名或者权益名 */
                 beExchangeAssetType: string;
@@ -686,7 +686,7 @@ declare namespace BFMetaNodeSDK {
                 toExchangeSource?: string;
                 /**用于交换的资产/权益来源链名，小写字母组成，5-20 位 */
                 toExchangeChainName?: string;
-                /**用于交换的资产所属类型，1 dappid，2 位名 3 entityId 4 权益 5 */
+                /**用于交换的资产所属类型，1 dappid，2 位名，3 entityId，5 权益 */
                 toExchangeParentAssetType: number;
                 /**用于交换的权益名，可能为 entityId, dappid，位名或者权益名 */
                 toExchangeAssetType: string;
@@ -701,7 +701,7 @@ declare namespace BFMetaNodeSDK {
                 beExchangeSource?: string;
                 /**被交换的资产/权益来源链名，小写字母组成，5-20 位 */
                 beExchangeChainName?: string;
-                /**被交换的资产所属类型，1 dappid，2 位名 3 entityId 4 权益 5 */
+                /**被交换的资产所属类型，1 dappid，2 位名，3 entityId，5 权益 */
                 beExchangeParentAssetType: number;
                 /**被交换的资产/权益名，可能为 entityId, dappid，位名或者权益名 */
                 beExchangeAssetType: string;
