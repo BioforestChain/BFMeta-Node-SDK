@@ -826,7 +826,7 @@ declare namespace BFMetaNodeSDK {
             /**事件的二进制数据 */
             buffer: string;
             /**事件是否上链，true 组合成完整的事件并且广播到节点；false | undefined 组合成完整的事件但是不广播到节点 */
-            isOnChain?: number;
+            isOnChain?: boolean;
         };
 
         type TransactionApi = import("./atom_transaction/_transactionApi").TransactionApi;
