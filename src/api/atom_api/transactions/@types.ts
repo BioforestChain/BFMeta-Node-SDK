@@ -101,6 +101,8 @@ declare namespace BFMetaNodeSDK {
             // tpowDifficulty?: number;
             /**事件的附加二进制数据 */
             binaryInfos?: KVStorageInfo[];
+            /**事件的时间戳 */
+            timestamp?: number;
         }
 
         type TransactionCommonParamsWithRecipientId = TransactionCommonParams & {
@@ -823,6 +825,8 @@ declare namespace BFMetaNodeSDK {
             signSignature?: string;
             /**事件的二进制数据 */
             buffer: string;
+            /**事件是否上链，true 组合成完整的事件并且广播到节点；false | undefined 组合成完整的事件但是不广播到节点 */
+            isOnChain?: number;
         };
 
         type TransactionApi = import("./atom_transaction/_transactionApi").TransactionApi;
