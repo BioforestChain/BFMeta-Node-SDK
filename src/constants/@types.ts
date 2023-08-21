@@ -29,4 +29,43 @@ declare namespace BFMetaNodeSDK {
     type BLOCK_CHAIN_NET_WORK_TYPE = import("./commonConstants").BLOCK_CHAIN_NET_WORK_TYPE;
 
     type READ_FILE_TYPE = import("./commonConstants").READ_FILE_TYPE;
+
+    type MACRO_INPUT_TYPE = import("./commonConstants").MACRO_INPUT_TYPE;
+    type MACRO_NUMBER_FORMAT = import("./commonConstants").MACRO_NUMBER_FORMAT;
+    type CERTIFICATE_TYPE = import("./commonConstants").CERTIFICATE_TYPE;
+
+    interface FractionJSON<T extends number | bigint | string = number> {
+        /**分子 */
+        numerator: T;
+        /**分母 */
+        denominator: T;
+    }
+
+    namespace Macro {
+        interface BaseInputJSON<T extends MACRO_INPUT_TYPE> {
+            type: T;
+            name: string;
+            keyPath: string;
+            /**regexp */
+            pattern?: string;
+            /**array */
+            repeat?: boolean;
+        }
+        interface TextInputJSON<T extends MACRO_INPUT_TYPE = import("./commonConstants").MACRO_INPUT_TYPE.TEXT> extends BaseInputJSON<T> {}
+        interface AddressInputJSON<T extends MACRO_INPUT_TYPE = import("./commonConstants").MACRO_INPUT_TYPE.ADDRESS> extends TextInputJSON<T> {}
+        interface PublicKeyInputJSON<T extends MACRO_INPUT_TYPE = import("./commonConstants").MACRO_INPUT_TYPE.PUBLICKEY> extends TextInputJSON<T> {}
+        interface SignatureInputJSON<T extends MACRO_INPUT_TYPE = import("./commonConstants").MACRO_INPUT_TYPE.SIGNATURE> extends TextInputJSON<T> {}
+        interface NumberInputJSON<T extends MACRO_INPUT_TYPE = import("./commonConstants").MACRO_INPUT_TYPE.NUMBER> extends BaseInputJSON<T> {
+            base?: FractionJSON<string>;
+            min?: FractionJSON<string>;
+            max?: FractionJSON<string>;
+            step?: FractionJSON<string>;
+            format?: MACRO_NUMBER_FORMAT;
+        }
+        interface CalcInputJSON extends NumberInputJSON<import("./commonConstants").MACRO_INPUT_TYPE.CALC> {
+            calc: string;
+        }
+
+        type InputJSON = TextInputJSON | AddressInputJSON | PublicKeyInputJSON | SignatureInputJSON | NumberInputJSON | CalcInputJSON;
+    }
 }

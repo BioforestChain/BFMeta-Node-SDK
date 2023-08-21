@@ -811,6 +811,50 @@ declare namespace BFMetaNodeSDK {
             type: number;
         }
 
+        interface PromiseTransactionParams extends TransactionCommonParamsWithRecipientId {
+            /**承诺未来上链的完整事件 */
+            transaction: TransactionJSON;
+        }
+
+        interface PromiseResolveTransactionParams extends TransactionCommonParamsWithRecipientId {
+            /**承诺 id */
+            promiseId: string;
+            /**承诺未来上链的完整事件 */
+            transaction: TransactionJSON;
+        }
+
+        interface PromiseTransactionParams extends TransactionCommonParamsWithRecipientId {
+            /**承诺未来上链的完整事件 */
+            transaction: TransactionJSON;
+        }
+
+        interface PromiseResolveTransactionParams extends TransactionCommonParamsWithRecipientId {
+            /**承诺 id */
+            promiseId: string;
+            /**承诺 */
+            transaction: TransactionJSON;
+        }
+        interface MacroTransactionParams extends TransactionCommonParamsWithoutRecipientId {
+            /**输入 */
+            inputs: Macro.InputJSON[];
+            /**宏模板 */
+            template: TransactionJSON;
+        }
+
+        interface MacroCallTransactionParams extends TransactionCommonParamsWithoutRecipientId {
+            /**宏 id */
+            macroId: string;
+            /**输入 */
+            inputs: { [name: string]: string };
+            /**生成的完整事件 */
+            transaction: TransactionJSON;
+        }
+
+        interface MultipleTransactionParams extends TransactionCommonParamsWithoutRecipientId {
+            /**事件列表 */
+            transactions: TransactionJSON[];
+        }
+
         type PackageTransacationParams = {
             /**签名 */
             signature: string;
@@ -882,7 +926,14 @@ declare namespace BFMetaNodeSDK {
 
         type IssueCertificateApi = import("./atom_transaction").IssueCertificateApi;
         type DestroyCertificateApi = import("./atom_transaction").DestroyCertificateApi;
+
+        type MacroApi = import("./atom_transaction").MacroApi;
+        type MacroCallApi = import("./atom_transaction").MacroCallApi;
+        type PromiseApi = import("./atom_transaction").PromiseApi;
+        type PromiseResolveApi = import("./atom_transaction").PromiseResolveApi;
+        type MultipleApi = import("./atom_transaction").MultipleApi;
     }
+
     interface ChainBaseInfo {
         /**链名 */
         chainName: string;

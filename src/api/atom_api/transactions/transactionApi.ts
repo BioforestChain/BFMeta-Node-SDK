@@ -42,6 +42,11 @@ import {
     ImmigrateAssetApi,
     IssueCertificateApi,
     DestroyCertificateApi,
+    PromiseApi,
+    PromiseResolveApi,
+    MacroApi,
+    MacroCallApi,
+    MultipleApi,
 } from "./atom_transaction";
 import { GenerateMigrateCertificateApi, FromAuthSignatureMigrateCertificateApi, ToAuthSignatureMigrateCertificateApi } from "./migrate_certificate";
 import {
@@ -118,6 +123,11 @@ export class TransactionApi {
         const immigrateAssetApi = new ImmigrateAssetApi(networkHelper);
         const issueCertificateApi = new IssueCertificateApi(networkHelper);
         const destroyCertificateApi = new DestroyCertificateApi(networkHelper);
+        const macroApi = new MacroApi(networkHelper);
+        const macroCallApi = new MacroCallApi(networkHelper);
+        const promiseApi = new PromiseApi(networkHelper);
+        const promiseResolveApi = new PromiseResolveApi(networkHelper);
+        const multipleApi = new MultipleApi(networkHelper);
 
         TRANSACTION_API_MAP.set(commonTransactionApi.GENERATE_API_PATH, commonTransactionApi);
         TRANSACTION_API_MAP.set(usernameApi.GENERATE_API_PATH, usernameApi);
@@ -162,6 +172,11 @@ export class TransactionApi {
         TRANSACTION_API_MAP.set(immigrateAssetApi.GENERATE_API_PATH, immigrateAssetApi);
         TRANSACTION_API_MAP.set(issueCertificateApi.GENERATE_API_PATH, issueCertificateApi);
         TRANSACTION_API_MAP.set(destroyCertificateApi.GENERATE_API_PATH, destroyCertificateApi);
+        TRANSACTION_API_MAP.set(promiseApi.GENERATE_API_PATH, promiseApi);
+        TRANSACTION_API_MAP.set(promiseResolveApi.GENERATE_API_PATH, promiseResolveApi);
+        TRANSACTION_API_MAP.set(macroApi.GENERATE_API_PATH, macroApi);
+        TRANSACTION_API_MAP.set(macroCallApi.GENERATE_API_PATH, macroCallApi);
+        TRANSACTION_API_MAP.set(multipleApi.GENERATE_API_PATH, multipleApi);
 
         Object.freeze(TRANSACTION_API_MAP);
 
@@ -1088,6 +1103,101 @@ export class TransactionApi {
     /**发送销毁凭证事件 */
     async broadcastDestroyCertificate<T>(argv: BFMetaNodeSDK.Transaction.BroadcastTransacationParams) {
         const api = this.__getTransactionApi<BFMetaNodeSDK.Transaction.DestroyCertificateApi>(GENERATE_TRANSACTION_API_PATH.TR_DESTROY_CERTIFICATE);
+        const result = await api.broadcastTransaction<T>(argv);
+        return result;
+    }
+
+    /**创建宏事件 */
+    async createMacro(argv: BFMetaNodeSDK.Transaction.MacroTransactionParams) {
+        const api = this.__getTransactionApi<BFMetaNodeSDK.Transaction.MacroApi>(GENERATE_TRANSACTION_API_PATH.TR_MACRO);
+        const result = await api.createTransaction(argv);
+        return result;
+    }
+    /**创建并发送宏事件 */
+    async packageMacro(argv: BFMetaNodeSDK.Transaction.PackageTransacationParams) {
+        const api = this.__getTransactionApi<BFMetaNodeSDK.Transaction.MacroApi>(GENERATE_TRANSACTION_API_PATH.TR_MACRO);
+        const result = await api.packageTransaction(argv);
+        return result;
+    }
+    /**发送宏事件 */
+    async broadcastMacro<T>(argv: BFMetaNodeSDK.Transaction.BroadcastTransacationParams) {
+        const api = this.__getTransactionApi<BFMetaNodeSDK.Transaction.MacroApi>(GENERATE_TRANSACTION_API_PATH.TR_MACRO);
+        const result = await api.broadcastTransaction<T>(argv);
+        return result;
+    }
+
+    /**创建宏调用事件 */
+    async createMacroCall(argv: BFMetaNodeSDK.Transaction.MacroCallTransactionParams) {
+        const api = this.__getTransactionApi<BFMetaNodeSDK.Transaction.MacroCallApi>(GENERATE_TRANSACTION_API_PATH.TR_MACRO_CALL);
+        const result = await api.createTransaction(argv);
+        return result;
+    }
+    /**创建并发送宏调用事件 */
+    async packageMacroCall(argv: BFMetaNodeSDK.Transaction.PackageTransacationParams) {
+        const api = this.__getTransactionApi<BFMetaNodeSDK.Transaction.MacroCallApi>(GENERATE_TRANSACTION_API_PATH.TR_MACRO_CALL);
+        const result = await api.packageTransaction(argv);
+        return result;
+    }
+    /**发送宏调用事件 */
+    async broadcastMacroCall<T>(argv: BFMetaNodeSDK.Transaction.BroadcastTransacationParams) {
+        const api = this.__getTransactionApi<BFMetaNodeSDK.Transaction.MacroCallApi>(GENERATE_TRANSACTION_API_PATH.TR_MACRO_CALL);
+        const result = await api.broadcastTransaction<T>(argv);
+        return result;
+    }
+
+    /**创建承诺事件 */
+    async createPromise(argv: BFMetaNodeSDK.Transaction.PromiseTransactionParams) {
+        const api = this.__getTransactionApi<BFMetaNodeSDK.Transaction.PromiseApi>(GENERATE_TRANSACTION_API_PATH.TR_PROMISE);
+        const result = await api.createTransaction(argv);
+        return result;
+    }
+    /**创建并发送承诺事件 */
+    async packagePromise(argv: BFMetaNodeSDK.Transaction.PackageTransacationParams) {
+        const api = this.__getTransactionApi<BFMetaNodeSDK.Transaction.PromiseApi>(GENERATE_TRANSACTION_API_PATH.TR_PROMISE);
+        const result = await api.packageTransaction(argv);
+        return result;
+    }
+    /**发送承诺事件 */
+    async broadcastPromise<T>(argv: BFMetaNodeSDK.Transaction.BroadcastTransacationParams) {
+        const api = this.__getTransactionApi<BFMetaNodeSDK.Transaction.PromiseApi>(GENERATE_TRANSACTION_API_PATH.TR_PROMISE);
+        const result = await api.broadcastTransaction<T>(argv);
+        return result;
+    }
+
+    /**创建承诺兑现事件 */
+    async createPromiseResolve(argv: BFMetaNodeSDK.Transaction.PromiseResolveTransactionParams) {
+        const api = this.__getTransactionApi<BFMetaNodeSDK.Transaction.PromiseResolveApi>(GENERATE_TRANSACTION_API_PATH.TR_PROMISE_RESOLVE);
+        const result = await api.createTransaction(argv);
+        return result;
+    }
+    /**创建并发送承诺兑现事件 */
+    async packagePromiseResolve(argv: BFMetaNodeSDK.Transaction.PackageTransacationParams) {
+        const api = this.__getTransactionApi<BFMetaNodeSDK.Transaction.PromiseResolveApi>(GENERATE_TRANSACTION_API_PATH.TR_PROMISE_RESOLVE);
+        const result = await api.packageTransaction(argv);
+        return result;
+    }
+    /**发送承诺兑现事件 */
+    async broadcastPromiseResolve<T>(argv: BFMetaNodeSDK.Transaction.BroadcastTransacationParams) {
+        const api = this.__getTransactionApi<BFMetaNodeSDK.Transaction.PromiseResolveApi>(GENERATE_TRANSACTION_API_PATH.TR_PROMISE_RESOLVE);
+        const result = await api.broadcastTransaction<T>(argv);
+        return result;
+    }
+
+    /**创建组合事件 */
+    async createMultiple(argv: BFMetaNodeSDK.Transaction.MultipleTransactionParams) {
+        const api = this.__getTransactionApi<BFMetaNodeSDK.Transaction.MultipleApi>(GENERATE_TRANSACTION_API_PATH.TR_MULTIPLE);
+        const result = await api.createTransaction(argv);
+        return result;
+    }
+    /**创建并发送组合事件 */
+    async packageMultiple(argv: BFMetaNodeSDK.Transaction.PackageTransacationParams) {
+        const api = this.__getTransactionApi<BFMetaNodeSDK.Transaction.MultipleApi>(GENERATE_TRANSACTION_API_PATH.TR_MULTIPLE);
+        const result = await api.packageTransaction(argv);
+        return result;
+    }
+    /**发送组合事件 */
+    async broadcastMultiple<T>(argv: BFMetaNodeSDK.Transaction.BroadcastTransacationParams) {
+        const api = this.__getTransactionApi<BFMetaNodeSDK.Transaction.MultipleApi>(GENERATE_TRANSACTION_API_PATH.TR_MULTIPLE);
         const result = await api.broadcastTransaction<T>(argv);
         return result;
     }
