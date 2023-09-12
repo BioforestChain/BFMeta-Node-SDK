@@ -68,6 +68,7 @@ export class WebsocketHelper {
             const wsHost = this.__getWebsocketHost(url);
             const socket = io.connect(wsHost, {
                 transports: ["websocket"],
+                reconnectionAttempts: 3,
                 timeout: this.__config.requestTimeOut,
                 transportOptions: {
                     websocket: {
@@ -82,20 +83,20 @@ export class WebsocketHelper {
                 return resolve(socket);
             });
             socket.on("connect_error", (data: any) => {
-                return reject(new Error(`connect_error ${url}`));
+                return reject(new Error(`connect_error ${url} data:${data}`));
             });
             socket.on("connect_timeout", (data: any) => {
-                return reject(new Error(`connect_timeout ${url}`));
+                return reject(new Error(`connect_timeout ${url} data:${data}`));
             });
         });
     }
 
     private __bindEvent(socket: SocketIOClient.Socket, url: string) {
         socket.on("reconnect_error", (data: any) => {
-            socket.close();
+            throw Error(`reconnect_error ${url} data:${data}`);
         });
         socket.on("error", (data: any) => {
-            socket.close();
+            throw Error(`error ${url} data:${data}`);
         });
         socket.on("disconnect", () => {
             this.__socketMap.delete(url);
