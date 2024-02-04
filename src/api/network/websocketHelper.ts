@@ -35,31 +35,29 @@ export class WebsocketHelper {
 
     private __initPromise = new PromiseOut<void>();
     private async __init() {
-        while (true) {
-            try {
-                const { node, multiNodes } = this.__config;
-                const taskList: Promise<void>[] = [];
-                if (node) {
+        try {
+            const { node, multiNodes } = this.__config;
+            const taskList: Promise<void>[] = [];
+            if (node) {
+                const url = this.__getUrl(node);
+                if (!this.__socketMap.has(url)) {
+                    taskList.push(this.connect(url));
+                }
+            }
+            if (multiNodes && multiNodes.enable) {
+                const { nodes } = multiNodes;
+                for (const node of nodes) {
                     const url = this.__getUrl(node);
                     if (!this.__socketMap.has(url)) {
-                        taskList.push(this.__reconnect(url));
+                        taskList.push(this.connect(url));
                     }
                 }
-                if (multiNodes && multiNodes.enable) {
-                    const { nodes } = multiNodes;
-                    for (const node of nodes) {
-                        const url = this.__getUrl(node);
-                        if (!this.__socketMap.has(url)) {
-                            taskList.push(this.__reconnect(url));
-                        }
-                    }
-                }
-                await Promise.all(taskList);
-                this.__initPromise.resolve();
-            } catch (error) {
-            } finally {
-                await sleep(30 * 1000);
             }
+            await Promise.all(taskList);
+            this.__initPromise.resolve();
+        } catch (error) {
+        } finally {
+            await sleep(30 * 1000);
         }
     }
 
@@ -99,11 +97,10 @@ export class WebsocketHelper {
         });
         socket.on("disconnect", () => {
             this.__socketMap.delete(url);
-            this.__reconnect(url);
         });
     }
 
-    private async __reconnect(url: string) {
+    async connect(url: string) {
         try {
             const socket = await this.__connect(url);
             this.__bindEvent(socket, url);
