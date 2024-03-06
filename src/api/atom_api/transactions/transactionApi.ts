@@ -211,19 +211,31 @@ export class TransactionApi {
         return result;
     }
 
-    /**创建设置用户名事件 */
+    /**
+     * @deprecated
+     * 创建设置用户名事件
+     * 该交易在节点版本3.7.*之后已经废弃，请确认所连接的节点共识版本
+     */
     async createUsername(argv: BFMetaNodeSDK.Transaction.UsernameTransactionParams) {
         const api = this.__getTransactionApi<BFMetaNodeSDK.Transaction.UsernameApi>(GENERATE_TRANSACTION_API_PATH.TR_USERNAME);
         const result = await api.createTransaction(argv);
         return result;
     }
-    /**创建并发送设置用户名事件 */
+    /**
+     * @deprecated
+     * 创建并发送设置用户名事件
+     * 该交易在节点版本3.7.*之后已经废弃，请确认所连接的节点共识版本
+     */
     async packageUsername(argv: BFMetaNodeSDK.Transaction.PackageTransacationParams) {
         const api = this.__getTransactionApi<BFMetaNodeSDK.Transaction.UsernameApi>(GENERATE_TRANSACTION_API_PATH.TR_USERNAME);
         const result = await api.packageTransaction(argv);
         return result;
     }
-    /**发送设置用户名事件 */
+    /**
+     * @deprecated
+     * 发送设置用户名事件
+     * 该交易在节点版本3.7.*之后已经废弃，请确认所连接的节点共识版本
+     */
     async broadcastUsername<T>(argv: BFMetaNodeSDK.Transaction.BroadcastTransacationParams) {
         const api = this.__getTransactionApi<BFMetaNodeSDK.Transaction.UsernameApi>(GENERATE_TRANSACTION_API_PATH.TR_USERNAME);
         const result = await api.broadcastTransaction<T>(argv);
@@ -249,76 +261,124 @@ export class TransactionApi {
         return result;
     }
 
-    /**创建注册受托人事件 */
+    /**
+     * @deprecated
+     * 创建注册受托人事件
+     * 该交易在节点版本3.7.*之后已经废弃，请确认所连接的节点共识版本
+     */
     async createDelegate(argv: BFMetaNodeSDK.Transaction.DelegateTransactionParams) {
         const api = this.__getTransactionApi<BFMetaNodeSDK.Transaction.DelegateApi>(GENERATE_TRANSACTION_API_PATH.TR_DELEGATE);
         const result = await api.createTransaction(argv);
         return result;
     }
-    /**创建并发送注册受托人事件 */
+    /**
+     * @deprecated
+     * 创建并发送注册受托人事件
+     * 该交易在节点版本3.7.*之后已经废弃，请确认所连接的节点共识版本
+     */
     async packageDelegate(argv: BFMetaNodeSDK.Transaction.PackageTransacationParams) {
         const api = this.__getTransactionApi<BFMetaNodeSDK.Transaction.DelegateApi>(GENERATE_TRANSACTION_API_PATH.TR_DELEGATE);
         const result = await api.packageTransaction(argv);
         return result;
     }
-    /**发送注册受托人事件 */
+    /**
+     * @deprecated
+     * 发送注册受托人事件
+     * 该交易在节点版本3.7.*之后已经废弃，请确认所连接的节点共识版本
+     */
     async broadcastDelegate<T>(argv: BFMetaNodeSDK.Transaction.BroadcastTransacationParams) {
         const api = this.__getTransactionApi<BFMetaNodeSDK.Transaction.DelegateApi>(GENERATE_TRANSACTION_API_PATH.TR_DELEGATE);
         const result = await api.broadcastTransaction<T>(argv);
         return result;
     }
 
-    /**创建开启收票事件 */
+    /**
+     * @deprecated
+     * 创建开启收票事件
+     * 该交易在节点版本3.7.*之后已经废弃，请确认所连接的节点共识版本
+     */
     async createAcceptVote(argv: BFMetaNodeSDK.Transaction.AcceptVoteTransactionParams) {
         const api = this.__getTransactionApi<BFMetaNodeSDK.Transaction.AcceptVoteApi>(GENERATE_TRANSACTION_API_PATH.TR_ACCEPT_VOTE);
         const result = await api.createTransaction(argv);
         return result;
     }
-    /**创建并发送开启收票事件 */
+    /**
+     * @deprecated
+     * 创建并发送开启收票事件
+     * 该交易在节点版本3.7.*之后已经废弃，请确认所连接的节点共识版本
+     */
     async packageAcceptVote(argv: BFMetaNodeSDK.Transaction.PackageTransacationParams) {
         const api = this.__getTransactionApi<BFMetaNodeSDK.Transaction.AcceptVoteApi>(GENERATE_TRANSACTION_API_PATH.TR_ACCEPT_VOTE);
         const result = await api.packageTransaction(argv);
         return result;
     }
-    /**发送开启收票事件 */
+    /**
+     * @deprecated
+     * 发送开启收票事件
+     * 该交易在节点版本3.7.*之后已经废弃，请确认所连接的节点共识版本
+     */
     async broadcastAcceptVote<T>(argv: BFMetaNodeSDK.Transaction.BroadcastTransacationParams) {
         const api = this.__getTransactionApi<BFMetaNodeSDK.Transaction.AcceptVoteApi>(GENERATE_TRANSACTION_API_PATH.TR_ACCEPT_VOTE);
         const result = await api.broadcastTransaction<T>(argv);
         return result;
     }
 
-    /**创建关闭收票事件 */
+    /**
+     * @deprecated
+     * 创建关闭收票事件
+     * 该交易在节点版本3.7.*之后已经废弃，请确认所连接的节点共识版本
+     */
     async createRejectVote(argv: BFMetaNodeSDK.Transaction.RejectVoteTransactionParams) {
         const api = this.__getTransactionApi<BFMetaNodeSDK.Transaction.RejectVoteApi>(GENERATE_TRANSACTION_API_PATH.TR_REJECT_VOTE);
         const result = await api.createTransaction(argv);
         return result;
     }
-    /**创建并发送关闭收票事件 */
+    /**
+     * @deprecated
+     * 创建并发送关闭收票事件
+     * 该交易在节点版本3.7.*之后已经废弃，请确认所连接的节点共识版本
+     */
     async packageRejectVote(argv: BFMetaNodeSDK.Transaction.PackageTransacationParams) {
         const api = this.__getTransactionApi<BFMetaNodeSDK.Transaction.RejectVoteApi>(GENERATE_TRANSACTION_API_PATH.TR_REJECT_VOTE);
         const result = await api.packageTransaction(argv);
         return result;
     }
-    /**发送关闭收票事件 */
+    /**
+     * @deprecated
+     * 发送关闭收票事件
+     * 该交易在节点版本3.7.*之后已经废弃，请确认所连接的节点共识版本
+     */
     async broadcastRejectVote<T>(argv: BFMetaNodeSDK.Transaction.BroadcastTransacationParams) {
         const api = this.__getTransactionApi<BFMetaNodeSDK.Transaction.RejectVoteApi>(GENERATE_TRANSACTION_API_PATH.TR_REJECT_VOTE);
         const result = await api.broadcastTransaction<T>(argv);
         return result;
     }
 
-    /**创建治理投票事件 */
+    /**
+     * @deprecated
+     * 创建治理投票事件
+     * 该交易在节点版本3.7.*之后已经废弃，请确认所连接的节点共识版本
+     */
     async createVote(argv: BFMetaNodeSDK.Transaction.VoteTransactionParams) {
         const api = this.__getTransactionApi<BFMetaNodeSDK.Transaction.VoteApi>(GENERATE_TRANSACTION_API_PATH.TR_VOTE);
         const result = await api.createTransaction(argv);
         return result;
     }
-    /**创建并发送治理投票事件 */
+    /**
+     * @deprecated
+     * 创建并发送治理投票事件
+     * 该交易在节点版本3.7.*之后已经废弃，请确认所连接的节点共识版本
+     */
     async packageVote(argv: BFMetaNodeSDK.Transaction.PackageTransacationParams) {
         const api = this.__getTransactionApi<BFMetaNodeSDK.Transaction.VoteApi>(GENERATE_TRANSACTION_API_PATH.TR_VOTE);
         const result = await api.packageTransaction(argv);
         return result;
     }
-    /**发送治理投票事件 */
+    /**
+     * @deprecated
+     * 发送治理投票事件
+     * 该交易在节点版本3.7.*之后已经废弃，请确认所连接的节点共识版本
+     */
     async broadcastVote<T>(argv: BFMetaNodeSDK.Transaction.BroadcastTransacationParams) {
         const api = this.__getTransactionApi<BFMetaNodeSDK.Transaction.VoteApi>(GENERATE_TRANSACTION_API_PATH.TR_VOTE);
         const result = await api.broadcastTransaction<T>(argv);
@@ -610,38 +670,61 @@ export class TransactionApi {
         return result;
     }
 
-    /**创建资产交换事件 */
+    /**
+     * @deprecated
+     * 创建资产交换事件
+     * 该交易在节点版本3.7.*之后已经废弃，请确认所连接的节点共识版本
+     */
     async createToExchangeSpecialAsset(argv: BFMetaNodeSDK.Transaction.ToExchangeSpecialAssetTransactionParams) {
         const api = this.__getTransactionApi<BFMetaNodeSDK.Transaction.ToExchangeSpecialAssetApi>(GENERATE_TRANSACTION_API_PATH.TR_TO_EXCHANGE_SPECIAL_ASSET);
         const result = await api.createTransaction(argv);
         return result;
     }
-    /**创建并发送资产交换事件 */
+    /**
+     * @deprecated
+     * 创建并发送资产交换事件
+     * 该交易在节点版本3.7.*之后已经废弃，请确认所连接的节点共识版本
+     */
     async packageToExchangeSpecialAsset(argv: BFMetaNodeSDK.Transaction.PackageTransacationParams) {
         const api = this.__getTransactionApi<BFMetaNodeSDK.Transaction.ToExchangeSpecialAssetApi>(GENERATE_TRANSACTION_API_PATH.TR_TO_EXCHANGE_SPECIAL_ASSET);
         const result = await api.packageTransaction(argv);
         return result;
     }
-    /**发送资产交换事件 */
+    /**
+     * @deprecated
+     * 发送资产交换事件
+     * 该交易在节点版本3.7.*之后已经废弃，请确认所连接的节点共识版本
+     */
     async broadcastToExchangeSpecialAsset<T>(argv: BFMetaNodeSDK.Transaction.BroadcastTransacationParams) {
         const api = this.__getTransactionApi<BFMetaNodeSDK.Transaction.ToExchangeSpecialAssetApi>(GENERATE_TRANSACTION_API_PATH.TR_TO_EXCHANGE_SPECIAL_ASSET);
         const result = await api.broadcastTransaction<T>(argv);
         return result;
     }
-
-    /**创建接受资产交换事件 */
+    /**
+     * @deprecated
+     * 创建接受资产交换事件
+     * 该交易在节点版本3.7.*之后已经废弃，请确认所连接的节点共识版本
+     */
     async createBeExchangeSpecialAsset(argv: BFMetaNodeSDK.Transaction.BeExchangeSpecialAssetTransactionParams) {
         const api = this.__getTransactionApi<BFMetaNodeSDK.Transaction.BeExchangeSpecialAssetApi>(GENERATE_TRANSACTION_API_PATH.TR_BE_EXCHANGE_SPECIAL_ASSET);
         const result = await api.createTransaction(argv);
         return result;
     }
-    /**创建并发送接受资产交换事件 */
+    /**
+     * @deprecated
+     * 创建并发送接受资产交换事件
+     * 该交易在节点版本3.7.*之后已经废弃，请确认所连接的节点共识版本
+     */
     async packageBeExchangeSpecialAsset(argv: BFMetaNodeSDK.Transaction.PackageTransacationParams) {
         const api = this.__getTransactionApi<BFMetaNodeSDK.Transaction.BeExchangeSpecialAssetApi>(GENERATE_TRANSACTION_API_PATH.TR_BE_EXCHANGE_SPECIAL_ASSET);
         const result = await api.packageTransaction(argv);
         return result;
     }
-    /**发送接受资产交换事件 */
+    /**
+     * @deprecated
+     * 发送接受资产交换事件
+     * 该交易在节点版本3.7.*之后已经废弃，请确认所连接的节点共识版本
+     */
     async broadcastBeExchangeSpecialAsset<T>(argv: BFMetaNodeSDK.Transaction.BroadcastTransacationParams) {
         const api = this.__getTransactionApi<BFMetaNodeSDK.Transaction.BeExchangeSpecialAssetApi>(GENERATE_TRANSACTION_API_PATH.TR_BE_EXCHANGE_SPECIAL_ASSET);
         const result = await api.broadcastTransaction<T>(argv);
