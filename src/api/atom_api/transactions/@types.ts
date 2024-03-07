@@ -855,6 +855,43 @@ declare namespace BFMetaNodeSDK {
             transactions: TransactionJSON[];
         }
 
+        interface IncreaseAssetTransactionParams extends TransactionCommonParamsWithRecipientId {
+            /**增发的权益名称 */
+            assetType: string;
+            /**增发的权益数量 */
+            increasedAssetPrealnum: string;
+            /**冻结的主权益数量 */
+            frozenMainAssetPrealnum: string;
+        }
+
+        interface StakeAssetTransactionParams extends TransactionCommonParamsWithoutRecipientId {
+            /**质押的唯一索引：1-30 个小写字母+数字 */
+            stakeId: string;
+            /**质押的权益所属链名 */
+            sourceChainName?: string;
+            /**质押的权益所属链网络标识 */
+            sourceChainMagic?: string;
+            /**质押的权益名称 */
+            assetType: string;
+            /**质押的权益数量 */
+            assetPrealnum: string;
+            /**开始解除质押的区块高度 */
+            beginUnstakeHeight: number;
+        }
+
+        interface UnstakeAssetTransactionParams extends TransactionCommonParamsWithoutRecipientId {
+            /**质押的唯一索引：1-30 个小写字母+数字 */
+            stakeId: string;
+            /**质押的权益所属链名 */
+            sourceChainName?: string;
+            /**质押的权益所属链网络标识 */
+            sourceChainMagic?: string;
+            /**质押的权益名称 */
+            assetType: string;
+            /**解除质押的权益数量 */
+            assetPrealnum: string;
+        }
+
         type PackageTransacationParams = {
             /**签名 */
             signature: string;
@@ -932,6 +969,9 @@ declare namespace BFMetaNodeSDK {
         type PromiseApi = import("./atom_transaction").PromiseApi;
         type PromiseResolveApi = import("./atom_transaction").PromiseResolveApi;
         type MultipleApi = import("./atom_transaction").MultipleApi;
+        type IncreaseAssetApi = import("./atom_transaction").IncreaseAssetApi;
+        type StakeAssetApi = import("./atom_transaction").StakeAssetApi;
+        type UnstakeAssetApi = import("./atom_transaction").UnstakeAssetApi;
     }
 
     interface ChainBaseInfo {

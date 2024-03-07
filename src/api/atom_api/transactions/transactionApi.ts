@@ -47,6 +47,9 @@ import {
     MacroApi,
     MacroCallApi,
     MultipleApi,
+    IncreaseAssetApi,
+    StakeAssetApi,
+    UnstakeAssetApi,
 } from "./atom_transaction";
 import { GenerateMigrateCertificateApi, FromAuthSignatureMigrateCertificateApi, ToAuthSignatureMigrateCertificateApi } from "./migrate_certificate";
 import {
@@ -128,6 +131,9 @@ export class TransactionApi {
         const promiseApi = new PromiseApi(networkHelper);
         const promiseResolveApi = new PromiseResolveApi(networkHelper);
         const multipleApi = new MultipleApi(networkHelper);
+        const increaseAssetApi = new IncreaseAssetApi(networkHelper);
+        const stakeAssetApi = new StakeAssetApi(networkHelper);
+        const unstakeAssetApi = new UnstakeAssetApi(networkHelper);
 
         TRANSACTION_API_MAP.set(commonTransactionApi.GENERATE_API_PATH, commonTransactionApi);
         TRANSACTION_API_MAP.set(usernameApi.GENERATE_API_PATH, usernameApi);
@@ -177,6 +183,9 @@ export class TransactionApi {
         TRANSACTION_API_MAP.set(macroApi.GENERATE_API_PATH, macroApi);
         TRANSACTION_API_MAP.set(macroCallApi.GENERATE_API_PATH, macroCallApi);
         TRANSACTION_API_MAP.set(multipleApi.GENERATE_API_PATH, multipleApi);
+        TRANSACTION_API_MAP.set(increaseAssetApi.GENERATE_API_PATH, increaseAssetApi);
+        TRANSACTION_API_MAP.set(stakeAssetApi.GENERATE_API_PATH, stakeAssetApi);
+        TRANSACTION_API_MAP.set(unstakeAssetApi.GENERATE_API_PATH, unstakeAssetApi);
 
         Object.freeze(TRANSACTION_API_MAP);
 
@@ -1198,6 +1207,63 @@ export class TransactionApi {
     /**发送组合事件 */
     async broadcastMultiple<T>(argv: BFMetaNodeSDK.Transaction.BroadcastTransacationParams) {
         const api = this.__getTransactionApi<BFMetaNodeSDK.Transaction.MultipleApi>(GENERATE_TRANSACTION_API_PATH.TR_MULTIPLE);
+        const result = await api.broadcastTransaction<T>(argv);
+        return result;
+    }
+
+    /**创建增发同质资产事件 */
+    async createIncreaseAsset(argv: BFMetaNodeSDK.Transaction.IncreaseAssetTransactionParams) {
+        const api = this.__getTransactionApi<BFMetaNodeSDK.Transaction.IncreaseAssetApi>(GENERATE_TRANSACTION_API_PATH.TR_INCREASE_ASSET);
+        const result = await api.createTransaction(argv);
+        return result;
+    }
+    /**创建并发送增发同质资产事件 */
+    async packageIncreaseAsset(argv: BFMetaNodeSDK.Transaction.PackageTransacationParams) {
+        const api = this.__getTransactionApi<BFMetaNodeSDK.Transaction.IncreaseAssetApi>(GENERATE_TRANSACTION_API_PATH.TR_INCREASE_ASSET);
+        const result = await api.packageTransaction(argv);
+        return result;
+    }
+    /**发送增发同质资产事件 */
+    async broadcastIncreaseAsset<T>(argv: BFMetaNodeSDK.Transaction.BroadcastTransacationParams) {
+        const api = this.__getTransactionApi<BFMetaNodeSDK.Transaction.IncreaseAssetApi>(GENERATE_TRANSACTION_API_PATH.TR_INCREASE_ASSET);
+        const result = await api.broadcastTransaction<T>(argv);
+        return result;
+    }
+
+    /**创建质押同质资产事件 */
+    async createStakeAsset(argv: BFMetaNodeSDK.Transaction.StakeAssetTransactionParams) {
+        const api = this.__getTransactionApi<BFMetaNodeSDK.Transaction.StakeAssetApi>(GENERATE_TRANSACTION_API_PATH.TR_STAKE_ASSET);
+        const result = await api.createTransaction(argv);
+        return result;
+    }
+    /**创建并发送质押同质资产事件 */
+    async packageStakeAsset(argv: BFMetaNodeSDK.Transaction.PackageTransacationParams) {
+        const api = this.__getTransactionApi<BFMetaNodeSDK.Transaction.StakeAssetApi>(GENERATE_TRANSACTION_API_PATH.TR_STAKE_ASSET);
+        const result = await api.packageTransaction(argv);
+        return result;
+    }
+    /**发送质押同质资产事件 */
+    async broadcastStakeAsset<T>(argv: BFMetaNodeSDK.Transaction.BroadcastTransacationParams) {
+        const api = this.__getTransactionApi<BFMetaNodeSDK.Transaction.StakeAssetApi>(GENERATE_TRANSACTION_API_PATH.TR_STAKE_ASSET);
+        const result = await api.broadcastTransaction<T>(argv);
+        return result;
+    }
+
+    /**创建解除质押同质资产事件 */
+    async createUnstakeAsset(argv: BFMetaNodeSDK.Transaction.UnstakeAssetTransactionParams) {
+        const api = this.__getTransactionApi<BFMetaNodeSDK.Transaction.UnstakeAssetApi>(GENERATE_TRANSACTION_API_PATH.TR_UNSTAKE_ASSET);
+        const result = await api.createTransaction(argv);
+        return result;
+    }
+    /**创建并发送解除质押同质资产事件 */
+    async packageUnstakeAsset(argv: BFMetaNodeSDK.Transaction.PackageTransacationParams) {
+        const api = this.__getTransactionApi<BFMetaNodeSDK.Transaction.UnstakeAssetApi>(GENERATE_TRANSACTION_API_PATH.TR_UNSTAKE_ASSET);
+        const result = await api.packageTransaction(argv);
+        return result;
+    }
+    /**发送解除质押同质资产事件 */
+    async broadcastUnstakeAsset<T>(argv: BFMetaNodeSDK.Transaction.BroadcastTransacationParams) {
+        const api = this.__getTransactionApi<BFMetaNodeSDK.Transaction.UnstakeAssetApi>(GENERATE_TRANSACTION_API_PATH.TR_UNSTAKE_ASSET);
         const result = await api.broadcastTransaction<T>(argv);
         return result;
     }

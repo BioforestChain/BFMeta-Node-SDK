@@ -57,3 +57,7 @@ export * from "./macroCallApi";
 export * from "./promiseApi";
 export * from "./promiseResolveApi";
 export * from "./multipleApi";
+
+export * from "./increaseAssetApi";
+export * from "./stakeAssetApi";
+export * from "./unstakeAssetApi";

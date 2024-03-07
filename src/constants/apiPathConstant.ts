@@ -258,6 +258,13 @@ export const enum GENERATE_TRANSACTION_API_PATH {
     TR_PROMISE_RESOLVE = "/generate/promiseResolve",
     /**创建组合交易 */
     TR_MULTIPLE = "/generate/multiple",
+
+    /**创建增发同质资产交易 */
+    TR_INCREASE_ASSET = "/generate/increaseAsset",
+    /**创建质押同质资产交易 */
+    TR_STAKE_ASSET = "/generate/stakeAsset",
+    /**创建解除质押同质资产交易 */
+    TR_UNSTAKE_ASSET = "/generate/unstakeAsset",
 }
 
 export const enum MIGRATE_CERTIFICATE_API_PATH {
