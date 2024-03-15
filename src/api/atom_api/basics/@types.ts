@@ -18,7 +18,10 @@ declare namespace BFMetaNodeSDK {
             tIndex: number;
             /**区块高度 */
             height: number;
-            /**事件涉及的账户权益变动信息 */
+            /** 事件涉及的账户权益变动信息
+             * @deprecated
+             * 该字段在节点版本3.7.*之后已经废弃，请确认所连接的节点共识版本
+             */
             transactionAssetChanges: TransactionAssetChangeJSON[];
             /**权益销毁前权益的最新信息 */
             assetPrealnum?: AssetPrealnumJSON;
@@ -62,7 +65,10 @@ declare namespace BFMetaNodeSDK {
             generatorPublicKey: string;
             /**锻造者的安全公钥 */
             generatorSecondPublicKey?: string;
-            /**锻造者权益 */
+            /** 锻造者权益
+             * @deprecated
+             * 该字段在节点版本3.7.*之后已经废弃，请确认所连接的节点共识版本
+             */
             generatorEquity: string;
             /**前块签名 */
             previousBlockSignature: string;
@@ -76,7 +82,10 @@ declare namespace BFMetaNodeSDK {
             remark: { [key: string]: string };
             /**区块附加信息 */
             asset: AssetJSON;
-            /**锻造者掉线列表 */
+            /** 锻造者掉线列表
+             * @deprecated
+             * 该字段在节点版本3.7.*之后已经废弃，请确认所连接的节点共识版本
+             */
             roundOfflineGeneratersHashMap: RoundOfflineGeneratersHashMap;
         }
 
