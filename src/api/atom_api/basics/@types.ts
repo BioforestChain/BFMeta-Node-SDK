@@ -4,6 +4,7 @@ declare global {
         export namespace Basic {
             // #region core
             export interface TransactionJSON extends BFMetaNodeSDK.TransactionJSON {}
+            export interface TransactionStorageJSON extends BFMetaNodeSDK.TransactionStorageJSON {}
 
             export interface SomeTransactionJSON<T extends TransactionJSON> {
                 transaction: T;
