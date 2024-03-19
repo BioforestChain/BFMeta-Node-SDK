@@ -1,20 +1,23 @@
-declare namespace BFMetaNodeSDK {
-    type HttpHelper = import("./network").HttpHelper;
-    type WebsocketHelper = import("./network").WebsocketHelper;
-    type NetworkHelper = HttpHelper | WebsocketHelper;
+export {};
+declare global {
+    export namespace BFMetaNodeSDK {
+        export type HttpHelper = import("./network").HttpHelper;
+        export type WebsocketHelper = import("./network").WebsocketHelper;
+        export type NetworkHelper = HttpHelper | WebsocketHelper;
 
-    interface ApiSuccessReturn<T> {
-        success: true;
-        result: T;
-    }
-    interface ApiFailureReturn {
-        success: false;
-        error: {
-            code?: string;
-            message: string;
-            description?: string;
-        };
-    }
+        export interface ApiSuccessReturn<T> {
+            success: true;
+            result: T;
+        }
+        export interface ApiFailureReturn {
+            success: false;
+            error: {
+                code?: string;
+                message: string;
+                description?: string;
+            };
+        }
 
-    type ApiReturn<T> = ApiSuccessReturn<T> | ApiFailureReturn;
+        export type ApiReturn<T> = ApiSuccessReturn<T> | ApiFailureReturn;
+    }
 }
