@@ -858,6 +858,8 @@ declare global {
             }
 
             export interface IncreaseAssetTransactionParams extends TransactionCommonParamsWithRecipientId {
+                /**权益的发行账户 */
+                applyAddress: string;
                 /**增发的权益名称 */
                 assetType: string;
                 /**增发的权益数量 */
