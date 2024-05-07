@@ -426,6 +426,8 @@ declare global {
                 entityId: string;
                 /**非同质资产流通需要缴纳的版税 */
                 taxAssetPrealnum?: string;
+                /**非同质资产版税的接收账户 */
+                taxAssetRecipientId?: string;
             }
             export interface DestroyEntityTransactionParams extends TransactionCommonParamsWithRecipientId {
                 /**要销毁的非同质权益发行事件的唯一标识符 */
@@ -607,6 +609,8 @@ declare global {
                     entityId: string;
                     /**非同质资产流通需要缴纳的版税 */
                     taxAssetPrealnum?: string;
+                    /**非同质资产版税的接收账户 */
+                    taxAssetRecipientId?: string;
                 }[];
             }
 
