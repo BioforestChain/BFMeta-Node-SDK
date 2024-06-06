@@ -9,14 +9,14 @@ import { bfmetaSDK } from "../helpers";
         const keypair = await bfmetaSDK.bfchainSignUtil.createKeypair(secret);
         const publicKey = keypair.publicKey.toString("hex");
 
-        const genesisBlock = fs.readFileSync(path.join(process.cwd(), "genesisInfos/ccc-genesisBlock-testnet-hex.txt")).toString();
+        const certificate = fs.readFileSync(path.join(process.cwd(), "genesisInfos/ccc-genesisBlock-testnet-hex.txt")).toString();
 
         const argv: BFMetaNodeSDK.Transaction.RegisterChainTransactionParams = {
             publicKey,
             fee: "1000",
             applyBlockHeight: 15,
             remark: { message: "create registerChain" },
-            genesisBlock,
+            certificate,
         };
 
         const sdk = bfmetaSDK;

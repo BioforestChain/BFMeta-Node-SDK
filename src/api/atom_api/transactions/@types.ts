@@ -761,8 +761,8 @@ declare global {
             }
 
             export interface RegisterChainTransactionParams extends TransactionCommonParamsWithoutRecipientId {
-                /**创世块 */
-                genesisBlock: string;
+                /**创世块凭证 */
+                certificate: string;
             }
             export interface MigrateCertificateBodyJSON {
                 /**凭证版本 */
