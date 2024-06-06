@@ -1,6 +1,6 @@
 {
     "name": "@bfmeta/node-sdk",
-    "version": "4.0.6",
+    "version": "4.0.7",
     "description": "bfmeta node sdk for js",
     "main": "build/src/index.js",
     "types": "build/src/index.d.ts",
