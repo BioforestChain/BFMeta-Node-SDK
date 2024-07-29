@@ -41,6 +41,7 @@
         "transactions/grabAny.ts",
         "transactions/grabAsset.ts",
         "transactions/immigrateAsset.ts",
+        "transactions/increaseAsset.ts",
         "transactions/issueAsset.ts",
         "transactions/issueCertificate.ts",
         "transactions/issueEntity.ts",
@@ -55,6 +56,7 @@
         "transactions/setLnsRecordValue.ts",
         "transactions/signature.ts",
         "transactions/signForAsset.ts",
+        "transactions/stakeAsset.ts",
         "transactions/toExchangeAny.ts",
         "transactions/toExchangeAnyMulti.ts",
         "transactions/toExchangeAnyMultiAll.ts",
@@ -63,6 +65,7 @@
         "transactions/transferAny.ts",
         "transactions/transferAsset.ts",
         "transactions/trustAsset.ts",
+        "transactions/unstakeAsset.ts",
         "transactions/username.ts",
         "transactions/vote.ts",
         "upgrade/upgradeVersion.ts"

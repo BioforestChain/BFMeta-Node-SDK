@@ -51,3 +51,13 @@ export * from "./immigrateAssetApi";
 
 export * from "./issueCertificateApi";
 export * from "./destroyCertificateApi";
+
+export * from "./macroApi";
+export * from "./macroCallApi";
+export * from "./promiseApi";
+export * from "./promiseResolveApi";
+export * from "./multipleApi";
+
+export * from "./increaseAssetApi";
+export * from "./stakeAssetApi";
+export * from "./unstakeAssetApi";

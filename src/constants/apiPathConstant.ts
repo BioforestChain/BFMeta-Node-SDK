@@ -247,6 +247,24 @@ export const enum GENERATE_TRANSACTION_API_PATH {
     TR_ISSUE_CERTIFICATE = "/generate/issueCertificate",
     /**创建销毁交易 */
     TR_DESTROY_CERTIFICATE = "/generate/destroyCertificate",
+
+    /**创建宏交易 */
+    TR_MACRO = "/generate/macro",
+    /**创建宏调用交易 */
+    TR_MACRO_CALL = "/generate/macroCall",
+    /**创建承诺交易 */
+    TR_PROMISE = "/generate/promise",
+    /**创建承诺兑现交易 */
+    TR_PROMISE_RESOLVE = "/generate/promiseResolve",
+    /**创建组合交易 */
+    TR_MULTIPLE = "/generate/multiple",
+
+    /**创建增发同质资产交易 */
+    TR_INCREASE_ASSET = "/generate/increaseAsset",
+    /**创建质押同质资产交易 */
+    TR_STAKE_ASSET = "/generate/stakeAsset",
+    /**创建解除质押同质资产交易 */
+    TR_UNSTAKE_ASSET = "/generate/unstakeAsset",
 }
 
 export const enum MIGRATE_CERTIFICATE_API_PATH {

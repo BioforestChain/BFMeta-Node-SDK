@@ -46,3 +46,28 @@ export const enum READ_FILE_TYPE {
 
 //二进制数据单文件大小限制
 export const maxOneFileSize = 200 * 1024 * 1024; //200M
+
+export const enum MACRO_INPUT_TYPE {
+    TEXT = "text",
+    ADDRESS = "address",
+    PUBLICKEY = "publicKey",
+    SIGNATURE = "signature",
+    NUMBER = "number",
+    CALC = "calc",
+}
+
+export const enum MACRO_NUMBER_FORMAT {
+    /**字符串 */
+    STRING = "string",
+    /**数字字面量 */
+    LITERAL = "literal",
+}
+
+export const enum CERTIFICATE_TYPE {
+    /**禁止销毁 */
+    DESTROY_FORBIDDEN = 0,
+    /**发行者销毁 */
+    DESTROY_BY_APPLICANT = 1,
+    /**拥有者销毁 */
+    DESTROY_BY_POSSESSOR = 2,
+}

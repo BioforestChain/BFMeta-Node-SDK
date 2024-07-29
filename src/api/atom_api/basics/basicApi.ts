@@ -127,13 +127,21 @@ export class BasicApi {
         const result = await api.sendPostRequest(argv);
         return result;
     }
-    /**获取账户的最后一笔事件 */
+    /**
+     * @deprecated
+     * 获取账户的最后一笔事件
+     * 该接口在节点版本3.7.*之后已经废弃，请确认所连接的节点共识版本
+     */
     async getAccountLastTransaction(argv: BFMetaNodeSDK.Basic.GetAccountLastTransactionParams) {
         const api = this.__getBasicApi<BFMetaNodeSDK.Basic.GetAccountLastTransactionApi>(BASIC_API_PATH.BASIC_GET_ACCOUNT_LAST_TRANSACTION);
         const result = await api.sendPostRequest(argv);
         return result;
     }
-    /**获取账户指定类型的最后一笔事件 */
+    /**
+     * @deprecated
+     * 获取账户指定类型的最后一笔事件
+     * 该接口在节点版本3.7.*之后已经废弃，请确认所连接的节点共识版本
+     */
     async getAccountLastTypeTransaction(argv: BFMetaNodeSDK.Basic.GetAccountLastTypeTransactionParams) {
         const api = this.__getBasicApi<BFMetaNodeSDK.Basic.GetAccountLastTypeTransactionApi>(BASIC_API_PATH.BASIC_GET_ACCOUNT_LAST_TYPE_TRANSACTION);
         const result = await api.sendPostRequest(argv);
