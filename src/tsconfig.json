@@ -1,5 +1,5 @@
 {
-    "extends": "../base.tsconfig.cjs",
+    "extends": "../base.tsconfig.esm",
     "compilerOptions": {
         "outDir": "../build/src",
         "rootDir": "./"

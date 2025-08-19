@@ -1,0 +1,448 @@
+lockfileVersion: '9.0'
+
+settings:
+  autoInstallPeers: true
+  excludeLinksFromLockfile: false
+
+importers:
+
+  .:
+    dependencies:
+      '@bfmeta/sign-util':
+        specifier: ^2.1.0
+        version: 2.1.0
+      '@types/socket.io-client':
+        specifier: ^1.4.36
+        version: 1.4.36
+      socket.io-client:
+        specifier: ^2.4.0
+        version: 2.5.0
+    devDependencies:
+      '@types/node':
+        specifier: ^18.15.3
+        version: 18.19.123
+      node-fetch:
+        specifier: ^3.3.1
+        version: 3.3.2
+      oxlint:
+        specifier: ^1.12.0
+        version: 1.12.0
+      tslib:
+        specifier: ^2.4.1
+        version: 2.8.1
+      typescript:
+        specifier: ^5.9.2
+        version: 5.9.2
+
+packages:
+
+  '@bfmeta/sign-util@2.1.0':
+    resolution: {integrity: sha512-ArebAonHk2gouN2WCJcnioCpqRmW0O6shIc/TX9QijlyVcrm2nBJ/tthyXmBPBrK98WaZXlpK22Pv+/kSltSxA==}
+
+  '@oxlint-tsgolint/darwin-arm64@0.0.4':
+    resolution: {integrity: sha512-qL0zqIYdYrXl6ghTIHnhJkvyYy1eKz0P8YIEp59MjY3/zNiyk/gtyp8LkwZdqb9ezbcX9UDQhSuSO1wURJsq8g==}
+    cpu: [arm64]
+    os: [darwin]
+
+  '@oxlint-tsgolint/darwin-x64@0.0.4':
+    resolution: {integrity: sha512-c3nSjqmDSKzemChAEUv/zy2e9cwgkkO/7rz4Y447+8pSbeZNHi3RrNpVHdrKL/Qep4pt6nFZE+6PoczZxHNQjg==}
+    cpu: [x64]
+    os: [darwin]
+
+  '@oxlint-tsgolint/linux-arm64@0.0.4':
+    resolution: {integrity: sha512-P2BA54c/Ej5AGkChH1/7zMd6PwZfa+jnw8juB/JWops+BX+lbhbbBHz0cYduDBgWYjRo4e3OVJOTskqcpuMfNw==}
+    cpu: [arm64]
+    os: [linux]
+
+  '@oxlint-tsgolint/linux-x64@0.0.4':
+    resolution: {integrity: sha512-hbgLpnDNicPrbHOAQ9nNfLOSrUrdWANP/umR7P/cwCc1sv66eEs7bm4G3mrhRU8aXFBJmbhdNqiDSUkYYvHWJQ==}
+    cpu: [x64]
+    os: [linux]
+
+  '@oxlint-tsgolint/win32-arm64@0.0.4':
+    resolution: {integrity: sha512-ozKEppmwZhC5LMedClBEat6cXgBGUvxGOgsKK2ZZNE6zSScX7QbvJAOt3nWMGs8GQshHy/6ndMB33+uRloglQA==}
+    cpu: [arm64]
+    os: [win32]
+
+  '@oxlint-tsgolint/win32-x64@0.0.4':
+    resolution: {integrity: sha512-gLfx+qogW21QcaRKFg6ARgra7tSPqyn+Ems3FgTUyxV4OpJYn7KsQroygxOWElqv6JUobtvHBrxdB6YhlvERbQ==}
+    cpu: [x64]
+    os: [win32]
+
+  '@oxlint/darwin-arm64@1.12.0':
+    resolution: {integrity: sha512-Pv+Ho1uq2ny8g2P6JgQpaIUF1FHPL32DfOlZhKqmzDT3PydtFvZp/7zNyJE3BIXeTOOOG1Eg12hjZHMLsWxyNw==}
+    cpu: [arm64]
+    os: [darwin]
+
+  '@oxlint/darwin-x64@1.12.0':
+    resolution: {integrity: sha512-kNXPH/7jXjX4pawrEWXQHOasOdOsrYKhskA1qYwLYcv/COVSoxOSElkQtQa+KxN5zzt3F02kBdWDndLpgJLbLQ==}
+    cpu: [x64]
+    os: [darwin]
+
+  '@oxlint/linux-arm64-gnu@1.12.0':
+    resolution: {integrity: sha512-U7NETs02K55ZyDlgdhx4lWeFYbkUKcL+YcG+Ak70EyEt/BKIIVt4B84VdV1JzC71FErUipDYAwPJmxMREXr4Sg==}
+    cpu: [arm64]
+    os: [linux]
+
+  '@oxlint/linux-arm64-musl@1.12.0':
+    resolution: {integrity: sha512-e4Pb2eZu3V2BsiX4t4gyv9iJ8+KRT6bkoWM5uC9BLX7edsVchwLwL6LB2vPYusYdPPrxdjlFCg6ni+9wlw7FbQ==}
+    cpu: [arm64]
+    os: [linux]
+
+  '@oxlint/linux-x64-gnu@1.12.0':
+    resolution: {integrity: sha512-qJK98Dj/z7Nbm0xoz0nCCMFGy0W/kLewPzOK5QENxuUoQQ6ymt7/75rXOuTwAZJ6JFTarqfSuMAA0pka6Tmytw==}
+    cpu: [x64]
+    os: [linux]
+
+  '@oxlint/linux-x64-musl@1.12.0':
+    resolution: {integrity: sha512-jNeltpHc1eonSev/bWKipJ7FI6+Rc7EXh6Y7E0pm8e95sc1klFA29FFVs3FjMA6CCa+SRT0u0nnNTTAtf2QOiQ==}
+    cpu: [x64]
+    os: [linux]
+
+  '@oxlint/win32-arm64@1.12.0':
+    resolution: {integrity: sha512-T3fpNZJ3Q9YGgJTKc1YyvGoomSXnrV5mREz0QACE06zUzfS8EWyaYc/GN17FhHvQ4uQk/1xLgnM6FPsuLMeRhw==}
+    cpu: [arm64]
+    os: [win32]
+
+  '@oxlint/win32-x64@1.12.0':
+    resolution: {integrity: sha512-2eC4XQ1SMM2z7bCDG+Ifrn5GrvP6fkL0FGi4ZwDCrx6fwb1byFrXgSUNIPiqiiqBBrFRMKlXzU9zD6IjuFlUOg==}
+    cpu: [x64]
+    os: [win32]
+
+  '@types/node@18.19.123':
+    resolution: {integrity: sha512-K7DIaHnh0mzVxreCR9qwgNxp3MH9dltPNIEddW9MYUlcKAzm+3grKNSTe2vCJHI1FaLpvpL5JGJrz1UZDKYvDg==}
+
+  '@types/socket.io-client@1.4.36':
+    resolution: {integrity: sha512-ZJWjtFBeBy1kRSYpVbeGYTElf6BqPQUkXDlHHD4k/42byCN5Rh027f4yARHCink9sKAkbtGZXEAmR0ZCnc2/Ag==}
+
+  after@0.8.2:
+    resolution: {integrity: sha512-QbJ0NTQ/I9DI3uSJA4cbexiwQeRAfjPScqIbSjUDd9TOrcg6pTkdgziesOqxBMBzit8vFCTwrP27t13vFOORRA==}
+
+  arraybuffer.slice@0.0.7:
+    resolution: {integrity: sha512-wGUIVQXuehL5TCqQun8OW81jGzAWycqzFF8lFp+GOM5BXLYj3bKNsYC4daB7n6XjCqxQA/qgTJ+8ANR3acjrog==}
+
+  backo2@1.0.2:
+    resolution: {integrity: sha512-zj6Z6M7Eq+PBZ7PQxl5NT665MvJdAkzp0f60nAJ+sLaSCBPMwVak5ZegFbgVCzFcCJTKFoMizvM5Ld7+JrRJHA==}
+
+  base64-arraybuffer@0.1.4:
+    resolution: {integrity: sha512-a1eIFi4R9ySrbiMuyTGx5e92uRH5tQY6kArNcFaKBUleIoLjdjBg7Zxm3Mqm3Kmkf27HLR/1fnxX9q8GQ7Iavg==}
+    engines: {node: '>= 0.6.0'}
+
+  blob@0.0.5:
+    resolution: {integrity: sha512-gaqbzQPqOoamawKg0LGVd7SzLgXS+JH61oWprSLH+P+abTczqJbhTR8CmJ2u9/bUYNmHTGJx/UEmn6doAvvuig==}
+
+  component-bind@1.0.0:
+    resolution: {integrity: sha512-WZveuKPeKAG9qY+FkYDeADzdHyTYdIboXS59ixDeRJL5ZhxpqUnxSOwop4FQjMsiYm3/Or8cegVbpAHNA7pHxw==}
+
+  component-emitter@1.3.1:
+    resolution: {integrity: sha512-T0+barUSQRTUQASh8bx02dl+DhF54GtIDY13Y3m9oWTklKbb3Wv974meRpeZ3lp1JpLVECWWNHC4vaG2XHXouQ==}
+
+  component-inherit@0.0.3:
+    resolution: {integrity: sha512-w+LhYREhatpVqTESyGFg3NlP6Iu0kEKUHETY9GoZP/pQyW4mHFZuFWRUCIqVPZ36ueVLtoOEZaAqbCF2RDndaA==}
+
+  data-uri-to-buffer@4.0.1:
+    resolution: {integrity: sha512-0R9ikRb668HB7QDxT1vkpuUBtqc53YyAwMwGeUFKRojY/NWKvdZ+9UYtRfGmhqNbRkTSVpMbmyhXipFFv2cb/A==}
+    engines: {node: '>= 12'}
+
+  debug@3.1.0:
+    resolution: {integrity: sha512-OX8XqP7/1a9cqkxYw2yXss15f26NKWBpDXQd0/uK/KPqdQhxbPa994hnzjcE2VqQpDslf55723cKPUOGSmMY3g==}
+    peerDependencies:
+      supports-color: '*'
+    peerDependenciesMeta:
+      supports-color:
+        optional: true
+
+  engine.io-client@3.5.4:
+    resolution: {integrity: sha512-ydc8uuMMDxC5KCKNJN3zZKYJk2sgyTuTZQ7Aj1DJSsLKAcizA/PzWivw8fZMIjJVBo2CJOYzntv4FSjY/Lr//g==}
+
+  engine.io-parser@2.2.1:
+    resolution: {integrity: sha512-x+dN/fBH8Ro8TFwJ+rkB2AmuVw9Yu2mockR/p3W8f8YtExwFgDvBDi0GWyb4ZLkpahtDGZgtr3zLovanJghPqg==}
+
+  fetch-blob@3.2.0:
+    resolution: {integrity: sha512-7yAQpD2UMJzLi1Dqv7qFYnPbaPx7ZfFK6PiIxQ4PfkGPyNyl2Ugx+a/umUonmKqjhM4DnfbMvdX6otXq83soQQ==}
+    engines: {node: ^12.20 || >= 14.13}
+
+  formdata-polyfill@4.0.10:
+    resolution: {integrity: sha512-buewHzMvYL29jdeQTVILecSaZKnt/RJWjoZCF5OW60Z67/GmSLBkOFM7qh1PI3zFNtJbaZL5eQu1vLfazOwj4g==}
+    engines: {node: '>=12.20.0'}
+
+  has-binary2@1.0.3:
+    resolution: {integrity: sha512-G1LWKhDSvhGeAQ8mPVQlqNcOB2sJdwATtZKl2pDKKHfpf/rYj24lkinxf69blJbnsvtqqNU+L3SL50vzZhXOnw==}
+
+  has-cors@1.1.0:
+    resolution: {integrity: sha512-g5VNKdkFuUuVCP9gYfDJHjK2nqdQJ7aDLTnycnc2+RvsOQbuLdF5pm7vuE5J76SEBIQjs4kQY/BWq74JUmjbXA==}
+
+  indexof@0.0.1:
+    resolution: {integrity: sha512-i0G7hLJ1z0DE8dsqJa2rycj9dBmNKgXBvotXtZYXakU9oivfB9Uj2ZBC27qqef2U58/ZLwalxa1X/RDCdkHtVg==}
+
+  isarray@2.0.1:
+    resolution: {integrity: sha512-c2cu3UxbI+b6kR3fy0nRnAhodsvR9dx7U5+znCOzdj6IfP3upFURTr0Xl5BlQZNKZjEtxrmVyfSdeE3O57smoQ==}
+
+  ms@2.0.0:
+    resolution: {integrity: sha512-Tpp60P6IUJDTuOq/5Z8cdskzJujfwqfOTkrwIwj7IRISpnkJnT6SyJ4PCPnGMoFjC9ddhal5KVIYtAt97ix05A==}
+
+  node-domexception@1.0.0:
+    resolution: {integrity: sha512-/jKZoMpw0F8GRwl4/eLROPA3cfcXtLApP0QzLmUT/HuPCZWyB7IY9ZrMeKw2O/nFIqPQB3PVM9aYm0F312AXDQ==}
+    engines: {node: '>=10.5.0'}
+    deprecated: Use your platform's native DOMException instead
+
+  node-fetch@3.3.2:
+    resolution: {integrity: sha512-dRB78srN/l6gqWulah9SrxeYnxeddIG30+GOqK/9OlLVyLg3HPnr6SqOWTWOXKRwC2eGYCkZ59NNuSgvSrpgOA==}
+    engines: {node: ^12.20.0 || ^14.13.1 || >=16.0.0}
+
+  oxlint-tsgolint@0.0.4:
+    resolution: {integrity: sha512-KFWVP+VU3ymgK/Dtuf6iRkqjo+aN42lS1YThY6JWlNi1GQqm7wtio/kAwssqDhm8kP+CVXbgZAtu1wgsK4XeTg==}
+    hasBin: true
+
+  oxlint@1.12.0:
+    resolution: {integrity: sha512-tBQ9aB00aYLlGXE21WJHnKQAI8xoi2V6Eiz/WvGV7FwU9YLYuNOurEEVbfoS5u0ODX8GLvGWj1fdHh5Rb74Kkw==}
+    engines: {node: '>=8.*'}
+    hasBin: true
+
+  parseqs@0.0.6:
+    resolution: {integrity: sha512-jeAGzMDbfSHHA091hr0r31eYfTig+29g3GKKE/PPbEQ65X0lmMwlEoqmhzu0iztID5uJpZsFlUPDP8ThPL7M8w==}
+
+  parseuri@0.0.6:
+    resolution: {integrity: sha512-AUjen8sAkGgao7UyCX6Ahv0gIK2fABKmYjvP4xmy5JaKvcbTRueIqIPHLAfq30xJddqSE033IOMUSOMCcK3Sow==}
+
+  socket.io-client@2.5.0:
+    resolution: {integrity: sha512-lOO9clmdgssDykiOmVQQitwBAF3I6mYcQAo7hQ7AM6Ny5X7fp8hIJ3HcQs3Rjz4SoggoxA1OgrQyY8EgTbcPYw==}
+
+  socket.io-parser@3.3.4:
+    resolution: {integrity: sha512-z/pFQB3x+EZldRRzORYW1vwVO8m/3ILkswtnpoeU6Ve3cbMWkmHEWDAVJn4QJtchiiFTo5j7UG2QvwxvaA9vow==}
+
+  to-array@0.1.4:
+    resolution: {integrity: sha512-LhVdShQD/4Mk4zXNroIQZJC+Ap3zgLcDuwEdcmLv9CCO73NWockQDwyUnW/m8VX/EElfL6FcYx7EeutN4HJA6A==}
+
+  tslib@2.8.1:
+    resolution: {integrity: sha512-oJFu94HQb+KVduSUQL7wnpmqnfmLsOA/nAh6b6EH0wCEoK0/mPeXU6c3wKDV83MkOuHPRHtSXKKU99IBazS/2w==}
+
+  typescript@5.9.2:
+    resolution: {integrity: sha512-CWBzXQrc/qOkhidw1OzBTQuYRbfyxDXJMVJ1XNwUHGROVmuaeiEm3OslpZ1RV96d7SKKjZKrSJu3+t/xlw3R9A==}
+    engines: {node: '>=14.17'}
+    hasBin: true
+
+  undici-types@5.26.5:
+    resolution: {integrity: sha512-JlCMO+ehdEIKqlFxk6IfVoAUVmgz7cU7zD/h9XZ0qzeosSHmUJVOzSQvvYSYWXkFXC+IfLKSIffhv0sVZup6pA==}
+
+  web-streams-polyfill@3.3.3:
+    resolution: {integrity: sha512-d2JWLCivmZYTSIoge9MsgFCZrt571BikcWGYkjC1khllbTeDlGqZ2D8vD8E/lJa8WGWbb7Plm8/XJYV7IJHZZw==}
+    engines: {node: '>= 8'}
+
+  ws@7.5.10:
+    resolution: {integrity: sha512-+dbF1tHwZpXcbOJdVOkzLDxZP1ailvSxM6ZweXTegylPny803bFhA+vqBYw4s31NSAk4S2Qz+AKXK9a4wkdjcQ==}
+    engines: {node: '>=8.3.0'}
+    peerDependencies:
+      bufferutil: ^4.0.1
+      utf-8-validate: ^5.0.2
+    peerDependenciesMeta:
+      bufferutil:
+        optional: true
+      utf-8-validate:
+        optional: true
+
+  xmlhttprequest-ssl@1.6.3:
+    resolution: {integrity: sha512-3XfeQE/wNkvrIktn2Kf0869fC0BN6UpydVasGIeSm2B1Llihf7/0UfZM+eCkOw3P7bP4+qPgqhm7ZoxuJtFU0Q==}
+    engines: {node: '>=0.4.0'}
+
+  yeast@0.1.2:
+    resolution: {integrity: sha512-8HFIh676uyGYP6wP13R/j6OJ/1HwJ46snpvzE7aHAN3Ryqh2yX6Xox2B4CUmTwwOIzlG3Bs7ocsP5dZH/R1Qbg==}
+
+snapshots:
+
+  '@bfmeta/sign-util@2.1.0':
+    dependencies:
+      tslib: 2.8.1
+
+  '@oxlint-tsgolint/darwin-arm64@0.0.4':
+    optional: true
+
+  '@oxlint-tsgolint/darwin-x64@0.0.4':
+    optional: true
+
+  '@oxlint-tsgolint/linux-arm64@0.0.4':
+    optional: true
+
+  '@oxlint-tsgolint/linux-x64@0.0.4':
+    optional: true
+
+  '@oxlint-tsgolint/win32-arm64@0.0.4':
+    optional: true
+
+  '@oxlint-tsgolint/win32-x64@0.0.4':
+    optional: true
+
+  '@oxlint/darwin-arm64@1.12.0':
+    optional: true
+
+  '@oxlint/darwin-x64@1.12.0':
+    optional: true
+
+  '@oxlint/linux-arm64-gnu@1.12.0':
+    optional: true
+
+  '@oxlint/linux-arm64-musl@1.12.0':
+    optional: true
+
+  '@oxlint/linux-x64-gnu@1.12.0':
+    optional: true
+
+  '@oxlint/linux-x64-musl@1.12.0':
+    optional: true
+
+  '@oxlint/win32-arm64@1.12.0':
+    optional: true
+
+  '@oxlint/win32-x64@1.12.0':
+    optional: true
+
+  '@types/node@18.19.123':
+    dependencies:
+      undici-types: 5.26.5
+
+  '@types/socket.io-client@1.4.36': {}
+
+  after@0.8.2: {}
+
+  arraybuffer.slice@0.0.7: {}
+
+  backo2@1.0.2: {}
+
+  base64-arraybuffer@0.1.4: {}
+
+  blob@0.0.5: {}
+
+  component-bind@1.0.0: {}
+
+  component-emitter@1.3.1: {}
+
+  component-inherit@0.0.3: {}
+
+  data-uri-to-buffer@4.0.1: {}
+
+  debug@3.1.0:
+    dependencies:
+      ms: 2.0.0
+
+  engine.io-client@3.5.4:
+    dependencies:
+      component-emitter: 1.3.1
+      component-inherit: 0.0.3
+      debug: 3.1.0
+      engine.io-parser: 2.2.1
+      has-cors: 1.1.0
+      indexof: 0.0.1
+      parseqs: 0.0.6
+      parseuri: 0.0.6
+      ws: 7.5.10
+      xmlhttprequest-ssl: 1.6.3
+      yeast: 0.1.2
+    transitivePeerDependencies:
+      - bufferutil
+      - supports-color
+      - utf-8-validate
+
+  engine.io-parser@2.2.1:
+    dependencies:
+      after: 0.8.2
+      arraybuffer.slice: 0.0.7
+      base64-arraybuffer: 0.1.4
+      blob: 0.0.5
+      has-binary2: 1.0.3
+
+  fetch-blob@3.2.0:
+    dependencies:
+      node-domexception: 1.0.0
+      web-streams-polyfill: 3.3.3
+
+  formdata-polyfill@4.0.10:
+    dependencies:
+      fetch-blob: 3.2.0
+
+  has-binary2@1.0.3:
+    dependencies:
+      isarray: 2.0.1
+
+  has-cors@1.1.0: {}
+
+  indexof@0.0.1: {}
+
+  isarray@2.0.1: {}
+
+  ms@2.0.0: {}
+
+  node-domexception@1.0.0: {}
+
+  node-fetch@3.3.2:
+    dependencies:
+      data-uri-to-buffer: 4.0.1
+      fetch-blob: 3.2.0
+      formdata-polyfill: 4.0.10
+
+  oxlint-tsgolint@0.0.4:
+    optionalDependencies:
+      '@oxlint-tsgolint/darwin-arm64': 0.0.4
+      '@oxlint-tsgolint/darwin-x64': 0.0.4
+      '@oxlint-tsgolint/linux-arm64': 0.0.4
+      '@oxlint-tsgolint/linux-x64': 0.0.4
+      '@oxlint-tsgolint/win32-arm64': 0.0.4
+      '@oxlint-tsgolint/win32-x64': 0.0.4
+    optional: true
+
+  oxlint@1.12.0:
+    optionalDependencies:
+      '@oxlint/darwin-arm64': 1.12.0
+      '@oxlint/darwin-x64': 1.12.0
+      '@oxlint/linux-arm64-gnu': 1.12.0
+      '@oxlint/linux-arm64-musl': 1.12.0
+      '@oxlint/linux-x64-gnu': 1.12.0
+      '@oxlint/linux-x64-musl': 1.12.0
+      '@oxlint/win32-arm64': 1.12.0
+      '@oxlint/win32-x64': 1.12.0
+      oxlint-tsgolint: 0.0.4
+
+  parseqs@0.0.6: {}
+
+  parseuri@0.0.6: {}
+
+  socket.io-client@2.5.0:
+    dependencies:
+      backo2: 1.0.2
+      component-bind: 1.0.0
+      component-emitter: 1.3.1
+      debug: 3.1.0
+      engine.io-client: 3.5.4
+      has-binary2: 1.0.3
+      indexof: 0.0.1
+      parseqs: 0.0.6
+      parseuri: 0.0.6
+      socket.io-parser: 3.3.4
+      to-array: 0.1.4
+    transitivePeerDependencies:
+      - bufferutil
+      - supports-color
+      - utf-8-validate
+
+  socket.io-parser@3.3.4:
+    dependencies:
+      component-emitter: 1.3.1
+      debug: 3.1.0
+      isarray: 2.0.1
+    transitivePeerDependencies:
+      - supports-color
+
+  to-array@0.1.4: {}
+
+  tslib@2.8.1: {}
+
+  typescript@5.9.2: {}
+
+  undici-types@5.26.5: {}
+
+  web-streams-polyfill@3.3.3: {}
+
+  ws@7.5.10: {}
+
+  xmlhttprequest-ssl@1.6.3: {}
+
+  yeast@0.1.2: {}

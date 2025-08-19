@@ -12,7 +12,7 @@
         "noEmitOnError": true,
         "removeComments": true,
         "forceConsistentCasingInFileNames": true,
-        "importsNotUsedAsValues": "error",
+        "verbatimModuleSyntax": true,
         "strict": true,
         "strictBindCallApply": true,
         "strictNullChecks": true,

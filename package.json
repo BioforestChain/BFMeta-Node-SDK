@@ -1,15 +1,20 @@
 {
     "name": "@bfmeta/node-sdk",
-    "version": "4.0.7",
+    "version": "5.0.0",
     "description": "bfmeta node sdk for js",
-    "main": "build/src/index.js",
-    "types": "build/src/index.d.ts",
+    "type": "module",
+    "exports": {
+        ".": {
+            "types": "./build/src/index.d.ts",
+            "default": "./build/src/index.js"
+        }
+    },
     "scripts": {
         "lsts": "node ./scripts/listAllFile.js",
         "clear": "node ./scripts/rmBuild.js",
         "dev": "tsc --build -w",
         "build": "tsc --build ./tsconfig.all.json",
-        "rebuild": "yarn clear & yarn build"
+        "rebuild": "pnpm clear & pnpm build"
     },
     "repository": {
         "type": "git",
@@ -20,11 +25,13 @@
     "devDependencies": {
         "@types/node": "^18.15.3",
         "node-fetch": "^3.3.1",
-        "tslib": "^2.4.1"
+        "oxlint": "^1.12.0",
+        "tslib": "^2.4.1",
+        "typescript": "^5.9.2"
     },
     "dependencies": {
+        "@bfmeta/sign-util": "^2.1.0",
         "@types/socket.io-client": "^1.4.36",
-        "@bfmeta/sign-util": "^1.0.8",
         "socket.io-client": "^2.4.0"
     },
     "files": [

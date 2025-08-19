@@ -1,0 +1,18 @@
+{
+  "$schema": "./node_modules/oxlint/configuration_schema.json",
+  "ignorePatterns": [
+    "**/node_modules/**",
+    "**/public/**",
+    "**/*.{mjs,js,cjs,css,html}"
+  ],
+  "rules": {
+    "typescript/consistent-type-imports": [
+      "warn",
+      {
+        "disallowTypeAnnotations": false
+      }
+    ],
+    "typescript/no-this-alias": "off",
+    "eslint/no-control-regex": "allow"
+  }
+}
