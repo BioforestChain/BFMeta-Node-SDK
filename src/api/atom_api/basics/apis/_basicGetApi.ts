@@ -1,4 +1,4 @@
-import { API_NAMESPACE, REQUEST_PROTOCOL, REQUEST_TYPE } from "../../../../constants";
+import { API_NAMESPACE, REQUEST_PROTOCOL, REQUEST_TYPE } from "../../../../constants/index.js";
 
 export abstract class BasicGetApi<T extends BFMetaNodeSDK.Basic.BasicApiRequestResult> {
     private readonly __API_NAMESPACE = API_NAMESPACE.BASIC;

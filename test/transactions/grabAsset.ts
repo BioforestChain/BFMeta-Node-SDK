@@ -1,4 +1,4 @@
-import { bfmetaSDK, CHAIN_INFO, GIFT_DISTRIBUTION_RULE } from "../helpers";
+import { bfmetaSDK, CHAIN_INFO, GIFT_DISTRIBUTION_RULE } from "../helpers/index.js";
 
 (async () => {
     try {

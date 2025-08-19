@@ -1,4 +1,4 @@
-import { Api } from "./api";
+import { Api } from "./api/index.js";
 import { BFMetaSignUtil } from "@bfmeta/sign-util";
 
 export class BFMetaSDK {

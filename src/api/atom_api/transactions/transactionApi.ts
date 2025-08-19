@@ -50,8 +50,8 @@ import {
     IncreaseAssetApi,
     StakeAssetApi,
     UnstakeAssetApi,
-} from "./atom_transaction";
-import { GenerateMigrateCertificateApi, FromAuthSignatureMigrateCertificateApi, ToAuthSignatureMigrateCertificateApi } from "./migrate_certificate";
+} from "./atom_transaction/index.js";
+import { GenerateMigrateCertificateApi, FromAuthSignatureMigrateCertificateApi, ToAuthSignatureMigrateCertificateApi } from "./migrate_certificate/index.js";
 import {
     VerifyAddressApi,
     VerifyPublicKeyApi,
@@ -63,8 +63,8 @@ import {
     AsymmetricDecryptApi,
     CalcTransactionMinFeeApi,
     GenerateCiphertextSignatureApi,
-} from "./atom_common";
-import { COMMON_API_PATH, GENERATE_TRANSACTION_API_PATH, MIGRATE_CERTIFICATE_API_PATH } from "../../../constants";
+} from "./atom_common/index.js";
+import { COMMON_API_PATH, GENERATE_TRANSACTION_API_PATH, MIGRATE_CERTIFICATE_API_PATH } from "../../../constants/index.js";
 
 export class TransactionApi {
     private __TRANSACTION_API_MAP = new Map<BFMetaNodeSDK.Transaction.GENERATE_TRANSACTION_API_PATH, BFMetaNodeSDK.Transaction.TransactionApi>();

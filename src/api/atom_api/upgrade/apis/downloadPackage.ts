@@ -1,5 +1,5 @@
-import { UpgradePostApi } from "./_upgradePostApi";
-import { UPGRADE_API_PATH } from "../../../../constants";
+import { UpgradePostApi } from "./_upgradePostApi.js";
+import { UPGRADE_API_PATH } from "../../../../constants/index.js";
 
 export class DownloadPackageApi extends UpgradePostApi<BFMetaNodeSDK.Upgrade.DownloadPackageResult> {
     readonly REQUEST_API_PATH = UPGRADE_API_PATH.DOWNLOAD_PACKAGE;

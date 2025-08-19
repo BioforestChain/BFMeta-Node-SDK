@@ -1,5 +1,5 @@
-import "./@types";
+import "./@types.js";
 
-export * from "./apiConfigHelper";
+export * from "./apiConfigHelper.js";
 
-export * from "./requestParameterParser";
+export * from "./requestParameterParser.js";

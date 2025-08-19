@@ -1,5 +1,5 @@
-import { BasicPostApi } from "./_basicPostApi";
-import { BASIC_API_PATH } from "../../../../constants";
+import { BasicPostApi } from "./_basicPostApi.js";
+import { BASIC_API_PATH } from "../../../../constants/index.js";
 
 export class GetAccountLastTypeTransactionApi extends BasicPostApi<BFMetaNodeSDK.Basic.GetAccountLastTypeTransactionResult> {
     readonly REQUEST_API_PATH = BASIC_API_PATH.BASIC_GET_ACCOUNT_LAST_TYPE_TRANSACTION;

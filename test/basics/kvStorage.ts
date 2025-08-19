@@ -1,6 +1,6 @@
 import * as fs from "node:fs";
 import * as path from "node:path";
-import { bfmetaSDK } from "../helpers";
+import { bfmetaSDK } from "../helpers/index.js";
 
 class ApiTest {
     private __sdk = bfmetaSDK;

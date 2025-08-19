@@ -1,4 +1,4 @@
-import { bfmetaSDK } from "../helpers";
+import { bfmetaSDK } from "../helpers/index.js";
 
 (async () => {
     try {

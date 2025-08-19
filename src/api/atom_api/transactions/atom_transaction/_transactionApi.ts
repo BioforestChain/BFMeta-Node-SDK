@@ -1,4 +1,4 @@
-import { API_NAMESPACE, REQUEST_PROTOCOL, REQUEST_TYPE } from "../../../../constants";
+import { API_NAMESPACE, REQUEST_PROTOCOL, REQUEST_TYPE } from "../../../../constants/index.js";
 
 export abstract class TransactionApi {
     private readonly __API_NAMESPACE = API_NAMESPACE.TRANSACTION;

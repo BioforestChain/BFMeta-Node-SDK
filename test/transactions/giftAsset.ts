@@ -1,4 +1,4 @@
-import { bfmetaSDK, GIFT_DISTRIBUTION_RULE } from "../helpers";
+import { bfmetaSDK, GIFT_DISTRIBUTION_RULE } from "../helpers/index.js";
 
 (async () => {
     try {

@@ -1,4 +1,4 @@
-import { bfmetaSDK, CHAIN_INFO, EXCHANGE_DIRECTION, SPECIAL_ASSET_TYPE } from "../helpers";
+import { bfmetaSDK, CHAIN_INFO, EXCHANGE_DIRECTION, SPECIAL_ASSET_TYPE } from "../helpers/index.js";
 
 (async () => {
     try {

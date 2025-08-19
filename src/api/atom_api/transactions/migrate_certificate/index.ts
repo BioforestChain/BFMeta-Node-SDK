@@ -1,3 +1,3 @@
-export * from "./generateMigrateCertificateApi";
-export * from "./fromAuthSignatureMigrateCertificateApi";
-export * from "./toAuthSignatureMigrateCertificateApi";
+export * from "./generateMigrateCertificateApi.js";
+export * from "./fromAuthSignatureMigrateCertificateApi.js";
+export * from "./toAuthSignatureMigrateCertificateApi.js";

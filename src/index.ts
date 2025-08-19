@@ -1,4 +1,4 @@
-import "./@types";
+import "./@types.js";
 
-export * from "./sdk";
-export * from "./constants";
+export * from "./sdk.js";
+export * from "./constants/index.js";

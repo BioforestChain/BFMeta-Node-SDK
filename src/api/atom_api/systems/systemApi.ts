@@ -32,8 +32,8 @@ import {
     GetAllUntreatedTrsCountApi,
     ClearAllUntreatedTrsApi,
     RestoreAllUntreatedTrsApi,
-} from "./apis";
-import { SYSTEM_API_PATH } from "../../../constants";
+} from "./apis/index.js";
+import { SYSTEM_API_PATH } from "../../../constants/index.js";
 
 export class SystemApi {
     private __SYSTEM_API_MAP = new Map<BFMetaNodeSDK.System.SYSTEM_API_PATH, BFMetaNodeSDK.System.SystemApi>();

@@ -1,4 +1,4 @@
-import { bfmetaSDK, PARENT_ASSET_TYPE, CHAIN_INFO } from "../helpers";
+import { bfmetaSDK, PARENT_ASSET_TYPE, CHAIN_INFO } from "../helpers/index.js";
 
 (async () => {
     try {

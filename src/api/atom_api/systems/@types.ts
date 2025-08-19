@@ -1002,50 +1002,50 @@ declare global {
 
             export type SystemApiReturn<T extends SystemApiRequestResult> = BFMetaNodeSDK.Basic.BasicApiSuccessReturn<T> | SystemApiFailureReturn;
 
-            export type SystemApi = import("./apis/_systemGetApi").SystemGetApi<any> | import("./apis/_systemPostApi").SystemPostApi<any>;
-            export type SafetyCloseApi = import("./apis").SafetyCloseApi;
+            export type SystemApi = import("./apis/_systemGetApi.js").SystemGetApi<any> | import("./apis/_systemPostApi.js").SystemPostApi<any>;
+            export type SafetyCloseApi = import("./apis/index.js").SafetyCloseApi;
 
-            export type SetSystemKeyApi = import("./apis").SetSystemKeyApi;
-            export type VerifySystemKeyApi = import("./apis").VerifySystemKeyApi;
-            export type AddSystemAdminApi = import("./apis").AddSystemAdminApi;
-            export type GetSystemAdminApi = import("./apis").GetSystemAdminApi;
-            export type VerifySystemAdminApi = import("./apis").VerifySystemAdminApi;
-            export type DeleteSystemAdminApi = import("./apis").DeleteSystemAdminApi;
-            export type ResetSystemAdminApi = import("./apis").ResetSystemAdminApi;
+            export type SetSystemKeyApi = import("./apis/index.js").SetSystemKeyApi;
+            export type VerifySystemKeyApi = import("./apis/index.js").VerifySystemKeyApi;
+            export type AddSystemAdminApi = import("./apis/index.js").AddSystemAdminApi;
+            export type GetSystemAdminApi = import("./apis/index.js").GetSystemAdminApi;
+            export type VerifySystemAdminApi = import("./apis/index.js").VerifySystemAdminApi;
+            export type DeleteSystemAdminApi = import("./apis/index.js").DeleteSystemAdminApi;
+            export type ResetSystemAdminApi = import("./apis/index.js").ResetSystemAdminApi;
 
-            export type BindingAccountApi = import("./apis").BindingAccountApi;
-            export type GetSystemDelegateApi = import("./apis").GetSystemDelegateApi;
+            export type BindingAccountApi = import("./apis/index.js").BindingAccountApi;
+            export type GetSystemDelegateApi = import("./apis/index.js").GetSystemDelegateApi;
 
-            export type SetSystemConfigApi = import("./apis").SetSystemConfigApi;
-            export type GetSystemConfigInfoDetailApi = import("./apis").GetSystemConfigInfoDetailApi;
+            export type SetSystemConfigApi = import("./apis/index.js").SetSystemConfigApi;
+            export type GetSystemConfigInfoDetailApi = import("./apis/index.js").GetSystemConfigInfoDetailApi;
 
-            export type GetRuntimeStateApi = import("./apis").GetRuntimeStateApi;
-            export type MiningMachineInfoApi = import("./apis").MiningMachineInfoApi;
+            export type GetRuntimeStateApi = import("./apis/index.js").GetRuntimeStateApi;
+            export type MiningMachineInfoApi = import("./apis/index.js").MiningMachineInfoApi;
 
-            export type GetSystemMonitorApi = import("./apis").GetSystemMonitorApi;
-            export type GetSystemLoggerTypeApi = import("./apis").GetSystemLoggerTypeApi;
-            export type GetSystemLoggerListApi = import("./apis").GetSystemLoggerListApi;
-            export type GetSystemLoggerDetailApi = import("./apis").GetSystemLoggerDetailApi;
-            export type DeleteSystemLoggerApi = import("./apis").DeleteSystemLoggerApi;
+            export type GetSystemMonitorApi = import("./apis/index.js").GetSystemMonitorApi;
+            export type GetSystemLoggerTypeApi = import("./apis/index.js").GetSystemLoggerTypeApi;
+            export type GetSystemLoggerListApi = import("./apis/index.js").GetSystemLoggerListApi;
+            export type GetSystemLoggerDetailApi = import("./apis/index.js").GetSystemLoggerDetailApi;
+            export type DeleteSystemLoggerApi = import("./apis/index.js").DeleteSystemLoggerApi;
 
-            export type GetEmailAddressApi = import("./apis").GetEmailAddressApi;
-            export type SetEmailAddressApi = import("./apis").SetEmailAddressApi;
+            export type GetEmailAddressApi = import("./apis/index.js").GetEmailAddressApi;
+            export type SetEmailAddressApi = import("./apis/index.js").SetEmailAddressApi;
 
-            export type VerifySystemSecretApi = import("./apis").VerifySystemSecretApi;
-            export type SetSystemWhiteListApi = import("./apis").SetSystemWhiteListApi;
-            export type GetSystemWhiteListApi = import("./apis").GetSystemWhiteListApi;
-            export type DeleteSystemWhiteListApi = import("./apis").DeleteSystemWhiteListApi;
+            export type VerifySystemSecretApi = import("./apis/index.js").VerifySystemSecretApi;
+            export type SetSystemWhiteListApi = import("./apis/index.js").SetSystemWhiteListApi;
+            export type GetSystemWhiteListApi = import("./apis/index.js").GetSystemWhiteListApi;
+            export type DeleteSystemWhiteListApi = import("./apis/index.js").DeleteSystemWhiteListApi;
 
-            export type GetProcessCPUApi = import("./apis").GetProcessCPUApi;
-            export type GetProcessMemoryApi = import("./apis").GetProcessMemoryApi;
-            export type GetProcessNetworkApi = import("./apis").GetProcessNetworkApi;
+            export type GetProcessCPUApi = import("./apis/index.js").GetProcessCPUApi;
+            export type GetProcessMemoryApi = import("./apis/index.js").GetProcessMemoryApi;
+            export type GetProcessNetworkApi = import("./apis/index.js").GetProcessNetworkApi;
 
-            export type SystemStatusApi = import("./apis").SystemStatusApi;
-            export type SystemProcessApi = import("./apis").SystemProcessApi;
+            export type SystemStatusApi = import("./apis/index.js").SystemStatusApi;
+            export type SystemProcessApi = import("./apis/index.js").SystemProcessApi;
 
-            export type GetAllUntreatedTrsCountApi = import("./apis").GetAllUntreatedTrsCountApi;
-            export type ClearAllUntreatedTrsApi = import("./apis").ClearAllUntreatedTrsApi;
-            export type RestoreAllUntreatedTrsApi = import("./apis").RestoreAllUntreatedTrsApi;
+            export type GetAllUntreatedTrsCountApi = import("./apis/index.js").GetAllUntreatedTrsCountApi;
+            export type ClearAllUntreatedTrsApi = import("./apis/index.js").ClearAllUntreatedTrsApi;
+            export type RestoreAllUntreatedTrsApi = import("./apis/index.js").RestoreAllUntreatedTrsApi;
         }
     }
 }

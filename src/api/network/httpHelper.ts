@@ -1,5 +1,5 @@
-import type { ApiConfigHelper } from "../../helpers";
-import { REQUEST_PROTOCOL } from "../../constants";
+import type { ApiConfigHelper } from "../../helpers/index.js";
+import { REQUEST_PROTOCOL } from "../../constants/index.js";
 
 export class HttpHelper {
     private __configHelper: ApiConfigHelper;

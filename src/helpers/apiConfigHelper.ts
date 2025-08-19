@@ -1,4 +1,4 @@
-import { REQUEST_PROTOCOL } from "../constants";
+import { REQUEST_PROTOCOL } from "../constants/index.js";
 
 export class ApiConfigHelper {
     private __apiConfig!: BFMetaNodeSDK.ApiConfig;

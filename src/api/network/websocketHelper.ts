@@ -1,9 +1,9 @@
-import type { ApiConfigHelper } from "../../helpers";
+import type { ApiConfigHelper } from "../../helpers/index.js";
 import * as io from "socket.io-client";
-import { sleep } from "../../helpers/baseUtil";
+import { sleep } from "../../helpers/baseUtil.js";
 
-import { maxOneFileSize, REQUEST_PROTOCOL } from "../../constants";
-import { PromiseOut } from "../../helpers/promiseOut";
+import { maxOneFileSize, REQUEST_PROTOCOL } from "../../constants/index.js";
+import { PromiseOut } from "../../helpers/promiseOut.js";
 
 export class WebsocketHelper {
     private __configHelper: ApiConfigHelper;

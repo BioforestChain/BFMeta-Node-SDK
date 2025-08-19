@@ -1,5 +1,5 @@
-import { CommonApi } from "./_commonApi";
-import { COMMON_API_PATH } from "../../../../constants";
+import { CommonApi } from "./_commonApi.js";
+import { COMMON_API_PATH } from "../../../../constants/index.js";
 
 export class AsymmetricEncryptApi extends CommonApi<BFMetaNodeSDK.Common.AsymmetricEncrypt> {
     readonly EXEC_API_PATH = COMMON_API_PATH.ASYMMETRIC_ENCRYPT;

@@ -1,4 +1,4 @@
-import { CERTIFICATE_TYPE, bfmetaSDK, getRandomCertificateId } from "../helpers";
+import { CERTIFICATE_TYPE, bfmetaSDK, getRandomCertificateId } from "../helpers/index.js";
 
 (async () => {
     try {

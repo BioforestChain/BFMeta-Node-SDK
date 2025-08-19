@@ -1,5 +1,5 @@
-import "./@types";
+import "./@types.js";
 
-export * from "./apiPathConstant";
+export * from "./apiPathConstant.js";
 
-export * from "./commonConstants";
+export * from "./commonConstants.js";

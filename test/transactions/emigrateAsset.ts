@@ -1,6 +1,6 @@
 //
-// import { Sdk } from "../../src";
-// import { asymmetricUtil } from "../helpers";
+// import { Sdk } from "../../src.js";
+// import { asymmetricUtil } from "../helpers/index.js";
 
 // (async () => {
 //     try {

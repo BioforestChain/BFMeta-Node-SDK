@@ -1,4 +1,4 @@
-import { bfmetaSDK, CHAIN_INFO, RECORD_OPERATION_TYPE, RECORD_TYPE } from "../helpers";
+import { bfmetaSDK, CHAIN_INFO, RECORD_OPERATION_TYPE, RECORD_TYPE } from "../helpers/index.js";
 
 (async () => {
     try {

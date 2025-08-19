@@ -1,7 +1,7 @@
-import { HttpHelper, WebsocketHelper } from "./network";
-import { REQUEST_PROTOCOL } from "../constants";
-import { BasicApi, SystemApi, TransactionApi, UpgradeApi } from "./atom_api";
-import { ApiConfigHelper } from "../helpers";
+import { HttpHelper, WebsocketHelper } from "./network/index.js";
+import { REQUEST_PROTOCOL } from "../constants/index.js";
+import { BasicApi, SystemApi, TransactionApi, UpgradeApi } from "./atom_api/index.js";
+import { ApiConfigHelper } from "../helpers/index.js";
 
 export class Api {
     private __configHelper: ApiConfigHelper;

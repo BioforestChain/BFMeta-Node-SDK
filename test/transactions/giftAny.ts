@@ -1,4 +1,4 @@
-import { bfmetaSDK, GIFT_DISTRIBUTION_RULE, PARENT_ASSET_TYPE } from "../helpers";
+import { bfmetaSDK, GIFT_DISTRIBUTION_RULE, PARENT_ASSET_TYPE } from "../helpers/index.js";
 
 (async () => {
     try {

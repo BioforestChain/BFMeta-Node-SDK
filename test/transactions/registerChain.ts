@@ -1,6 +1,6 @@
 import * as fs from "fs";
 import * as path from "path";
-import { bfmetaSDK } from "../helpers";
+import { bfmetaSDK } from "../helpers/index.js";
 
 (async () => {
     try {

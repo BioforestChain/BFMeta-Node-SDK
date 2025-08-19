@@ -1,6 +1,6 @@
-import { CryptoHelper } from "./cryptoHelper";
-import { FecthDemo } from "./fecthDemo";
-import { BFMetaSDK, REQUEST_PROTOCOL } from "../../src";
+import { CryptoHelper } from "./cryptoHelper.js";
+import { FecthDemo } from "./fecthDemo.js";
+import { BFMetaSDK, REQUEST_PROTOCOL } from "../../src/index.js";
 export const cryptoHelper = new CryptoHelper();
 export const fecthDemo = new FecthDemo();
 

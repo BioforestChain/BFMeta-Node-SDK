@@ -1,4 +1,4 @@
-import { API_NAMESPACE, REQUEST_PROTOCOL, REQUEST_TYPE } from "../../../../constants";
+import { API_NAMESPACE, REQUEST_PROTOCOL, REQUEST_TYPE } from "../../../../constants/index.js";
 
 export abstract class UpgradePostApi<T extends BFMetaNodeSDK.Upgrade.UpgradeApiRequestResult> {
     abstract readonly REQUEST_API_PATH: BFMetaNodeSDK.Upgrade.UPGRADE_API_PATH;

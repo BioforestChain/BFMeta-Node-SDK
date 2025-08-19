@@ -10,8 +10,8 @@ import {
     UpgradeInfoApi,
     UpgradeProcessApi,
     UpgradeStatusApi,
-} from "./apis";
-import { UPGRADE_API_PATH } from "../../../constants";
+} from "./apis/index.js";
+import { UPGRADE_API_PATH } from "../../../constants/index.js";
 
 export class UpgradeApi {
     private __UPGRADE_API_MAP = new Map<BFMetaNodeSDK.Upgrade.UPGRADE_API_PATH, BFMetaNodeSDK.Upgrade.UpgradeApi>();

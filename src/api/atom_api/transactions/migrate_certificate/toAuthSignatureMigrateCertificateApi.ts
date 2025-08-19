@@ -1,5 +1,5 @@
-import { MigrateCertificateApi } from "./_migrateCertificateApi";
-import { MIGRATE_CERTIFICATE_API_PATH } from "../../../../constants";
+import { MigrateCertificateApi } from "./_migrateCertificateApi.js";
+import { MIGRATE_CERTIFICATE_API_PATH } from "../../../../constants/index.js";
 
 export class ToAuthSignatureMigrateCertificateApi extends MigrateCertificateApi {
     readonly GENERATE_API_PATH = MIGRATE_CERTIFICATE_API_PATH.MIGRATE_CERTIFICATE_TO_AUTH_SIGNATURE;

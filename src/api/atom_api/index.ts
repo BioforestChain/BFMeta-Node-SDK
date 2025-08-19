@@ -1,7 +1,7 @@
-export * from "./basics/";
+export * from "./basics/index.js";
 
-export * from "./systems";
+export * from "./systems/index.js";
 
-export * from "./transactions";
+export * from "./transactions/index.js";
 
-export * from "./upgrade";
+export * from "./upgrade/index.js";

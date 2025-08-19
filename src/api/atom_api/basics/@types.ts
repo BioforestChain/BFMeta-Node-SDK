@@ -361,22 +361,22 @@ declare global {
 
             export type BasicApiReturn<T extends BasicApiRequestResult> = BasicApiSuccessReturn<T> | BasicApiFailureReturn;
 
-            export type BasicApi = import("./apis/_basicGetApi").BasicGetApi<any> | import("./apis/_basicPostApi").BasicPostApi<any>;
-            export type GetBlockApi = import("./apis").GetBlockApi;
-            export type GetLastBlockApi = import("./apis").GetLastBlockApi;
-            export type GetTransactionTypeApi = import("./apis").GetTransactionTypeApi;
-            export type GetTransactionsApi = import("./apis").GetTransactionsApi;
-            export type GetBfchainVersionApi = import("./apis").GetBfchainVersionApi;
-            export type GetNodeVersionApi = import("./apis").GetNodeVersionApi;
-            export type GetBlockChainStatusApi = import("./apis").GetBlockChainStatusApi;
-            export type GenerateSecretApi = import("./apis").GenerateSecretApi;
-            export type CreateAccountApi = import("./apis").CreateAccountApi;
-            export type GetAccountPublicKeyApi = import("./apis").GetAccountPublicKeyApi;
-            export type GetAccountLastTransactionApi = import("./apis").GetAccountLastTransactionApi;
-            export type GetAccountLastTypeTransactionApi = import("./apis").GetAccountLastTypeTransactionApi;
-            export type SetKVStorageTempApi = import("./apis").SetKVStorageTempApi;
-            export type GetKVStorageApi = import("./apis").GetKVStorageApi;
-            export type GetTransactionMinFeePerByteApi = import("./apis").GetTransactionMinFeePerByteApi;
+            export type BasicApi = import("./apis/_basicGetApi.js").BasicGetApi<any> | import("./apis/_basicPostApi.js").BasicPostApi<any>;
+            export type GetBlockApi = import("./apis/index.js").GetBlockApi;
+            export type GetLastBlockApi = import("./apis/index.js").GetLastBlockApi;
+            export type GetTransactionTypeApi = import("./apis/index.js").GetTransactionTypeApi;
+            export type GetTransactionsApi = import("./apis/index.js").GetTransactionsApi;
+            export type GetBfchainVersionApi = import("./apis/index.js").GetBfchainVersionApi;
+            export type GetNodeVersionApi = import("./apis/index.js").GetNodeVersionApi;
+            export type GetBlockChainStatusApi = import("./apis/index.js").GetBlockChainStatusApi;
+            export type GenerateSecretApi = import("./apis/index.js").GenerateSecretApi;
+            export type CreateAccountApi = import("./apis/index.js").CreateAccountApi;
+            export type GetAccountPublicKeyApi = import("./apis/index.js").GetAccountPublicKeyApi;
+            export type GetAccountLastTransactionApi = import("./apis/index.js").GetAccountLastTransactionApi;
+            export type GetAccountLastTypeTransactionApi = import("./apis/index.js").GetAccountLastTypeTransactionApi;
+            export type SetKVStorageTempApi = import("./apis/index.js").SetKVStorageTempApi;
+            export type GetKVStorageApi = import("./apis/index.js").GetKVStorageApi;
+            export type GetTransactionMinFeePerByteApi = import("./apis/index.js").GetTransactionMinFeePerByteApi;
         }
     }
 }

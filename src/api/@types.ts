@@ -1,8 +1,8 @@
 export {};
 declare global {
     export namespace BFMetaNodeSDK {
-        export type HttpHelper = import("./network").HttpHelper;
-        export type WebsocketHelper = import("./network").WebsocketHelper;
+        export type HttpHelper = import("./network/index.js").HttpHelper;
+        export type WebsocketHelper = import("./network/index.js").WebsocketHelper;
         export type NetworkHelper = HttpHelper | WebsocketHelper;
 
         export interface ApiSuccessReturn<T> {

@@ -14,8 +14,8 @@ import {
     SetKVStorageTempApi,
     GetKVStorageApi,
     GetTransactionMinFeePerByteApi,
-} from "./apis";
-import { BASIC_API_PATH } from "../../../constants";
+} from "./apis/index.js";
+import { BASIC_API_PATH } from "../../../constants/index.js";
 
 export class BasicApi {
     private __BASIC_API_MAP = new Map<BFMetaNodeSDK.Basic.BASIC_API_PATH, BFMetaNodeSDK.Basic.BasicApi>();

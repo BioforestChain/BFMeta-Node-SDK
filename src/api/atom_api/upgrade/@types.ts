@@ -72,18 +72,18 @@ declare global {
 
             export type UpgradeApiReturn<T extends UpgradeApiRequestResult> = UpgradeApiSuccessReturn<T> | UpgradeApiFailureReturn;
 
-            export type UpgradeApi = import("./apis/_upgradePostApi").UpgradePostApi<any>;
-            export type UpgradeVersionApi = import("./apis").UpgradeVersionApi;
-            export type UpgradeSelfApi = import("./apis").UpgradeSelfApi;
-            export type NodeCloseApi = import("./apis").NodeCloseApi;
-            export type NodeRecoverApi = import("./apis").NodeRecoverApi;
-            export type NodeRestartApi = import("./apis").NodeRestartApi;
-            export type DownloadPackageApi = import("./apis").DownloadPackageApi;
-            export type NodeUpgradeApi = import("./apis").NodeUpgradeApi;
-            export type TaskInfoApi = import("./apis").TaskInfoApi;
-            export type UpgradeInfoApi = import("./apis").UpgradeInfoApi;
-            export type UpgradeProcessApi = import("./apis").UpgradeProcessApi;
-            export type UpgradeStatusApi = import("./apis").UpgradeStatusApi;
+            export type UpgradeApi = import("./apis/_upgradePostApi.js").UpgradePostApi<any>;
+            export type UpgradeVersionApi = import("./apis/index.js").UpgradeVersionApi;
+            export type UpgradeSelfApi = import("./apis/index.js").UpgradeSelfApi;
+            export type NodeCloseApi = import("./apis/index.js").NodeCloseApi;
+            export type NodeRecoverApi = import("./apis/index.js").NodeRecoverApi;
+            export type NodeRestartApi = import("./apis/index.js").NodeRestartApi;
+            export type DownloadPackageApi = import("./apis/index.js").DownloadPackageApi;
+            export type NodeUpgradeApi = import("./apis/index.js").NodeUpgradeApi;
+            export type TaskInfoApi = import("./apis/index.js").TaskInfoApi;
+            export type UpgradeInfoApi = import("./apis/index.js").UpgradeInfoApi;
+            export type UpgradeProcessApi = import("./apis/index.js").UpgradeProcessApi;
+            export type UpgradeStatusApi = import("./apis/index.js").UpgradeStatusApi;
         }
     }
 }

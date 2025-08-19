@@ -1,5 +1,5 @@
-import { TransactionApi } from "./_transactionApi";
-import { GENERATE_TRANSACTION_API_PATH } from "../../../../constants";
+import { TransactionApi } from "./_transactionApi.js";
+import { GENERATE_TRANSACTION_API_PATH } from "../../../../constants/index.js";
 
 export class SetLnsManagerApi extends TransactionApi {
     readonly GENERATE_API_PATH = GENERATE_TRANSACTION_API_PATH.TR_SET_LNS_MANAGER;

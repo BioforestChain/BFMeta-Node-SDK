@@ -918,68 +918,68 @@ declare global {
                 isOnChain?: boolean;
             };
 
-            export type TransactionApi = import("./atom_transaction/_transactionApi").TransactionApi;
-            export type CommonTransactionApi = import("./atom_transaction").CommonTransactionApi;
-            export type UsernameApi = import("./atom_transaction").UsernameApi;
-            export type SignatureApi = import("./atom_transaction").SignatureApi;
-            export type DelegateApi = import("./atom_transaction").DelegateApi;
-            export type AcceptVoteApi = import("./atom_transaction").AcceptVoteApi;
-            export type RejectVoteApi = import("./atom_transaction").RejectVoteApi;
-            export type VoteApi = import("./atom_transaction").VoteApi;
+            export type TransactionApi = import("./atom_transaction/_transactionApi.js").TransactionApi;
+            export type CommonTransactionApi = import("./atom_transaction/index.js").CommonTransactionApi;
+            export type UsernameApi = import("./atom_transaction/index.js").UsernameApi;
+            export type SignatureApi = import("./atom_transaction/index.js").SignatureApi;
+            export type DelegateApi = import("./atom_transaction/index.js").DelegateApi;
+            export type AcceptVoteApi = import("./atom_transaction/index.js").AcceptVoteApi;
+            export type RejectVoteApi = import("./atom_transaction/index.js").RejectVoteApi;
+            export type VoteApi = import("./atom_transaction/index.js").VoteApi;
 
-            export type IssueAssetApi = import("./atom_transaction").IssueAssetApi;
-            export type TransferAssetApi = import("./atom_transaction").TransferAssetApi;
-            export type DestroyAssetApi = import("./atom_transaction").DestroyAssetApi;
-            export type GiftAssetApi = import("./atom_transaction").GiftAssetApi;
-            export type GrabAssetApi = import("./atom_transaction").GrabAssetApi;
-            export type TrustAssetApi = import("./atom_transaction").TrustAssetApi;
-            export type SignForAssetApi = import("./atom_transaction").SignForAssetApi;
-            export type ToExchangeAssetApi = import("./atom_transaction").ToExchangeAssetApi;
-            export type BeExchangeAssetApi = import("./atom_transaction").BeExchangeAssetApi;
+            export type IssueAssetApi = import("./atom_transaction/index.js").IssueAssetApi;
+            export type TransferAssetApi = import("./atom_transaction/index.js").TransferAssetApi;
+            export type DestroyAssetApi = import("./atom_transaction/index.js").DestroyAssetApi;
+            export type GiftAssetApi = import("./atom_transaction/index.js").GiftAssetApi;
+            export type GrabAssetApi = import("./atom_transaction/index.js").GrabAssetApi;
+            export type TrustAssetApi = import("./atom_transaction/index.js").TrustAssetApi;
+            export type SignForAssetApi = import("./atom_transaction/index.js").SignForAssetApi;
+            export type ToExchangeAssetApi = import("./atom_transaction/index.js").ToExchangeAssetApi;
+            export type BeExchangeAssetApi = import("./atom_transaction/index.js").BeExchangeAssetApi;
 
-            export type DAppApi = import("./atom_transaction").DAppApi;
-            export type DAppPurchasingApi = import("./atom_transaction").DAppPurchasingApi;
-            export type MarkApi = import("./atom_transaction").MarkApi;
-            export type LocationNameApi = import("./atom_transaction").LocationNameApi;
-            export type SetLnsManagerApi = import("./atom_transaction").SetLnsManagerApi;
-            export type SetLnsRecordValueApi = import("./atom_transaction").SetLnsRecordValueApi;
-            export type ToExchangeSpecialAssetApi = import("./atom_transaction").ToExchangeSpecialAssetApi;
-            export type BeExchangeSpecialAssetApi = import("./atom_transaction").BeExchangeSpecialAssetApi;
+            export type DAppApi = import("./atom_transaction/index.js").DAppApi;
+            export type DAppPurchasingApi = import("./atom_transaction/index.js").DAppPurchasingApi;
+            export type MarkApi = import("./atom_transaction/index.js").MarkApi;
+            export type LocationNameApi = import("./atom_transaction/index.js").LocationNameApi;
+            export type SetLnsManagerApi = import("./atom_transaction/index.js").SetLnsManagerApi;
+            export type SetLnsRecordValueApi = import("./atom_transaction/index.js").SetLnsRecordValueApi;
+            export type ToExchangeSpecialAssetApi = import("./atom_transaction/index.js").ToExchangeSpecialAssetApi;
+            export type BeExchangeSpecialAssetApi = import("./atom_transaction/index.js").BeExchangeSpecialAssetApi;
 
-            export type IssueEntityFactoryApi = import("./atom_transaction").IssueEntityFactoryApi;
-            export type IssueEntityFactoryV1Api = import("./atom_transaction").IssueEntityFactoryV1Api;
-            export type IssueEntityApi = import("./atom_transaction").IssueEntityApi;
-            export type DestroyEntityApi = import("./atom_transaction").DestroyEntityApi;
+            export type IssueEntityFactoryApi = import("./atom_transaction/index.js").IssueEntityFactoryApi;
+            export type IssueEntityFactoryV1Api = import("./atom_transaction/index.js").IssueEntityFactoryV1Api;
+            export type IssueEntityApi = import("./atom_transaction/index.js").IssueEntityApi;
+            export type DestroyEntityApi = import("./atom_transaction/index.js").DestroyEntityApi;
 
-            export type ToExchangeAnyApi = import("./atom_transaction").ToExchangeAnyApi;
-            export type BeExchangeAnyApi = import("./atom_transaction").BeExchangeAnyApi;
-            export type TransferAnyApi = import("./atom_transaction").TransferAnyApi;
-            export type GiftAnyApi = import("./atom_transaction").GiftAnyApi;
-            export type GrabAnyApi = import("./atom_transaction").GrabAnyApi;
+            export type ToExchangeAnyApi = import("./atom_transaction/index.js").ToExchangeAnyApi;
+            export type BeExchangeAnyApi = import("./atom_transaction/index.js").BeExchangeAnyApi;
+            export type TransferAnyApi = import("./atom_transaction/index.js").TransferAnyApi;
+            export type GiftAnyApi = import("./atom_transaction/index.js").GiftAnyApi;
+            export type GrabAnyApi = import("./atom_transaction/index.js").GrabAnyApi;
 
-            export type IssueEntityMultiApi = import("./atom_transaction").IssueEntityMultiApi;
+            export type IssueEntityMultiApi = import("./atom_transaction/index.js").IssueEntityMultiApi;
 
-            export type ToExchangeAnyMultiApi = import("./atom_transaction").ToExchangeAnyMultiApi;
-            export type BeExchangeAnyMultiApi = import("./atom_transaction").BeExchangeAnyMultiApi;
+            export type ToExchangeAnyMultiApi = import("./atom_transaction/index.js").ToExchangeAnyMultiApi;
+            export type BeExchangeAnyMultiApi = import("./atom_transaction/index.js").BeExchangeAnyMultiApi;
 
-            export type ToExchangeAnyMultiAllApi = import("./atom_transaction").ToExchangeAnyMultiAllApi;
-            export type BeExchangeAnyMultiAllApi = import("./atom_transaction").BeExchangeAnyMultiAllApi;
+            export type ToExchangeAnyMultiAllApi = import("./atom_transaction/index.js").ToExchangeAnyMultiAllApi;
+            export type BeExchangeAnyMultiAllApi = import("./atom_transaction/index.js").BeExchangeAnyMultiAllApi;
 
-            export type RegisterChainApi = import("./atom_transaction").RegisterChainApi;
-            export type EmigrateAssetApi = import("./atom_transaction").EmigrateAssetApi;
-            export type ImmigrateAssetApi = import("./atom_transaction").ImmigrateAssetApi;
+            export type RegisterChainApi = import("./atom_transaction/index.js").RegisterChainApi;
+            export type EmigrateAssetApi = import("./atom_transaction/index.js").EmigrateAssetApi;
+            export type ImmigrateAssetApi = import("./atom_transaction/index.js").ImmigrateAssetApi;
 
-            export type IssueCertificateApi = import("./atom_transaction").IssueCertificateApi;
-            export type DestroyCertificateApi = import("./atom_transaction").DestroyCertificateApi;
+            export type IssueCertificateApi = import("./atom_transaction/index.js").IssueCertificateApi;
+            export type DestroyCertificateApi = import("./atom_transaction/index.js").DestroyCertificateApi;
 
-            export type MacroApi = import("./atom_transaction").MacroApi;
-            export type MacroCallApi = import("./atom_transaction").MacroCallApi;
-            export type PromiseApi = import("./atom_transaction").PromiseApi;
-            export type PromiseResolveApi = import("./atom_transaction").PromiseResolveApi;
-            export type MultipleApi = import("./atom_transaction").MultipleApi;
-            export type IncreaseAssetApi = import("./atom_transaction").IncreaseAssetApi;
-            export type StakeAssetApi = import("./atom_transaction").StakeAssetApi;
-            export type UnstakeAssetApi = import("./atom_transaction").UnstakeAssetApi;
+            export type MacroApi = import("./atom_transaction/index.js").MacroApi;
+            export type MacroCallApi = import("./atom_transaction/index.js").MacroCallApi;
+            export type PromiseApi = import("./atom_transaction/index.js").PromiseApi;
+            export type PromiseResolveApi = import("./atom_transaction/index.js").PromiseResolveApi;
+            export type MultipleApi = import("./atom_transaction/index.js").MultipleApi;
+            export type IncreaseAssetApi = import("./atom_transaction/index.js").IncreaseAssetApi;
+            export type StakeAssetApi = import("./atom_transaction/index.js").StakeAssetApi;
+            export type UnstakeAssetApi = import("./atom_transaction/index.js").UnstakeAssetApi;
         }
 
         export interface ChainBaseInfo {
@@ -1033,10 +1033,10 @@ declare global {
                 migrateCertificate: BFMetaNodeSDK.Transaction.MigrateCertificateJSON;
             }
 
-            export type MigrateCertificateApi = import("./migrate_certificate/_migrateCertificateApi").MigrateCertificateApi;
-            export type GenerateMigrateCertificateApi = import("./migrate_certificate").GenerateMigrateCertificateApi;
-            export type FromAuthSignatureMigrateCertificateApi = import("./migrate_certificate").FromAuthSignatureMigrateCertificateApi;
-            export type ToAuthSignatureMigrateCertificateApi = import("./migrate_certificate").ToAuthSignatureMigrateCertificateApi;
+            export type MigrateCertificateApi = import("./migrate_certificate/_migrateCertificateApi.js").MigrateCertificateApi;
+            export type GenerateMigrateCertificateApi = import("./migrate_certificate/index.js").GenerateMigrateCertificateApi;
+            export type FromAuthSignatureMigrateCertificateApi = import("./migrate_certificate/index.js").FromAuthSignatureMigrateCertificateApi;
+            export type ToAuthSignatureMigrateCertificateApi = import("./migrate_certificate/index.js").ToAuthSignatureMigrateCertificateApi;
         }
 
         export namespace Common {
@@ -1207,17 +1207,17 @@ declare global {
                 senderId: string;
             }
 
-            export type CommonApi = import("./atom_common/_commonApi").CommonApi<any>;
-            export type VerifyAddressApi = import("./atom_common/verifyAddressApi").VerifyAddressApi;
-            export type VerifyPublicKeyApi = import("./atom_common/verifyPublicKeyApi").VerifyPublicKeyApi;
-            export type GenerateKeypairApi = import("./atom_common/generateKeypairApi").GenerateKeypairApi;
-            export type GenerateAccountApi = import("./atom_common/generateAccountApi").GenerateAccountApi;
-            export type GenerateAddressBySecretApi = import("./atom_common/generateAddressBySecretApi").GenerateAddressBySecretApi;
-            export type GenerateAddressByPublicKeyApi = import("./atom_common/generateAddressByPublicKeyApi").GenerateAddressByPublicKeyApi;
-            export type AsymmetricEncryptApi = import("./atom_common/asymmetricEncryptApi").AsymmetricEncryptApi;
-            export type AsymmetricDecryptApi = import("./atom_common/asymmetricDecryptApi").AsymmetricDecryptApi;
-            export type CalcTransactionMinFeeApi = import("./atom_common/calcTransactionMinFee").CalcTransactionMinFeeApi;
-            export type GenerateCiphertextSignatureApi = import("./atom_common/generateCiphertextSignatureApi").GenerateCiphertextSignatureApi;
+            export type CommonApi = import("./atom_common/_commonApi.js").CommonApi<any>;
+            export type VerifyAddressApi = import("./atom_common/verifyAddressApi.js").VerifyAddressApi;
+            export type VerifyPublicKeyApi = import("./atom_common/verifyPublicKeyApi.js").VerifyPublicKeyApi;
+            export type GenerateKeypairApi = import("./atom_common/generateKeypairApi.js").GenerateKeypairApi;
+            export type GenerateAccountApi = import("./atom_common/generateAccountApi.js").GenerateAccountApi;
+            export type GenerateAddressBySecretApi = import("./atom_common/generateAddressBySecretApi.js").GenerateAddressBySecretApi;
+            export type GenerateAddressByPublicKeyApi = import("./atom_common/generateAddressByPublicKeyApi.js").GenerateAddressByPublicKeyApi;
+            export type AsymmetricEncryptApi = import("./atom_common/asymmetricEncryptApi.js").AsymmetricEncryptApi;
+            export type AsymmetricDecryptApi = import("./atom_common/asymmetricDecryptApi.js").AsymmetricDecryptApi;
+            export type CalcTransactionMinFeeApi = import("./atom_common/calcTransactionMinFee.js").CalcTransactionMinFeeApi;
+            export type GenerateCiphertextSignatureApi = import("./atom_common/generateCiphertextSignatureApi.js").GenerateCiphertextSignatureApi;
         }
     }
 }

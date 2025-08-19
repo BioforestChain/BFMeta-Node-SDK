@@ -1,4 +1,4 @@
-import { bfmetaSDK, CHAIN_INFO } from "../helpers";
+import { bfmetaSDK, CHAIN_INFO } from "../helpers/index.js";
 
 (async () => {
     try {

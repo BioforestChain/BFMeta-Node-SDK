@@ -1,3 +1,3 @@
-import "./@types";
+import "./@types.js";
 
-export * from "./systemApi";
+export * from "./systemApi.js";

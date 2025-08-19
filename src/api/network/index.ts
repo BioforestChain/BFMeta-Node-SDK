@@ -1,3 +1,3 @@
-export * from "./httpHelper";
+export * from "./httpHelper.js";
 
-export * from "./websocketHelper";
+export * from "./websocketHelper.js";

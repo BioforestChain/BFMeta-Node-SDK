@@ -1,5 +1,5 @@
 import * as http from "http";
-import { parsePostRequestParameter } from "../../src/helpers";
+import { parsePostRequestParameter } from "../../src/helpers/index.js";
 export class FecthDemo implements BFMetaNodeSDK.FetchInterface {
     get<T>(url: string): Promise<any> {
         return new Promise<T>((resolve, reject) => {

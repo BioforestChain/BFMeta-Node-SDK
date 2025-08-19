@@ -1,3 +1,3 @@
-import "./@types";
+import "./@types.js";
 
-export * from "./transactionApi";
+export * from "./transactionApi.js";

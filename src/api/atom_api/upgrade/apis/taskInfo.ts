@@ -1,5 +1,5 @@
-import { UpgradePostApi } from "./_upgradePostApi";
-import { UPGRADE_API_PATH } from "../../../../constants";
+import { UpgradePostApi } from "./_upgradePostApi.js";
+import { UPGRADE_API_PATH } from "../../../../constants/index.js";
 
 export class TaskInfoApi extends UpgradePostApi<BFMetaNodeSDK.Upgrade.TaskInfoResult> {
     readonly REQUEST_API_PATH = UPGRADE_API_PATH.TASK_INFO;

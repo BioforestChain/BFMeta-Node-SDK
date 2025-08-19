@@ -1,6 +1,6 @@
 import {} from "@bfmeta/sign-util";
 
-export * from "./baseHelper";
+export * from "./baseHelper.js";
 
 export const enum EXCHANGE_DIRECTION {
     /**特殊资产来自 to 交易的发起账户，即出售 */
